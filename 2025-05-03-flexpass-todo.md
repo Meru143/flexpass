@@ -272,7 +272,7 @@ Missing requested active skills:
 - [x] Import `@openzeppelin/contracts/utils/Pausable.sol`
 - [x] Import `@openzeppelin/contracts/utils/ReentrancyGuard.sol`
 - [x] Import `./interfaces/IERC4907.sol` and `./libraries/MembershipLib.sol`
-- [ ] Declare `contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard`
+- [x] Declare `contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard`
 
 ### 5.2 State Variables
 - [ ] Add `IERC721 public immutable membershipNFT` — the `GymMembership` contract
