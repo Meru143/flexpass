@@ -419,7 +419,7 @@ Missing requested active skills:
 - [x] Test `listMembership` of expired token reverts `MKT_Expired`
 - [x] Test `isListed(1)` returns true after listing
 - [x] Test `buyMembership` with correct value from bob succeeds, emits `MembershipSold`
-- [ ] Test after `buyMembership`: `ownerOf(1) == bob`, `userOf(1) == bob`
+- [x] Test after `buyMembership`: `ownerOf(1) == bob`, `userOf(1) == bob`
 - [ ] Test seller balance increased by `priceWei - royalty - fee` after buy
 - [ ] Test gym treasury received royalty amount after buy
 - [ ] Test protocol treasury received 1% fee after buy
