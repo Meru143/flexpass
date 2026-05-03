@@ -57,8 +57,8 @@ contract IntegrationTest is Test {
         assertEq(PROTOCOL_TREASURY.balance, PROTOCOL_FEE);
     }
 
-    function test_reentrancy_secondBuyCallFromSellerFallbackReverts() public {
-        ReentrantSeller seller = new ReentrantSeller(membership, market, PRICE);
+    function test_reentrancy_secondBuyCallFromFallbackReverts() public {
+        ReentrantBuyer seller = new ReentrantBuyer(membership, market, PRICE);
         vm.deal(address(seller), PRICE);
         vm.deal(BOB, 100 ether);
 
@@ -102,7 +102,9 @@ contract IntegrationTest is Test {
     }
 }
 
-contract ReentrantSeller {
+// NOTE: buyMembership only invokes payee fallbacks, so this attacker lists first
+// and attempts the reentrant buy when it receives seller proceeds.
+contract ReentrantBuyer {
     GymMembership private immutable membership;
     FlexPassMarket private immutable market;
     uint256 private immutable price;

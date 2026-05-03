@@ -443,7 +443,7 @@ Missing requested active skills:
 - [x] Create `test/Integration.t.sol`
 - [x] Test complete flow: register gym → approve → mint → list → buy → entry verify (`userOf` check)
 - [x] Test royalty distribution across all 3 parties in one transaction
-- [ ] Test reentrancy: deploy `ReentrantBuyer` mock contract, call `buyMembership` from within fallback, verify second call reverts
+- [x] Test reentrancy: deploy `ReentrantBuyer` mock contract, call `buyMembership` from within fallback, verify second call reverts
 - [ ] Test pause/unpause full market cycle
 
 ---
