@@ -8,7 +8,7 @@ import {Pausable} from "@openzeppelin/contracts/utils/Pausable.sol";
 import {IGymRegistry} from "./interfaces/IGymRegistry.sol";
 import {MembershipLib} from "./libraries/MembershipLib.sol";
 
-abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
+contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
     mapping(address => MembershipLib.GymInfo) private _gyms;
     address[] private _gymList;
 
@@ -94,5 +94,29 @@ abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
 
     function getAllGyms() external view returns (address[] memory) {
         return _gymList;
+    }
+
+    function getApprovedGyms() external view returns (address[] memory) {
+        uint256 approvedCount;
+        uint256 gymCount = _gymList.length;
+
+        for (uint256 i; i < gymCount; ++i) {
+            if (_gyms[_gymList[i]].approved) {
+                ++approvedCount;
+            }
+        }
+
+        address[] memory approvedGyms = new address[](approvedCount);
+        uint256 approvedIndex;
+
+        for (uint256 i; i < gymCount; ++i) {
+            address gymAddress = _gymList[i];
+            if (_gyms[gymAddress].approved) {
+                approvedGyms[approvedIndex] = gymAddress;
+                ++approvedIndex;
+            }
+        }
+
+        return approvedGyms;
     }
 }

@@ -185,7 +185,7 @@ Missing requested active skills:
 - [x] Implement `getTreasury(address gymAddress) external view returns (address)` — returns `_gyms[gymAddress].treasury`
 - [x] Implement `getRoyaltyBps(address gymAddress) external view returns (uint96)` — returns `_gyms[gymAddress].royaltyBps`
 - [x] Implement `getAllGyms() external view returns (address[] memory)` — returns `_gymList`
-- [ ] Implement `getApprovedGyms() external view returns (address[] memory)` — filters `_gymList` for approved
+- [x] Implement `getApprovedGyms() external view returns (address[] memory)` — filters `_gymList` for approved
 
 ---
 
