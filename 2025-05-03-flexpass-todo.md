@@ -324,7 +324,7 @@ Missing requested active skills:
 
 ### 5.7 delistMembership Function
 - [x] Implement `delistMembership(uint256 tokenId) external whenNotPaused`
-- [ ] Check `_listings[tokenId].active` → revert `MKT_InactiveListing`
+- [x] Check `_listings[tokenId].active` → revert `MKT_InactiveListing`
 - [ ] Check `_listings[tokenId].seller == msg.sender` → revert `MKT_NotOwner`
 - [ ] Mark inactive: `_listings[tokenId].active = false`
 - [ ] Return NFT: `membershipNFT.transferFrom(address(this), msg.sender, tokenId)`
