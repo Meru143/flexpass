@@ -193,7 +193,7 @@ Missing requested active skills:
 
 ### 4.1 Contract Shell
 - [x] Create `src/GymMembership.sol`
-- [ ] Add pragma `^0.8.20` and MIT license
+- [x] Add pragma `^0.8.20` and MIT license
 - [ ] Import `@openzeppelin/contracts/token/ERC721/ERC721.sol`
 - [ ] Import `@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol`
 - [ ] Import `@openzeppelin/contracts/token/common/ERC2981.sol`
