@@ -84,7 +84,7 @@ Missing requested active skills:
 - [x] Confirm `next dev` starts without errors
 
 ### 1.4 API Project Setup (`api/`)
-- [ ] `cd api && npm init -y`
+- [x] `cd api && npm init -y`
 - [ ] Install: `npm i hono @hono/node-server prisma @prisma/client pinata viem pino`
 - [ ] Install dev: `npm i -D typescript @types/node ts-node nodemon`
 - [ ] Create `src/index.ts` with basic `Hono` app and `serve()` call
