@@ -237,7 +237,7 @@ Missing requested active skills:
 - [x] Implement `mintMembership(address to, address gymAddress, uint8 tierId, uint256 durationDays) external payable whenNotPaused returns (uint256 tokenId)`
 - [x] Add `if (!registry.isApproved(gymAddress)) revert GM_GymNotApproved(gymAddress)` check
 - [x] Add `if (durationDays == 0) revert GM_ZeroDuration()` check
-- [ ] Calculate `expiresAt = uint64(block.timestamp + durationDays * 1 days)`
+- [x] Calculate `expiresAt = uint64(block.timestamp + durationDays * 1 days)`
 - [ ] Mint: `_safeMint(to, _nextTokenId)`
 - [ ] Set user: `_users[_nextTokenId] = UserInfo({ user: to, expires: expiresAt })`
 - [ ] Set royalty: `_setTokenRoyalty(_nextTokenId, registry.getTreasury(gymAddress), registry.getRoyaltyBps(gymAddress))`

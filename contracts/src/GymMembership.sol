@@ -113,6 +113,8 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
         uint256 expiresAtRaw = block.timestamp + durationDays * 1 days;
         if (expiresAtRaw > type(uint64).max) revert GM_ExpiryOverflow(expiresAtRaw);
 
+        // Cast is safe after the explicit type(uint64).max guard above.
+        // forge-lint: disable-next-line(unsafe-typecast)
         uint64 expiresAt = uint64(expiresAtRaw);
         tokenId = _nextTokenId;
 
