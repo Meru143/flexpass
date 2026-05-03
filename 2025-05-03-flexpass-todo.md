@@ -299,7 +299,7 @@ Missing requested active skills:
 ### 5.5 listMembership Function
 - [x] Implement `listMembership(uint256 tokenId, uint256 priceWei) external whenNotPaused`
 - [x] Check `membershipNFT.ownerOf(tokenId) == msg.sender` → revert `MKT_NotOwner`
-- [ ] Check `_listings[tokenId].active == false` → revert `MKT_AlreadyListed`
+- [x] Check `_listings[tokenId].active == false` → revert `MKT_AlreadyListed`
 - [ ] Check `IERC4907(address(membershipNFT)).userExpires(tokenId) > block.timestamp` → revert `MKT_Expired`
 - [ ] Call `membershipNFT.transferFrom(msg.sender, address(this), tokenId)` to escrow
 - [ ] Store `_listings[tokenId] = Listing({ tokenId, seller: msg.sender, priceWei, listedAt: block.timestamp, active: true })`
