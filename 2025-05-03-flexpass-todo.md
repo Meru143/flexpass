@@ -501,7 +501,7 @@ Missing requested active skills:
 - [x] Implement `POST /api/gym/register` — validate body, insert into `Gym` table as pending, call `registry.registerGym` via `walletClient.writeContract(...)` (server wallet signs), return tx hash
 
 ### 9.4 Routes — metadata.ts
-- [ ] Implement `POST /api/metadata/upload` — accept `{ gymName, tier, amenities, expiresAt, logoUrl }` body
+- [x] Implement `POST /api/metadata/upload` — accept `{ gymName, tier, amenities, expiresAt, logoUrl }` body
 - [ ] Build metadata JSON: `{ name, description, image, attributes: [{ trait_type: 'Gym', value: gymName }, ...] }`
 - [ ] Call Pinata: `pinata.upload.json(metadata)` → returns `{ IpfsHash }` 
 - [ ] Return `ipfs://${IpfsHash}` as `tokenUri`
