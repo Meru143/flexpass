@@ -32,6 +32,7 @@ abstract contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Paus
     error GM_GymNotApproved(address gymAddress);
     error GM_ZeroDuration();
     error GM_InsufficientPayment(uint256 sent, uint256 required);
+    error GM_NotOwner(uint256 tokenId, address caller);
 
     constructor(address registryAddress, address protocolTreasury_, address initialOwner)
         ERC721("FlexPass Membership", "FLEX")
