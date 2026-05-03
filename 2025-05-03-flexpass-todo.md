@@ -346,7 +346,7 @@ Missing requested active skills:
 - [x] Emit `MembershipDelisted`
 
 ### 5.10 View Functions
-- [ ] Implement `getListing(uint256 tokenId) external view returns (Listing memory)`
+- [x] Implement `getListing(uint256 tokenId) external view returns (Listing memory)`
 - [ ] Implement `isListed(uint256 tokenId) external view returns (bool)` — returns `_listings[tokenId].active`
 
 ### 5.11 Admin Functions
