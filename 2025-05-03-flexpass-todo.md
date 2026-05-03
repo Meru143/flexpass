@@ -335,7 +335,7 @@ Missing requested active skills:
 - [x] Check `_listings[tokenId].active` → revert `MKT_InactiveListing`
 - [x] Check `_listings[tokenId].seller == msg.sender` → revert `MKT_NotOwner`
 - [x] Emit `PriceUpdated` with old and new price
-- [ ] Update `_listings[tokenId].priceWei = newPriceWei`
+- [x] Update `_listings[tokenId].priceWei = newPriceWei`
 
 ### 5.9 cleanExpiredListing Function
 - [ ] Implement `cleanExpiredListing(uint256 tokenId) external`
