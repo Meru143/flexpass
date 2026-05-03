@@ -1,4 +1,4 @@
-import { PinataSDK } from "pinata";
+import { PinataSDK, type GetCIDResponse } from "pinata";
 
 export class PinataConfigError extends Error {
   readonly code = "PINATA_CONFIG_MISSING";
@@ -16,4 +16,22 @@ export async function uploadMetadata(metadata: object): Promise<string> {
   const upload = await pinata.upload.public.json(metadata);
 
   return `ipfs://${upload.cid}`;
+}
+
+export async function getMetadata(cid: string): Promise<object> {
+  if (cid.trim().length === 0) {
+    throw new PinataConfigError("CID is required");
+  }
+
+  const response: GetCIDResponse = await pinata.gateways.public.get(cid);
+
+  if (!isObjectMetadata(response.data)) {
+    throw new Error("Pinata gateway returned non-object metadata");
+  }
+
+  return response.data;
+}
+
+function isObjectMetadata(value: unknown): value is object {
+  return typeof value === "object" && value !== null && !(value instanceof Blob) && !Array.isArray(value);
 }
