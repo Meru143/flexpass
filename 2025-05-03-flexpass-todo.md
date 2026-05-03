@@ -323,7 +323,7 @@ Missing requested active skills:
 - [x] Emit `MembershipSold`
 
 ### 5.7 delistMembership Function
-- [ ] Implement `delistMembership(uint256 tokenId) external whenNotPaused`
+- [x] Implement `delistMembership(uint256 tokenId) external whenNotPaused`
 - [ ] Check `_listings[tokenId].active` → revert `MKT_InactiveListing`
 - [ ] Check `_listings[tokenId].seller == msg.sender` → revert `MKT_NotOwner`
 - [ ] Mark inactive: `_listings[tokenId].active = false`

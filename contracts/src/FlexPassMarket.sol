@@ -101,6 +101,23 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
         emit MembershipSold(tokenId, seller, msg.sender, priceWei, royaltyAmount);
     }
 
+    function delistMembership(uint256 tokenId) external whenNotPaused {
+        MembershipLib.Listing storage listing = _listings[tokenId];
+        if (!listing.active) revert MKT_InactiveListing();
+
+        address seller = listing.seller;
+        if (seller != msg.sender) revert MKT_NotOwner(tokenId);
+        if (membershipNFT.ownerOf(tokenId) != address(this)) revert MKT_OwnerMismatch(tokenId);
+
+        uint64 expiresAt = listing.expiresAt;
+        listing.active = false;
+
+        membershipNFT.transferFrom(address(this), msg.sender, tokenId);
+        IERC4907(address(membershipNFT)).setUser(tokenId, msg.sender, expiresAt);
+
+        emit MembershipDelisted(tokenId, msg.sender);
+    }
+
     function _sendValue(address recipient, uint256 amount) private {
         if (amount == 0) return;
         if (recipient == address(0)) revert MKT_ZeroAddress();
