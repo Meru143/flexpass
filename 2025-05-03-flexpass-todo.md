@@ -544,7 +544,7 @@ Missing requested active skills:
 
 ### 10.4 Custom Hooks
 - [x] Create `hooks/useMemberships.ts` — `useQuery` from TanStack that calls `querySubgraph(GET_USER_MEMBERSHIPS, { owner: address?.toLowerCase() })` when wallet connected
-- [ ] Create `hooks/useListings.ts` — `useQuery` for active marketplace listings with optional `gymAddress` filter
+- [x] Create `hooks/useListings.ts` — `useQuery` for active marketplace listings with optional `gymAddress` filter
 - [ ] Create `hooks/useRoyaltyInfo.ts` — `useReadContract` with `functionName: 'royaltyInfo'`, returns `{ receiver, royaltyAmount }`
 - [ ] Create `hooks/useListMembership.ts` — step 1: `useWriteContract` for `approve(marketAddress, tokenId)`; step 2: `useWriteContract` for `listMembership(tokenId, priceWei)`; expose `list(tokenId, priceWei)` function that runs both in sequence
 - [ ] Create `hooks/useBuyMembership.ts` — `useWriteContract` for `buyMembership(tokenId)` with `value: listing.priceWei`
