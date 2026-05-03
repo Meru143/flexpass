@@ -492,7 +492,7 @@ Missing requested active skills:
 - [x] Run `npx prisma generate` to update client types
 
 ### 9.2 Routes — membership.ts
-- [ ] Implement `GET /api/membership/:tokenId` — query `MembershipCache` by tokenId; if miss, fetch from chain via `publicClient.readContract({ address: GYM_MEMBERSHIP_ADDRESS, abi: GymMembershipABI, functionName: 'userOf', args: [BigInt(tokenId)] })` and cache
+- [x] Implement `GET /api/membership/:tokenId` — query `MembershipCache` by tokenId; if miss, fetch from chain via `publicClient.readContract({ address: GYM_MEMBERSHIP_ADDRESS, abi: GymMembershipABI, functionName: 'userOf', args: [BigInt(tokenId)] })` and cache
 - [ ] Return `{ tokenId, gymAddress, tierId, owner, user, expiresAt, metadataUri, isActive }` JSON
 
 ### 9.3 Routes — gym.ts
