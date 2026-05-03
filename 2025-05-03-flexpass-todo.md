@@ -453,7 +453,7 @@ Missing requested active skills:
 ### 8.1 Schema Definition
 - [x] Define `Membership @entity` with all fields: `id`, `gymAddress`, `tierId`, `owner`, `user`, `expiresAt`, `mintedAt`, `uri`, `currentListing`, `transactions`
 - [x] Define `Listing @entity` with: `id`, `membership`, `seller`, `priceWei`, `listedAt`, `active`
-- [ ] Define `MembershipTransaction @entity` with: `id`, `type`, `membership`, `from`, `to`, `priceWei`, `royaltyPaid`, `timestamp`
+- [x] Define `MembershipTransaction @entity` with: `id`, `type`, `membership`, `from`, `to`, `priceWei`, `royaltyPaid`, `timestamp`
 - [ ] Define `Gym @entity` with: `id`, `name`, `treasury`, `royaltyBps`, `approved`, `totalMinted`, `totalRoyaltyEarned`
 
 ### 8.2 Subgraph Manifest
