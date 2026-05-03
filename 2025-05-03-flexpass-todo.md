@@ -265,7 +265,7 @@ Missing requested active skills:
 ## Phase 5: Smart Contract — FlexPassMarket.sol
 
 ### 5.1 Contract Shell
-- [ ] Create `src/FlexPassMarket.sol`
+- [x] Create `src/FlexPassMarket.sol`
 - [ ] Import `@openzeppelin/contracts/token/ERC721/IERC721.sol`
 - [ ] Import `@openzeppelin/contracts/interfaces/IERC2981.sol`
 - [ ] Import `@openzeppelin/contracts/access/Ownable2Step.sol`
