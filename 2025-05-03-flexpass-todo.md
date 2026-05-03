@@ -77,7 +77,7 @@ Missing requested active skills:
 - [x] Install dependencies: `npm i wagmi@2 viem@2 @rainbow-me/rainbowkit@2 @tanstack/react-query@5`
 - [x] Install dev dependencies: `npm i -D vitest @testing-library/react @testing-library/jest-dom`
 - [x] Create `app/providers.tsx` with `WagmiProvider`, `QueryClientProvider`, `RainbowKitProvider` wrapper
-- [ ] Import `@rainbow-me/rainbowkit/styles.css` in `app/layout.tsx`
+- [x] Import `@rainbow-me/rainbowkit/styles.css` in `app/layout.tsx`
 - [ ] Wrap `app/layout.tsx` body with `<Providers>`
 - [ ] Create `lib/wagmi.ts` with `getDefaultConfig({ appName: 'FlexPass', chains: [polygon, polygonAmoy] })`
 - [ ] Add `NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID` to `.env.local` (WalletConnect Cloud project ID)
