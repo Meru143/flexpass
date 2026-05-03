@@ -366,7 +366,7 @@ Missing requested active skills:
 - [x] `vm.startBroadcast(deployerKey)`
 - [x] Deploy `GymRegistry` with `new GymRegistry(deployer)`
 - [x] Deploy `GymMembership` with `new GymMembership(address(registry), protocolTreasury, deployer)`
-- [ ] Deploy `FlexPassMarket` with `new FlexPassMarket(address(membership), protocolTreasury, deployer)`
+- [x] Deploy `FlexPassMarket` with `new FlexPassMarket(address(membership), protocolTreasury, deployer)`
 - [ ] `vm.stopBroadcast()`
 - [ ] Log addresses with `console.log("GymRegistry:", address(registry))`
 
