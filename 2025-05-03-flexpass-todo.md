@@ -328,7 +328,7 @@ Missing requested active skills:
 - [x] Check `_listings[tokenId].seller == msg.sender` → revert `MKT_NotOwner`
 - [x] Mark inactive: `_listings[tokenId].active = false`
 - [x] Return NFT: `membershipNFT.transferFrom(address(this), msg.sender, tokenId)`
-- [ ] Emit `MembershipDelisted`
+- [x] Emit `MembershipDelisted`
 
 ### 5.8 updatePrice Function
 - [ ] Implement `updatePrice(uint256 tokenId, uint256 newPriceWei) external`
