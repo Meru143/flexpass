@@ -313,7 +313,7 @@ Missing requested active skills:
 - [x] Check `msg.value == _listings[tokenId].priceWei` → revert `MKT_WrongValue`
 - [x] Call `IERC2981(address(membershipNFT)).royaltyInfo(tokenId, msg.value)` → get `(royaltyReceiver, royaltyAmount)`
 - [x] Calculate `protocolFee = msg.value * protocolFeeBps / 10000`
-- [ ] Calculate `sellerProceeds = msg.value - royaltyAmount - protocolFee`
+- [x] Calculate `sellerProceeds = msg.value - royaltyAmount - protocolFee`
 - [ ] Mark listing inactive: `_listings[tokenId].active = false`
 - [ ] Transfer NFT: `membershipNFT.transferFrom(address(this), msg.sender, tokenId)` (checks-effects-interactions: state updated before external calls)
 - [ ] Set user role: `IERC4907(address(membershipNFT)).setUser(tokenId, msg.sender, uint64(_listings[tokenId].expiresAt))` — NOTE: need to store `expiresAt` in Listing struct
