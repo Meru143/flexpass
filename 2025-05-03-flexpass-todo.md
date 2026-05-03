@@ -454,7 +454,7 @@ Missing requested active skills:
 - [x] Define `Membership @entity` with all fields: `id`, `gymAddress`, `tierId`, `owner`, `user`, `expiresAt`, `mintedAt`, `uri`, `currentListing`, `transactions`
 - [x] Define `Listing @entity` with: `id`, `membership`, `seller`, `priceWei`, `listedAt`, `active`
 - [x] Define `MembershipTransaction @entity` with: `id`, `type`, `membership`, `from`, `to`, `priceWei`, `royaltyPaid`, `timestamp`
-- [ ] Define `Gym @entity` with: `id`, `name`, `treasury`, `royaltyBps`, `approved`, `totalMinted`, `totalRoyaltyEarned`
+- [x] Define `Gym @entity` with: `id`, `name`, `treasury`, `royaltyBps`, `approved`, `totalMinted`, `totalRoyaltyEarned`
 
 ### 8.2 Subgraph Manifest
 - [ ] Add `GymMembership` contract as `dataSource` in `subgraph.yaml` with startBlock
