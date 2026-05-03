@@ -130,6 +130,10 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
         }
     }
 
+    function getMembershipGym(uint256 tokenId) external view returns (address) {
+        return _membershipGym[tokenId];
+    }
+
     function _mintOne(address to, address gymAddress, uint8 tierId, uint256 durationDays, string memory tokenUri)
         internal
         returns (uint256 tokenId)
