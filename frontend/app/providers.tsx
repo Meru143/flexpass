@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactNode, useEffect, useState } from "react";
 import type { Config } from "wagmi";
 
+import { WalletReadyProvider } from "@/lib/wallet-ready";
+
 type WalletModules = {
   WagmiProvider: typeof import("wagmi").WagmiProvider;
   RainbowKitProvider: typeof import("@rainbow-me/rainbowkit").RainbowKitProvider;
@@ -12,9 +14,7 @@ type WalletModules = {
 
 export function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
-  const [walletModules, setWalletModules] = useState<WalletModules | null>(
-    null,
-  );
+  const [walletModules, setWalletModules] = useState<WalletModules | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -41,16 +41,22 @@ export function Providers({ children }: { children: ReactNode }) {
   }, []);
 
   if (!walletModules) {
-    return <QueryClientProvider client={queryClient} />;
+    return (
+      <WalletReadyProvider value={false}>
+        <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      </WalletReadyProvider>
+    );
   }
 
   const { WagmiProvider, RainbowKitProvider, config } = walletModules;
 
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>{children}</RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
+    <WalletReadyProvider value>
+      <WagmiProvider config={config}>
+        <QueryClientProvider client={queryClient}>
+          <RainbowKitProvider>{children}</RainbowKitProvider>
+        </QueryClientProvider>
+      </WagmiProvider>
+    </WalletReadyProvider>
   );
 }

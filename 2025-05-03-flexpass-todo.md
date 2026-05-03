@@ -577,7 +577,7 @@ Missing requested active skills:
 - [x] Use `formatUnits(royaltyAmount, 18)` from viem for MATIC display
 
 ### 10.9 Pages
-- [ ] Create `app/page.tsx` — hero section, stats ticker (total minted from subgraph), CTA buttons "Browse Listings" and "Connect Wallet"
+- [x] Create `app/page.tsx` — hero section, stats ticker (total minted from subgraph), CTA buttons "Browse Listings" and "Connect Wallet"
 - [ ] Create `app/dashboard/page.tsx` — `'use client'`; fetch memberships via `useMemberships()`; render grid of `<MembershipCard>` components; show empty state if none
 - [ ] Create `app/marketplace/page.tsx` — `'use client'`; `useListings()`; filter controls (gym/tier/price); paginated listing grid
 - [ ] Create `app/sell/[tokenId]/page.tsx` — token detail; price input; royalty breakdown preview; "Approve & List" button using `useListMembership`
