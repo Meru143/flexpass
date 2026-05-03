@@ -76,7 +76,7 @@ Missing requested active skills:
 - [x] `cd frontend && npx create-next-app@14 . --typescript --tailwind --eslint --app --src-dir no`
 - [x] Install dependencies: `npm i wagmi@2 viem@2 @rainbow-me/rainbowkit@2 @tanstack/react-query@5`
 - [x] Install dev dependencies: `npm i -D vitest @testing-library/react @testing-library/jest-dom`
-- [ ] Create `app/providers.tsx` with `WagmiProvider`, `QueryClientProvider`, `RainbowKitProvider` wrapper
+- [x] Create `app/providers.tsx` with `WagmiProvider`, `QueryClientProvider`, `RainbowKitProvider` wrapper
 - [ ] Import `@rainbow-me/rainbowkit/styles.css` in `app/layout.tsx`
 - [ ] Wrap `app/layout.tsx` body with `<Providers>`
 - [ ] Create `lib/wagmi.ts` with `getDefaultConfig({ appName: 'FlexPass', chains: [polygon, polygonAmoy] })`
