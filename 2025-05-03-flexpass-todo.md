@@ -538,7 +538,7 @@ Missing requested active skills:
 ### 10.3 Subgraph Client
 - [x] Create `lib/subgraph.ts` with `const SUBGRAPH_URL = process.env.NEXT_PUBLIC_SUBGRAPH_URL`
 - [x] Implement `querySubgraph(query: string, variables?: object)` → fetch with POST, return `data` field
-- [ ] Define `GET_USER_MEMBERSHIPS` GraphQL query string
+- [x] Define `GET_USER_MEMBERSHIPS` GraphQL query string
 - [ ] Define `GET_ACTIVE_LISTINGS` GraphQL query string
 - [ ] Define `GET_LISTING_BY_TOKEN_ID` GraphQL query string
 
