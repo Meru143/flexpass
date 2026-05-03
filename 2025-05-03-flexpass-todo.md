@@ -385,7 +385,7 @@ Missing requested active skills:
 - [x] Create `test/GymRegistry.t.sol` with `import "forge-std/Test.sol"` and `import "../src/GymRegistry.sol"`
 - [x] `setUp()`: deploy `GymRegistry` with `new GymRegistry(address(this))`
 - [x] Test `registerGym` emits `GymRegistered` event — use `vm.expectEmit(true, true, false, true)`
-- [ ] Test `registerGym` with zero treasury address reverts with `GR_ZeroAddress`
+- [x] Test `registerGym` with zero treasury address reverts with `GR_ZeroAddress`
 - [ ] Test `registerGym` with royalty > 3000 bps reverts with `GR_RoyaltyTooHigh`
 - [ ] Test duplicate `registerGym` reverts with `GR_AlreadyRegistered`
 - [ ] Test `approveGym` called by non-owner reverts
