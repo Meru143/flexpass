@@ -9,4 +9,6 @@ interface IERC4907 {
     function userOf(uint256 tokenId) external view returns (address);
 
     function userExpires(uint256 tokenId) external view returns (uint256);
+
+    function supportsInterface(bytes4 interfaceId) external view returns (bool);
 }

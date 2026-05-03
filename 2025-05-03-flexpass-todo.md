@@ -134,7 +134,7 @@ Missing requested active skills:
 - [x] Define `function userOf(uint256 tokenId) external view returns (address)`
 - [x] Define `function userExpires(uint256 tokenId) external view returns (uint256)`
 - [x] Define `event UpdateUser(uint256 indexed tokenId, address indexed user, uint64 expires)`
-- [ ] Add `supportsInterface` declaration returning `bytes4(0xad092b5c)` (ERC-4907 interface ID)
+- [x] Add `supportsInterface` declaration returning `bytes4(0xad092b5c)` (ERC-4907 interface ID)
 
 ### 2.3 IGymRegistry.sol Interface
 - [ ] Create `src/interfaces/IGymRegistry.sol`
