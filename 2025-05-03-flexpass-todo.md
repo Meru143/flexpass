@@ -331,7 +331,7 @@ Missing requested active skills:
 - [x] Emit `MembershipDelisted`
 
 ### 5.8 updatePrice Function
-- [ ] Implement `updatePrice(uint256 tokenId, uint256 newPriceWei) external`
+- [x] Implement `updatePrice(uint256 tokenId, uint256 newPriceWei) external`
 - [ ] Check `_listings[tokenId].active` → revert `MKT_InactiveListing`
 - [ ] Check `_listings[tokenId].seller == msg.sender` → revert `MKT_NotOwner`
 - [ ] Emit `PriceUpdated` with old and new price

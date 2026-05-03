@@ -118,6 +118,17 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
         emit MembershipDelisted(tokenId, msg.sender);
     }
 
+    function updatePrice(uint256 tokenId, uint256 newPriceWei) external {
+        MembershipLib.Listing storage listing = _listings[tokenId];
+        if (!listing.active) revert MKT_InactiveListing();
+        if (listing.seller != msg.sender) revert MKT_NotOwner(tokenId);
+
+        uint256 oldPrice = listing.priceWei;
+        emit PriceUpdated(tokenId, oldPrice, newPriceWei);
+
+        listing.priceWei = newPriceWei;
+    }
+
     function _sendValue(address recipient, uint256 amount) private {
         if (amount == 0) return;
         if (recipient == address(0)) revert MKT_ZeroAddress();
