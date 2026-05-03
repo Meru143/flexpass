@@ -571,7 +571,7 @@ Missing requested active skills:
 - [x] Show expiry countdown
 
 ### 10.8 RoyaltyBreakdown Component
-- [ ] Create `components/RoyaltyBreakdown.tsx`
+- [x] Create `components/RoyaltyBreakdown.tsx`
 - [ ] Accept `{ priceWei, royaltyBps, gymName }`
 - [ ] Show table: Total Price / Gym Royalty (% and MATIC amount) / Protocol Fee (1%) / Seller Receives
 - [ ] Use `formatUnits(royaltyAmount, 18)` from viem for MATIC display
