@@ -396,7 +396,7 @@ Missing requested active skills:
 - [x] Test `getAllGyms` returns correct count after registration
 
 ### 7.2 GymMembership.t.sol
-- [ ] Create `test/GymMembership.t.sol`
+- [x] Create `test/GymMembership.t.sol`
 - [ ] `setUp()`: deploy Registry, approve a test gym, deploy `GymMembership`
 - [ ] Test `mintMembership` with unapproved gym reverts `GM_GymNotApproved`
 - [ ] Test `mintMembership` with `durationDays = 0` reverts `GM_ZeroDuration`
