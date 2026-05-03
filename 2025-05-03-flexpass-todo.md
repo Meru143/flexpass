@@ -467,7 +467,7 @@ Missing requested active skills:
 - [x] Implement `handleMembershipMinted(event)`: create or update `Membership` entity; create `MembershipTransaction` with type "mint"
 - [x] Implement `handleUpdateUser(event)`: update `Membership.user` and `Membership.expiresAt`
 - [x] Implement `handleMembershipListed(event)`: create `Listing` entity with `active = true`; link to `Membership.currentListing`
-- [ ] Implement `handleMembershipSold(event)`: update `Listing.active = false`; create `MembershipTransaction` with type "buy" and `royaltyPaid`; update `Membership.owner` and `Membership.user`; increment `Gym.totalRoyaltyEarned`
+- [x] Implement `handleMembershipSold(event)`: update `Listing.active = false`; create `MembershipTransaction` with type "buy" and `royaltyPaid`; update `Membership.owner` and `Membership.user`; increment `Gym.totalRoyaltyEarned`
 - [ ] Implement `handleMembershipDelisted(event)`: update `Listing.active = false`
 - [ ] Implement `handleGymRegistered(event)`: create `Gym` entity
 - [ ] Implement `handleGymApproved(event)`: update `Gym.approved = true`
