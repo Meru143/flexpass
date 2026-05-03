@@ -66,7 +66,7 @@ Missing requested active skills:
 - [x] Add `foundry.toml` `[profile.ci]` section: `fuzz_runs = 1000`
 - [x] Install OpenZeppelin v5 as git submodule: `forge install OpenZeppelin/openzeppelin-contracts@v5.4.0 --no-commit`
 - [x] Create `remappings.txt`: add `@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/`
-- [ ] Create `src/` directory structure: `src/`, `src/interfaces/`, `src/libraries/`
+- [x] Create `src/` directory structure: `src/`, `src/interfaces/`, `src/libraries/`
 - [ ] Create `script/` directory
 - [ ] Create `test/` directory
 - [ ] Delete Foundry scaffold `src/Counter.sol` and `test/Counter.t.sol`
