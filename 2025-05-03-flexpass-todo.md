@@ -100,7 +100,7 @@ Missing requested active skills:
 - [x] Create `src/mappings.ts` stub AssemblyScript file
 
 ### 1.6 SDK Project Setup (`sdk/`)
-- [ ] `cd sdk && npm init -y --scope @flexpass` (package name: `@flexpass/verifier`)
+- [x] `cd sdk && npm init -y --scope @flexpass` (package name: `@flexpass/verifier`)
 - [ ] Install: `npm i viem`
 - [ ] Install dev: `npm i -D typescript tsup`
 - [ ] Create `src/index.ts` with `checkAccess` stub function

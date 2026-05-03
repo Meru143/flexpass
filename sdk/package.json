@@ -1,0 +1,15 @@
+{
+  "name": "@flexpass/verifier",
+  "version": "1.0.0",
+  "description": "FlexPass gym access verification SDK",
+  "main": "dist/index.cjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts"
+}
