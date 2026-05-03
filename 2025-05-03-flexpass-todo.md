@@ -204,7 +204,7 @@ Missing requested active skills:
 - [x] Declare `contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, ReentrancyGuard, IERC4907`
 
 ### 4.2 State Variables
-- [ ] Add `uint256 private _nextTokenId` counter (starts at 1)
+- [x] Add `uint256 private _nextTokenId` counter (starts at 1)
 - [ ] Add `IGymRegistry public immutable registry` set in constructor
 - [ ] Add `address public protocolTreasury` for 1% fee collection
 - [ ] Add `mapping(uint256 => IERC4907.UserInfo) private _users` struct: `{ address user; uint64 expires }`

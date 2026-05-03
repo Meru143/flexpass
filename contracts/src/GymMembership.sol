@@ -15,6 +15,8 @@ import {MembershipLib} from "./libraries/MembershipLib.sol";
 abstract contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, ReentrancyGuard, IERC4907 {
     bytes4 private constant _INTERFACE_ID_ERC4907 = 0xad092b5c;
 
+    uint256 private _nextTokenId = 1;
+
     function supportsInterface(bytes4 interfaceId)
         public
         view
