@@ -399,7 +399,7 @@ Missing requested active skills:
 - [x] Create `test/GymMembership.t.sol`
 - [x] `setUp()`: deploy Registry, approve a test gym, deploy `GymMembership`
 - [x] Test `mintMembership` with unapproved gym reverts `GM_GymNotApproved`
-- [ ] Test `mintMembership` with `durationDays = 0` reverts `GM_ZeroDuration`
+- [x] Test `mintMembership` with `durationDays = 0` reverts `GM_ZeroDuration`
 - [ ] Test `mintMembership` returns `tokenId = 1` on first call
 - [ ] Test `ownerOf(1) == buyer` after mint
 - [ ] Test `userOf(1) == buyer` immediately after mint
