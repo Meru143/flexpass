@@ -137,7 +137,7 @@ Missing requested active skills:
 - [x] Add `supportsInterface` declaration returning `bytes4(0xad092b5c)` (ERC-4907 interface ID)
 
 ### 2.3 IGymRegistry.sol Interface
-- [ ] Create `src/interfaces/IGymRegistry.sol`
+- [x] Create `src/interfaces/IGymRegistry.sol`
 - [ ] Define `function isApproved(address gymAddress) external view returns (bool)`
 - [ ] Define `function getGymInfo(address gymAddress) external view returns (MembershipLib.GymInfo memory)`
 - [ ] Define `function getTreasury(address gymAddress) external view returns (address)`
