@@ -547,7 +547,7 @@ Missing requested active skills:
 - [x] Create `hooks/useListings.ts` — `useQuery` for active marketplace listings with optional `gymAddress` filter
 - [x] Create `hooks/useRoyaltyInfo.ts` — `useReadContract` with `functionName: 'royaltyInfo'`, returns `{ receiver, royaltyAmount }`
 - [x] Create `hooks/useListMembership.ts` — step 1: `useWriteContract` for `approve(marketAddress, tokenId)`; step 2: `useWriteContract` for `listMembership(tokenId, priceWei)`; expose `list(tokenId, priceWei)` function that runs both in sequence
-- [ ] Create `hooks/useBuyMembership.ts` — `useWriteContract` for `buyMembership(tokenId)` with `value: listing.priceWei`
+- [x] Create `hooks/useBuyMembership.ts` — `useWriteContract` for `buyMembership(tokenId)` with `value: listing.priceWei`
 
 ### 10.5 MembershipCard Component
 - [ ] Create `components/MembershipCard.tsx`
