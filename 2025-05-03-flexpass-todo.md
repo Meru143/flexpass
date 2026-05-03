@@ -205,7 +205,7 @@ Missing requested active skills:
 
 ### 4.2 State Variables
 - [x] Add `uint256 private _nextTokenId` counter (starts at 1)
-- [ ] Add `IGymRegistry public immutable registry` set in constructor
+- [x] Add `IGymRegistry public immutable registry` set in constructor
 - [ ] Add `address public protocolTreasury` for 1% fee collection
 - [ ] Add `mapping(uint256 => IERC4907.UserInfo) private _users` struct: `{ address user; uint64 expires }`
 - [ ] Add `mapping(uint256 => address) private _membershipGym` (tokenId → gym address)
