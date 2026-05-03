@@ -241,7 +241,7 @@ Missing requested active skills:
 - [x] Mint: `_safeMint(to, _nextTokenId)`
 - [x] Set user: `_users[_nextTokenId] = UserInfo({ user: to, expires: expiresAt })`
 - [x] Set royalty: `_setTokenRoyalty(_nextTokenId, registry.getTreasury(gymAddress), registry.getRoyaltyBps(gymAddress))`
-- [ ] Set metadata: `_setTokenURI(_nextTokenId, tokenUri)` (tokenUri passed as param from frontend IPFS upload)
+- [x] Set metadata: `_setTokenURI(_nextTokenId, tokenUri)` (tokenUri passed as param from frontend IPFS upload)
 - [ ] Store gym/tier mappings: `_membershipGym[_nextTokenId] = gymAddress`; `_membershipTier[_nextTokenId] = tierId`
 - [ ] Emit `MembershipMinted`
 - [ ] Increment `_nextTokenId++`

@@ -102,6 +102,16 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
         return _mintOne(to, gymAddress, tierId, durationDays, "");
     }
 
+    function mintMembership(
+        address to,
+        address gymAddress,
+        uint8 tierId,
+        uint256 durationDays,
+        string calldata tokenUri
+    ) external payable whenNotPaused nonReentrant returns (uint256 tokenId) {
+        return _mintOne(to, gymAddress, tierId, durationDays, tokenUri);
+    }
+
     function _mintOne(address to, address gymAddress, uint8 tierId, uint256 durationDays, string memory tokenUri)
         internal
         returns (uint256 tokenId)
