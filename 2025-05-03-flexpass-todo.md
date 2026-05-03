@@ -108,7 +108,7 @@ Missing requested active skills:
 - [x] Configure `tsup.config.ts` for dual CJS + ESM output
 
 ### 1.7 Environment Variables
-- [ ] Create root `.env.example` with all variables from Section 17 and empty placeholder values
+- [x] Create root `.env.example` with all variables from Section 17 and empty placeholder values
 - [ ] Add `contracts/.env.example` with `POLYGON_RPC_URL`, `AMOY_RPC_URL`, `DEPLOYER_PRIVATE_KEY`, `POLYGONSCAN_API_KEY`
 - [ ] Add `frontend/.env.example` with all `NEXT_PUBLIC_*` variables
 - [ ] Add `api/.env.example` with `DATABASE_URL`, `PINATA_JWT`, `COINGECKO_API_KEY`, `WEBHOOK_HMAC_SECRET`
