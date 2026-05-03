@@ -223,7 +223,7 @@ Missing requested active skills:
 
 ### 4.5 Constructor
 - [x] Define constructor accepting `registryAddress`, `protocolTreasury_`, `initialOwner`
-- [ ] Call `ERC721("FlexPass Membership", "FLEX")` and `Ownable2Step(initialOwner)`
+- [x] Call `ERC721("FlexPass Membership", "FLEX")` and `Ownable2Step(initialOwner)`
 - [ ] Set `registry = IGymRegistry(registryAddress)` and `protocolTreasury = protocolTreasury_`
 
 ### 4.6 ERC-4907 Core Functions
