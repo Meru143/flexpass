@@ -85,7 +85,7 @@ Missing requested active skills:
 
 ### 1.4 API Project Setup (`api/`)
 - [x] `cd api && npm init -y`
-- [ ] Install: `npm i hono @hono/node-server prisma @prisma/client pinata viem pino`
+- [x] Install: `npm i hono @hono/node-server prisma @prisma/client pinata viem pino`
 - [ ] Install dev: `npm i -D typescript @types/node ts-node nodemon`
 - [ ] Create `src/index.ts` with basic `Hono` app and `serve()` call
 - [ ] Create `tsconfig.json` with `"module": "ESNext"`, `"target": "ES2022"`, `"strict": true`
