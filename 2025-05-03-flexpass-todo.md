@@ -162,7 +162,7 @@ Missing requested active skills:
 - [x] Define `event GymRegistered(address indexed gymAddress, string name, address treasury)`
 - [x] Define `event GymApproved(address indexed gymAddress)`
 - [x] Define `event GymRevoked(address indexed gymAddress)`
-- [ ] Define `event TreasuryUpdated(address indexed gymAddress, address oldTreasury, address newTreasury)`
+- [x] Define `event TreasuryUpdated(address indexed gymAddress, address oldTreasury, address newTreasury)`
 
 ### 3.3 Custom Errors
 - [ ] Define `error GR_AlreadyRegistered(address gymAddress)`
