@@ -88,7 +88,7 @@ Missing requested active skills:
 - [x] Install: `npm i hono @hono/node-server prisma @prisma/client pinata viem pino`
 - [x] Install dev: `npm i -D typescript @types/node ts-node nodemon`
 - [x] Create `src/index.ts` with basic `Hono` app and `serve()` call
-- [ ] Create `tsconfig.json` with `"module": "ESNext"`, `"target": "ES2022"`, `"strict": true`
+- [x] Create `tsconfig.json` with `"module": "ESNext"`, `"target": "ES2022"`, `"strict": true`
 - [ ] Initialize Prisma: `npx prisma init --datasource-provider postgresql`
 - [ ] Create `src/db/client.ts` with `PrismaClient` singleton
 
