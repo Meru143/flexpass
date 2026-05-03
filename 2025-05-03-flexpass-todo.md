@@ -473,7 +473,7 @@ Missing requested active skills:
 - [x] Implement `handleGymApproved(event)`: update `Gym.approved = true`
 
 ### 8.4 Build & Deploy
-- [ ] Run `graph build` and verify no AssemblyScript errors
+- [x] Run `graph build` and verify no AssemblyScript errors
 - [ ] Deploy to The Graph Studio: `graph deploy --studio flexpass`
 - [ ] Verify entities appear in Studio playground with test queries
 - [ ] Test GraphQL query: `{ memberships(where: { owner: "0x..." }) { id expiresAt } }`
