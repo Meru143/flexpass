@@ -8,4 +8,13 @@ library MembershipLib {
         uint256 pricePerMonth;
         uint256 maxCapacity;
     }
+
+    struct GymInfo {
+        address gymAddress;
+        address treasury;
+        string name;
+        uint96 royaltyBps;
+        bool approved;
+        Tier[] tiers;
+    }
 }
