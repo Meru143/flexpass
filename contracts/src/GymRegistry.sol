@@ -54,4 +54,13 @@ abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
 
         emit GymApproved(gymAddress);
     }
+
+    function revokeGym(address gymAddress) external onlyOwner {
+        MembershipLib.GymInfo storage gym = _gyms[gymAddress];
+        if (gym.gymAddress == address(0)) revert GR_NotRegistered(gymAddress);
+
+        gym.approved = false;
+
+        emit GymRevoked(gymAddress);
+    }
 }
