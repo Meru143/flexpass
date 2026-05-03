@@ -276,7 +276,7 @@ Missing requested active skills:
 
 ### 5.2 State Variables
 - [x] Add `IERC721 public immutable membershipNFT` — the `GymMembership` contract
-- [ ] Add `address public protocolTreasury`
+- [x] Add `address public protocolTreasury`
 - [ ] Add `mapping(uint256 => MembershipLib.Listing) private _listings` (tokenId → Listing)
 - [ ] Add `uint256 public protocolFeeBps = 100` (1%)
 
