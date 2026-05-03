@@ -209,7 +209,7 @@ Missing requested active skills:
 - [x] Add `address public protocolTreasury` for 1% fee collection
 - [x] Add `mapping(uint256 => IERC4907.UserInfo) private _users` struct: `{ address user; uint64 expires }`
 - [x] Add `mapping(uint256 => address) private _membershipGym` (tokenId → gym address)
-- [ ] Add `mapping(uint256 => uint8) private _membershipTier` (tokenId → tier ID)
+- [x] Add `mapping(uint256 => uint8) private _membershipTier` (tokenId → tier ID)
 
 ### 4.3 Events
 - [ ] Define `event MembershipMinted(uint256 indexed tokenId, address indexed gymAddress, uint8 tierId, address indexed owner, uint64 expires)`
