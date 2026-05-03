@@ -269,7 +269,7 @@ Missing requested active skills:
 - [x] Import `@openzeppelin/contracts/token/ERC721/IERC721.sol`
 - [x] Import `@openzeppelin/contracts/interfaces/IERC2981.sol`
 - [x] Import `@openzeppelin/contracts/access/Ownable2Step.sol`
-- [ ] Import `@openzeppelin/contracts/utils/Pausable.sol`
+- [x] Import `@openzeppelin/contracts/utils/Pausable.sol`
 - [ ] Import `@openzeppelin/contracts/utils/ReentrancyGuard.sol`
 - [ ] Import `./interfaces/IERC4907.sol` and `./libraries/MembershipLib.sol`
 - [ ] Declare `contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard`
