@@ -315,7 +315,7 @@ Missing requested active skills:
 - [x] Calculate `protocolFee = msg.value * protocolFeeBps / 10000`
 - [x] Calculate `sellerProceeds = msg.value - royaltyAmount - protocolFee`
 - [x] Mark listing inactive: `_listings[tokenId].active = false`
-- [ ] Transfer NFT: `membershipNFT.transferFrom(address(this), msg.sender, tokenId)` (checks-effects-interactions: state updated before external calls)
+- [x] Transfer NFT: `membershipNFT.transferFrom(address(this), msg.sender, tokenId)` (checks-effects-interactions: state updated before external calls)
 - [ ] Set user role: `IERC4907(address(membershipNFT)).setUser(tokenId, msg.sender, uint64(_listings[tokenId].expiresAt))` — NOTE: need to store `expiresAt` in Listing struct
 - [ ] Transfer royalty: `(bool ok,) = royaltyReceiver.call{value: royaltyAmount}("")` with `require(ok)`
 - [ ] Transfer protocol fee: `(bool ok2,) = protocolTreasury.call{value: protocolFee}("")` with `require(ok2)`
