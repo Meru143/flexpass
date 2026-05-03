@@ -80,7 +80,7 @@ Missing requested active skills:
 - [x] Import `@rainbow-me/rainbowkit/styles.css` in `app/layout.tsx`
 - [x] Wrap `app/layout.tsx` body with `<Providers>`
 - [x] Create `lib/wagmi.ts` with `getDefaultConfig({ appName: 'FlexPass', chains: [polygon, polygonAmoy] })`
-- [ ] Add `NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID` to `.env.local` (WalletConnect Cloud project ID)
+- [x] Add `NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID` to `.env.local` (WalletConnect Cloud project ID)
 - [ ] Confirm `next dev` starts without errors
 
 ### 1.4 API Project Setup (`api/`)
