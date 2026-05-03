@@ -503,7 +503,7 @@ Missing requested active skills:
 ### 9.4 Routes — metadata.ts
 - [x] Implement `POST /api/metadata/upload` — accept `{ gymName, tier, amenities, expiresAt, logoUrl }` body
 - [x] Build metadata JSON: `{ name, description, image, attributes: [{ trait_type: 'Gym', value: gymName }, ...] }`
-- [ ] Call Pinata: `pinata.upload.json(metadata)` → returns `{ IpfsHash }` 
+- [x] Call Pinata: `pinata.upload.json(metadata)` → returns `{ IpfsHash }` 
 - [ ] Return `ipfs://${IpfsHash}` as `tokenUri`
 
 ### 9.5 Routes — webhooks.ts
