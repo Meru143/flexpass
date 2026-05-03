@@ -13,7 +13,7 @@ import {IERC4907} from "./interfaces/IERC4907.sol";
 import {IGymRegistry} from "./interfaces/IGymRegistry.sol";
 import {MembershipLib} from "./libraries/MembershipLib.sol";
 
-abstract contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, ReentrancyGuard, IERC4907 {
+contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, ReentrancyGuard, IERC4907 {
     bytes4 private constant _INTERFACE_ID_ERC4907 = 0xad092b5c;
 
     uint256 private _nextTokenId = 1;
@@ -33,6 +33,7 @@ abstract contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Paus
     error GM_ZeroDuration();
     error GM_InsufficientPayment(uint256 sent, uint256 required);
     error GM_NotOwner(uint256 tokenId, address caller);
+    error GM_ExpiryOverflow(uint256 expiresAt);
 
     constructor(address registryAddress, address protocolTreasury_, address initialOwner)
         ERC721("FlexPass Membership", "FLEX")
@@ -89,5 +90,49 @@ abstract contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Paus
         }
 
         return previousOwner;
+    }
+
+    function mintMembership(address to, address gymAddress, uint8 tierId, uint256 durationDays)
+        external
+        payable
+        whenNotPaused
+        nonReentrant
+        returns (uint256 tokenId)
+    {
+        return _mintOne(to, gymAddress, tierId, durationDays, "");
+    }
+
+    function _mintOne(address to, address gymAddress, uint8 tierId, uint256 durationDays, string memory tokenUri)
+        internal
+        returns (uint256 tokenId)
+    {
+        if (to == address(0) || gymAddress == address(0)) revert GM_ZeroAddress();
+        if (!registry.isApproved(gymAddress)) revert GM_GymNotApproved(gymAddress);
+        if (durationDays == 0) revert GM_ZeroDuration();
+
+        uint256 expiresAtRaw = block.timestamp + durationDays * 1 days;
+        if (expiresAtRaw > type(uint64).max) revert GM_ExpiryOverflow(expiresAtRaw);
+
+        uint64 expiresAt = uint64(expiresAtRaw);
+        tokenId = _nextTokenId;
+
+        _safeMint(to, tokenId);
+        _users[tokenId] = IERC4907.UserInfo({user: to, expires: expiresAt});
+
+        address gymTreasury = registry.getTreasury(gymAddress);
+        if (gymTreasury == address(0)) revert GM_ZeroAddress();
+
+        _setTokenRoyalty(tokenId, gymTreasury, registry.getRoyaltyBps(gymAddress));
+
+        if (bytes(tokenUri).length != 0) {
+            _setTokenURI(tokenId, tokenUri);
+        }
+
+        _membershipGym[tokenId] = gymAddress;
+        _membershipTier[tokenId] = tierId;
+
+        emit MembershipMinted(tokenId, gymAddress, tierId, to, expiresAt);
+
+        ++_nextTokenId;
     }
 }

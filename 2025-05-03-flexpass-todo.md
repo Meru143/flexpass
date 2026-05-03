@@ -234,7 +234,7 @@ Missing requested active skills:
 - [x] Override `_update(address to, uint256 tokenId, address auth)` to clear `_users[tokenId]` on transfer (ERC-721 hook to reset user on ownership change)
 
 ### 4.7 Minting Functions
-- [ ] Implement `mintMembership(address to, address gymAddress, uint8 tierId, uint256 durationDays) external payable whenNotPaused returns (uint256 tokenId)`
+- [x] Implement `mintMembership(address to, address gymAddress, uint8 tierId, uint256 durationDays) external payable whenNotPaused returns (uint256 tokenId)`
 - [ ] Add `if (!registry.isApproved(gymAddress)) revert GM_GymNotApproved(gymAddress)` check
 - [ ] Add `if (durationDays == 0) revert GM_ZeroDuration()` check
 - [ ] Calculate `expiresAt = uint64(block.timestamp + durationDays * 1 days)`
