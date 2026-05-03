@@ -350,7 +350,7 @@ Missing requested active skills:
 - [x] Implement `isListed(uint256 tokenId) external view returns (bool)` — returns `_listings[tokenId].active`
 
 ### 5.11 Admin Functions
-- [ ] Implement `setProtocolFeeBps(uint256 newBps) external onlyOwner` — cap at 500 (5%)
+- [x] Implement `setProtocolFeeBps(uint256 newBps) external onlyOwner` — cap at 500 (5%)
 - [ ] Implement `setProtocolTreasury(address newTreasury) external onlyOwner`
 - [ ] Implement `pause() external onlyOwner`
 - [ ] Implement `unpause() external onlyOwner`

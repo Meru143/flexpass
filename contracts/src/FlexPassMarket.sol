@@ -37,6 +37,7 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
     error MKT_InvalidSettlement(uint256 priceWei, uint256 royaltyAmount, uint256 protocolFee);
     error MKT_TransferFailed(address recipient, uint256 amount);
     error MKT_NotExpired(uint256 tokenId, uint64 expiresAt);
+    error MKT_FeeTooHigh(uint256 newBps, uint256 maxBps);
 
     constructor(address membershipAddress, address protocolTreasury_, address initialOwner) Ownable(initialOwner) {
         if (membershipAddress == address(0) || protocolTreasury_ == address(0)) revert MKT_ZeroAddress();
@@ -160,6 +161,12 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
 
     function isListed(uint256 tokenId) external view returns (bool) {
         return _listings[tokenId].active;
+    }
+
+    function setProtocolFeeBps(uint256 newBps) external onlyOwner {
+        if (newBps > 500) revert MKT_FeeTooHigh(newBps, 500);
+
+        protocolFeeBps = newBps;
     }
 
     function _sendValue(address recipient, uint256 amount) private {
