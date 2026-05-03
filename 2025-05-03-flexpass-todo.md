@@ -197,7 +197,7 @@ Missing requested active skills:
 - [x] Import `@openzeppelin/contracts/token/ERC721/ERC721.sol`
 - [x] Import `@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol`
 - [x] Import `@openzeppelin/contracts/token/common/ERC2981.sol`
-- [ ] Import `@openzeppelin/contracts/access/Ownable2Step.sol`
+- [x] Import `@openzeppelin/contracts/access/Ownable2Step.sol`
 - [ ] Import `@openzeppelin/contracts/utils/Pausable.sol`
 - [ ] Import `@openzeppelin/contracts/utils/ReentrancyGuard.sol`
 - [ ] Import `./interfaces/IERC4907.sol`, `./interfaces/IGymRegistry.sol`, `./libraries/MembershipLib.sol`
