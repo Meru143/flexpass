@@ -540,7 +540,7 @@ Missing requested active skills:
 - [x] Implement `querySubgraph(query: string, variables?: object)` → fetch with POST, return `data` field
 - [x] Define `GET_USER_MEMBERSHIPS` GraphQL query string
 - [x] Define `GET_ACTIVE_LISTINGS` GraphQL query string
-- [ ] Define `GET_LISTING_BY_TOKEN_ID` GraphQL query string
+- [x] Define `GET_LISTING_BY_TOKEN_ID` GraphQL query string
 
 ### 10.4 Custom Hooks
 - [ ] Create `hooks/useMemberships.ts` — `useQuery` from TanStack that calls `querySubgraph(GET_USER_MEMBERSHIPS, { owner: address?.toLowerCase() })` when wallet connected
