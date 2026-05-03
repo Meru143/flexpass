@@ -11,29 +11,17 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "gymAddress",
+        "name": "seller",
         "type": "address"
       },
       {
         "indexed": false,
-        "internalType": "uint8",
-        "name": "tierId",
-        "type": "uint8"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint64",
-        "name": "expires",
-        "type": "uint64"
+        "internalType": "uint256",
+        "name": "priceWei",
+        "type": "uint256"
       }
     ],
-    "name": "MembershipMinted",
+    "name": "MembershipListed",
     "type": "event"
   },
   {
@@ -48,36 +36,48 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "user",
+        "name": "seller",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "buyer",
         "type": "address"
       },
       {
         "indexed": false,
-        "internalType": "uint64",
-        "name": "expires",
-        "type": "uint64"
-      }
-    ],
-    "name": "UpdateUser",
-    "type": "event"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "uint256",
-        "name": "tokenId",
+        "name": "priceWei",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "royaltyPaid",
         "type": "uint256"
       }
     ],
-    "name": "tokenURI",
-    "outputs": [
+    "name": "MembershipSold",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
       {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "tokenId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "seller",
+        "type": "address"
       }
     ],
-    "stateMutability": "view",
-    "type": "function"
+    "name": "MembershipDelisted",
+    "type": "event"
   }
 ]
