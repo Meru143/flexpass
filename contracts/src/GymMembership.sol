@@ -20,6 +20,7 @@ abstract contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Paus
     IGymRegistry public immutable registry;
     address public protocolTreasury;
     mapping(uint256 => IERC4907.UserInfo) private _users;
+    mapping(uint256 => address) private _membershipGym;
 
     error GM_ZeroAddress();
 

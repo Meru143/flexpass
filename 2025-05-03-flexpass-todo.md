@@ -208,7 +208,7 @@ Missing requested active skills:
 - [x] Add `IGymRegistry public immutable registry` set in constructor
 - [x] Add `address public protocolTreasury` for 1% fee collection
 - [x] Add `mapping(uint256 => IERC4907.UserInfo) private _users` struct: `{ address user; uint64 expires }`
-- [ ] Add `mapping(uint256 => address) private _membershipGym` (tokenId → gym address)
+- [x] Add `mapping(uint256 => address) private _membershipGym` (tokenId → gym address)
 - [ ] Add `mapping(uint256 => uint8) private _membershipTier` (tokenId → tier ID)
 
 ### 4.3 Events
