@@ -70,7 +70,7 @@ Missing requested active skills:
 - [x] Create `script/` directory
 - [x] Create `test/` directory
 - [x] Delete Foundry scaffold `src/Counter.sol` and `test/Counter.t.sol`
-- [ ] Confirm `forge build` succeeds on empty project
+- [x] Confirm `forge build` succeeds on empty project
 
 ### 1.3 Frontend Project Setup (`frontend/`)
 - [ ] `cd frontend && npx create-next-app@14 . --typescript --tailwind --eslint --app --src-dir no`
