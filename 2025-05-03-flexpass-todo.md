@@ -550,7 +550,7 @@ Missing requested active skills:
 - [x] Create `hooks/useBuyMembership.ts` — `useWriteContract` for `buyMembership(tokenId)` with `value: listing.priceWei`
 
 ### 10.5 MembershipCard Component
-- [ ] Create `components/MembershipCard.tsx`
+- [x] Create `components/MembershipCard.tsx`
 - [ ] Accept props: `{ tokenId, gymName, tier, expiresAt, isListed }`
 - [ ] Display gym name, tier badge, expiry date
 - [ ] Show `<ExpiryCountdown expiresAt={expiresAt} />` for remaining time
