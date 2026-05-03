@@ -507,7 +507,7 @@ Missing requested active skills:
 - [x] Return `ipfs://${IpfsHash}` as `tokenUri`
 
 ### 9.5 Routes — webhooks.ts
-- [ ] Implement `POST /webhooks/gym-entry` — validate HMAC-SHA256 signature header `X-FlexPass-Signature`
+- [x] Implement `POST /webhooks/gym-entry` — validate HMAC-SHA256 signature header `X-FlexPass-Signature`
 - [ ] Parse `{ tokenId, gymAddress, walletAddress, timestamp }` body
 - [ ] Insert `EntryEvent` row into PostgreSQL
 - [ ] Return 200 OK
