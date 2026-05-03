@@ -290,7 +290,7 @@ Missing requested active skills:
 - [x] Define `error MKT_NotOwner(uint256 tokenId)`
 - [x] Define `error MKT_AlreadyListed(uint256 tokenId)`
 - [x] Define `error MKT_NotListed(uint256 tokenId)`
-- [ ] Define `error MKT_Expired(uint256 tokenId)`
+- [x] Define `error MKT_Expired(uint256 tokenId)`
 - [ ] Define `error MKT_WrongValue(uint256 sent, uint256 required)`
 - [ ] Define `error MKT_SelfBuy()`
 - [ ] Define `error MKT_InactiveListing()`
