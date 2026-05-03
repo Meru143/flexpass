@@ -155,7 +155,7 @@ Missing requested active skills:
 - [x] Import `./libraries/MembershipLib.sol` and `./interfaces/IGymRegistry.sol`
 - [x] Declare contract `GymRegistry is Ownable2Step, Pausable, IGymRegistry`
 - [x] Add `mapping(address => MembershipLib.GymInfo) private _gyms` state variable
-- [ ] Add `address[] private _gymList` for enumeration
+- [x] Add `address[] private _gymList` for enumeration
 - [ ] Declare constructor accepting `initialOwner` address, pass to `Ownable2Step(initialOwner)`
 
 ### 3.2 Events

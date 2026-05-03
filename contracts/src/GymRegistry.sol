@@ -9,4 +9,5 @@ import {MembershipLib} from "./libraries/MembershipLib.sol";
 
 abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
     mapping(address => MembershipLib.GymInfo) private _gyms;
+    address[] private _gymList;
 }
