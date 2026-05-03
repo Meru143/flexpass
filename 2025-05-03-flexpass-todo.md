@@ -532,7 +532,7 @@ Missing requested active skills:
 ### 10.2 Contract Bindings
 - [x] Create `lib/contracts.ts` with `GYM_MEMBERSHIP_ADDRESS`, `MARKET_ADDRESS`, `REGISTRY_ADDRESS` per chainId
 - [x] Export `GymMembershipABI` (copy from `contracts/out/GymMembership.sol/GymMembership.json` after build)
-- [ ] Export `FlexPassMarketABI`
+- [x] Export `FlexPassMarketABI`
 - [ ] Export `GymRegistryABI`
 
 ### 10.3 Subgraph Client
