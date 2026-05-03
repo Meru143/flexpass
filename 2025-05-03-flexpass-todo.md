@@ -64,7 +64,7 @@ Missing requested active skills:
 - [x] `cd contracts && forge init --no-commit` to initialize Foundry project
 - [x] Set `foundry.toml`: `solc = "0.8.20"`, `optimizer = true`, `optimizer_runs = 200`, `fuzz_runs = 256`
 - [x] Add `foundry.toml` `[profile.ci]` section: `fuzz_runs = 1000`
-- [ ] Install OpenZeppelin v5 as git submodule: `forge install OpenZeppelin/openzeppelin-contracts@v5.4.0 --no-commit`
+- [x] Install OpenZeppelin v5 as git submodule: `forge install OpenZeppelin/openzeppelin-contracts@v5.4.0 --no-commit`
 - [ ] Create `remappings.txt`: add `@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/`
 - [ ] Create `src/` directory structure: `src/`, `src/interfaces/`, `src/libraries/`
 - [ ] Create `script/` directory
