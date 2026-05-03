@@ -536,7 +536,7 @@ Missing requested active skills:
 - [x] Export `GymRegistryABI`
 
 ### 10.3 Subgraph Client
-- [ ] Create `lib/subgraph.ts` with `const SUBGRAPH_URL = process.env.NEXT_PUBLIC_SUBGRAPH_URL`
+- [x] Create `lib/subgraph.ts` with `const SUBGRAPH_URL = process.env.NEXT_PUBLIC_SUBGRAPH_URL`
 - [ ] Implement `querySubgraph(query: string, variables?: object)` → fetch with POST, return `data` field
 - [ ] Define `GET_USER_MEMBERSHIPS` GraphQL query string
 - [ ] Define `GET_ACTIVE_LISTINGS` GraphQL query string
