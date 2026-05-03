@@ -360,7 +360,7 @@ Missing requested active skills:
 ## Phase 6: Deployment Scripts
 
 ### 6.1 Deploy.s.sol
-- [ ] Create `script/Deploy.s.sol` with `pragma solidity ^0.8.20` and `import "forge-std/Script.sol"`
+- [x] Create `script/Deploy.s.sol` with `pragma solidity ^0.8.20` and `import "forge-std/Script.sol"`
 - [ ] In `run()`: read `DEPLOYER_PRIVATE_KEY` from env via `vm.envUint("DEPLOYER_PRIVATE_KEY")`
 - [ ] Read `PROTOCOL_TREASURY` from env via `vm.envAddress("PROTOCOL_TREASURY")`
 - [ ] `vm.startBroadcast(deployerKey)`
