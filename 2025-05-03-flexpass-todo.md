@@ -309,7 +309,7 @@ Missing requested active skills:
 - [x] Implement `buyMembership(uint256 tokenId) external payable whenNotPaused nonReentrant`
 - [x] Check `_listings[tokenId].active` → revert `MKT_InactiveListing`
 - [x] Check `msg.sender != _listings[tokenId].seller` → revert `MKT_SelfBuy`
-- [ ] Check `membershipNFT.ownerOf(tokenId) == address(this)` → revert `MKT_OwnerMismatch` (orphan protection)
+- [x] Check `membershipNFT.ownerOf(tokenId) == address(this)` → revert `MKT_OwnerMismatch` (orphan protection)
 - [ ] Check `msg.value == _listings[tokenId].priceWei` → revert `MKT_WrongValue`
 - [ ] Call `IERC2981(address(membershipNFT)).royaltyInfo(tokenId, msg.value)` → get `(royaltyReceiver, royaltyAmount)`
 - [ ] Calculate `protocolFee = msg.value * protocolFeeBps / 10000`
