@@ -425,7 +425,7 @@ Missing requested active skills:
 - [x] Test protocol treasury received 1% fee after buy
 - [x] Test `buyMembership` from alice (self-buy) reverts `MKT_SelfBuy`
 - [x] Test `buyMembership` with wrong value reverts `MKT_WrongValue`
-- [ ] Test `delistMembership` by alice returns token, marks listing inactive
+- [x] Test `delistMembership` by alice returns token, marks listing inactive
 - [ ] Test `delistMembership` by bob reverts `MKT_NotOwner`
 - [ ] Test `updatePrice` by alice changes price, emits `PriceUpdated`
 - [ ] Test `cleanExpiredListing` after `vm.warp(expires + 1)` succeeds
