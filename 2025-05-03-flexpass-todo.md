@@ -257,7 +257,7 @@ Missing requested active skills:
 
 ### 4.9 Admin Functions
 - [x] Implement `setProtocolTreasury(address newTreasury) external onlyOwner`
-- [ ] Implement `pause() external onlyOwner`
+- [x] Implement `pause() external onlyOwner`
 - [ ] Implement `unpause() external onlyOwner`
 
 ---
