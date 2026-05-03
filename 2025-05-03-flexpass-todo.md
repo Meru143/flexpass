@@ -320,7 +320,7 @@ Missing requested active skills:
 - [x] Transfer royalty: `(bool ok,) = royaltyReceiver.call{value: royaltyAmount}("")` with `require(ok)`
 - [x] Transfer protocol fee: `(bool ok2,) = protocolTreasury.call{value: protocolFee}("")` with `require(ok2)`
 - [x] Transfer seller proceeds: `(bool ok3,) = _listings[tokenId].seller.call{value: sellerProceeds}("")` with `require(ok3)`
-- [ ] Emit `MembershipSold`
+- [x] Emit `MembershipSold`
 
 ### 5.7 delistMembership Function
 - [ ] Implement `delistMembership(uint256 tokenId) external whenNotPaused`
