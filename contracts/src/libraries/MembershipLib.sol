@@ -38,4 +38,8 @@ library MembershipLib {
         address owner;
         address user;
     }
+
+    function validateRoyalty(uint96 bps) internal pure returns (bool) {
+        return bps <= MAX_ROYALTY_BPS;
+    }
 }
