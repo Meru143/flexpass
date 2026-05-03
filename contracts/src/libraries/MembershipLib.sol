@@ -26,4 +26,13 @@ library MembershipLib {
         uint64 expiresAt;
         bool active;
     }
+
+    struct MembershipInfo {
+        uint256 tokenId;
+        address gymAddress;
+        uint8 tierId;
+        uint64 expiresAt;
+        address owner;
+        address user;
+    }
 }
