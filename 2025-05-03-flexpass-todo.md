@@ -386,7 +386,7 @@ Missing requested active skills:
 - [x] `setUp()`: deploy `GymRegistry` with `new GymRegistry(address(this))`
 - [x] Test `registerGym` emits `GymRegistered` event — use `vm.expectEmit(true, true, false, true)`
 - [x] Test `registerGym` with zero treasury address reverts with `GR_ZeroAddress`
-- [ ] Test `registerGym` with royalty > 3000 bps reverts with `GR_RoyaltyTooHigh`
+- [x] Test `registerGym` with royalty > 3000 bps reverts with `GR_RoyaltyTooHigh`
 - [ ] Test duplicate `registerGym` reverts with `GR_AlreadyRegistered`
 - [ ] Test `approveGym` called by non-owner reverts
 - [ ] Test `isApproved` returns false before approval
