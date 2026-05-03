@@ -489,7 +489,7 @@ Missing requested active skills:
 - [x] Define `model MembershipCache { id String @id; tokenId String @unique; gymAddress String; tierId Int; ownerAddress String; userAddress String; expiresAt DateTime; metadataUri String; updatedAt DateTime @updatedAt }`
 - [x] Define `model EntryEvent { id String @id @default(cuid()); tokenId String; gymAddress String; enteredAt DateTime @default(now()); walletAddress String }`
 - [x] Run `npx prisma migrate dev --name init` to create tables
-- [ ] Run `npx prisma generate` to update client types
+- [x] Run `npx prisma generate` to update client types
 
 ### 9.2 Routes — membership.ts
 - [ ] Implement `GET /api/membership/:tokenId` — query `MembershipCache` by tokenId; if miss, fetch from chain via `publicClient.readContract({ address: GYM_MEMBERSHIP_ADDRESS, abi: GymMembershipABI, functionName: 'userOf', args: [BigInt(tokenId)] })` and cache
