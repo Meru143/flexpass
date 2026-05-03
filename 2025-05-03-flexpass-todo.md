@@ -393,7 +393,7 @@ Missing requested active skills:
 - [x] Test `isApproved` returns true after `approveGym`
 - [x] Test `revokeGym` sets `isApproved` back to false
 - [x] Test `updateTreasury` called by gym address succeeds; called by other address reverts
-- [ ] Test `getAllGyms` returns correct count after registration
+- [x] Test `getAllGyms` returns correct count after registration
 
 ### 7.2 GymMembership.t.sol
 - [ ] Create `test/GymMembership.t.sol`
