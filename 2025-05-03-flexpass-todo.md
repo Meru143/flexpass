@@ -382,7 +382,7 @@ Missing requested active skills:
 ## Phase 7: Foundry Tests
 
 ### 7.1 GymRegistry.t.sol
-- [ ] Create `test/GymRegistry.t.sol` with `import "forge-std/Test.sol"` and `import "../src/GymRegistry.sol"`
+- [x] Create `test/GymRegistry.t.sol` with `import "forge-std/Test.sol"` and `import "../src/GymRegistry.sol"`
 - [ ] `setUp()`: deploy `GymRegistry` with `new GymRegistry(address(this))`
 - [ ] Test `registerGym` emits `GymRegistered` event — use `vm.expectEmit(true, true, false, true)`
 - [ ] Test `registerGym` with zero treasury address reverts with `GR_ZeroAddress`
