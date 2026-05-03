@@ -79,4 +79,8 @@ abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
     function isApproved(address gymAddress) external view override returns (bool) {
         return _gyms[gymAddress].approved;
     }
+
+    function getGymInfo(address gymAddress) external view override returns (MembershipLib.GymInfo memory) {
+        return _gyms[gymAddress];
+    }
 }

@@ -181,7 +181,7 @@ Missing requested active skills:
 
 ### 3.5 View Functions
 - [x] Implement `isApproved(address gymAddress) external view returns (bool)` — returns `_gyms[gymAddress].approved`
-- [ ] Implement `getGymInfo(address gymAddress) external view returns (GymInfo memory)` — returns `_gyms[gymAddress]`
+- [x] Implement `getGymInfo(address gymAddress) external view returns (GymInfo memory)` — returns `_gyms[gymAddress]`
 - [ ] Implement `getTreasury(address gymAddress) external view returns (address)` — returns `_gyms[gymAddress].treasury`
 - [ ] Implement `getRoyaltyBps(address gymAddress) external view returns (uint96)` — returns `_gyms[gymAddress].royaltyBps`
 - [ ] Implement `getAllGyms() external view returns (address[] memory)` — returns `_gymList`
