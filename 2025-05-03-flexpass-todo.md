@@ -222,7 +222,7 @@ Missing requested active skills:
 - [x] Define `error GM_NotOwner(uint256 tokenId, address caller)`
 
 ### 4.5 Constructor
-- [ ] Define constructor accepting `registryAddress`, `protocolTreasury_`, `initialOwner`
+- [x] Define constructor accepting `registryAddress`, `protocolTreasury_`, `initialOwner`
 - [ ] Call `ERC721("FlexPass Membership", "FLEX")` and `Ownable2Step(initialOwner)`
 - [ ] Set `registry = IGymRegistry(registryAddress)` and `protocolTreasury = protocolTreasury_`
 
