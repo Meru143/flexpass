@@ -248,7 +248,7 @@ Missing requested active skills:
 - [x] Return `tokenId`
 - [x] Implement `batchMintMembership(address[] calldata recipients, address gymAddress, uint8 tierId, uint256 durationDays, string[] calldata tokenURIs) external payable whenNotPaused returns (uint256[] memory tokenIds)`
 - [x] Loop over `recipients`, call internal `_mintOne(recipient, gymAddress, tierId, durationDays, uri)` helper for each
-- [ ] Return array of minted `tokenIds`
+- [x] Return array of minted `tokenIds`
 
 ### 4.8 View Functions
 - [ ] Implement `getMembershipGym(uint256 tokenId) external view returns (address)`
