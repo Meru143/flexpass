@@ -212,7 +212,7 @@ Missing requested active skills:
 - [x] Add `mapping(uint256 => uint8) private _membershipTier` (tokenId → tier ID)
 
 ### 4.3 Events
-- [ ] Define `event MembershipMinted(uint256 indexed tokenId, address indexed gymAddress, uint8 tierId, address indexed owner, uint64 expires)`
+- [x] Define `event MembershipMinted(uint256 indexed tokenId, address indexed gymAddress, uint8 tierId, address indexed owner, uint64 expires)`
 - [ ] Define `event MembershipBurned(uint256 indexed tokenId)`
 
 ### 4.4 Custom Errors

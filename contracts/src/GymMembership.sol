@@ -23,6 +23,10 @@ abstract contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Paus
     mapping(uint256 => address) private _membershipGym;
     mapping(uint256 => uint8) private _membershipTier;
 
+    event MembershipMinted(
+        uint256 indexed tokenId, address indexed gymAddress, uint8 tierId, address indexed owner, uint64 expires
+    );
+
     error GM_ZeroAddress();
 
     constructor(address registryAddress, address protocolTreasury_, address initialOwner)
