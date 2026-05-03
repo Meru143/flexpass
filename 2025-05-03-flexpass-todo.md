@@ -231,7 +231,7 @@ Missing requested active skills:
 - [x] Add guard: `require(_isApprovedOrOwner(msg.sender, tokenId))` in `setUser`
 - [x] Implement `userOf(uint256 tokenId) external view returns (address)` — return `_users[tokenId].user` if `block.timestamp <= _users[tokenId].expires`, else `address(0)`
 - [x] Implement `userExpires(uint256 tokenId) external view returns (uint256)` — return `_users[tokenId].expires`
-- [ ] Override `_update(address to, uint256 tokenId, address auth)` to clear `_users[tokenId]` on transfer (ERC-721 hook to reset user on ownership change)
+- [x] Override `_update(address to, uint256 tokenId, address auth)` to clear `_users[tokenId]` on transfer (ERC-721 hook to reset user on ownership change)
 
 ### 4.7 Minting Functions
 - [ ] Implement `mintMembership(address to, address gymAddress, uint8 tierId, uint256 durationDays) external payable whenNotPaused returns (uint256 tokenId)`
