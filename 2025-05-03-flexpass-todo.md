@@ -303,7 +303,7 @@ Missing requested active skills:
 - [x] Check `IERC4907(address(membershipNFT)).userExpires(tokenId) > block.timestamp` → revert `MKT_Expired`
 - [x] Call `membershipNFT.transferFrom(msg.sender, address(this), tokenId)` to escrow
 - [x] Store `_listings[tokenId] = Listing({ tokenId, seller: msg.sender, priceWei, listedAt: block.timestamp, active: true })`
-- [ ] Emit `MembershipListed`
+- [x] Emit `MembershipListed`
 
 ### 5.6 buyMembership Function
 - [ ] Implement `buyMembership(uint256 tokenId) external payable whenNotPaused nonReentrant`
