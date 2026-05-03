@@ -405,7 +405,7 @@ Missing requested active skills:
 - [x] Test `userOf(1) == buyer` immediately after mint
 - [x] Test `userExpires(1)` equals `block.timestamp + durationDays * 86400`
 - [x] Test `vm.warp(expiresAt + 1)` → `userOf(1)` returns `address(0)`
-- [ ] Test `royaltyInfo(1, 1 ether)` returns `(gymTreasury, 0.1 ether)` for 10% royalty
+- [x] Test `royaltyInfo(1, 1 ether)` returns `(gymTreasury, 0.1 ether)` for 10% royalty
 - [ ] Test transfer clears `_users[tokenId]`: transfer token to address B, verify `userOf(1) == address(0)`
 - [ ] Test `batchMintMembership` for 3 recipients returns 3 tokenIds
 - [ ] Test `pause()` → `mintMembership` reverts
