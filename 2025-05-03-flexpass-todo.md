@@ -427,7 +427,7 @@ Missing requested active skills:
 - [x] Test `buyMembership` with wrong value reverts `MKT_WrongValue`
 - [x] Test `delistMembership` by alice returns token, marks listing inactive
 - [x] Test `delistMembership` by bob reverts `MKT_NotOwner`
-- [ ] Test `updatePrice` by alice changes price, emits `PriceUpdated`
+- [x] Test `updatePrice` by alice changes price, emits `PriceUpdated`
 - [ ] Test `cleanExpiredListing` after `vm.warp(expires + 1)` succeeds
 - [ ] Test `cleanExpiredListing` on non-expired listing reverts
 
