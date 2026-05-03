@@ -240,7 +240,7 @@ Missing requested active skills:
 - [x] Calculate `expiresAt = uint64(block.timestamp + durationDays * 1 days)`
 - [x] Mint: `_safeMint(to, _nextTokenId)`
 - [x] Set user: `_users[_nextTokenId] = UserInfo({ user: to, expires: expiresAt })`
-- [ ] Set royalty: `_setTokenRoyalty(_nextTokenId, registry.getTreasury(gymAddress), registry.getRoyaltyBps(gymAddress))`
+- [x] Set royalty: `_setTokenRoyalty(_nextTokenId, registry.getTreasury(gymAddress), registry.getRoyaltyBps(gymAddress))`
 - [ ] Set metadata: `_setTokenURI(_nextTokenId, tokenUri)` (tokenUri passed as param from frontend IPFS upload)
 - [ ] Store gym/tier mappings: `_membershipGym[_nextTokenId] = gymAddress`; `_membershipTier[_nextTokenId] = tierId`
 - [ ] Emit `MembershipMinted`
