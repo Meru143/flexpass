@@ -374,7 +374,7 @@ Missing requested active skills:
 - [x] Create `script/SeedTestData.s.sol`
 - [x] Register 2 test gyms: "FitZone Mumbai" and "GoldGym Pune"
 - [x] Approve both gyms via `registry.approveGym()`
-- [ ] Mint 3 test memberships for test address (30-day Standard tier)
+- [x] Mint 3 test memberships for test address (30-day Standard tier)
 - [ ] List 1 membership on the market at 10 MATIC
 
 ---
