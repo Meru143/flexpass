@@ -19,6 +19,7 @@ abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
 
     error GR_AlreadyRegistered(address gymAddress);
     error GR_NotRegistered(address gymAddress);
+    error GR_RoyaltyTooHigh(uint96 provided, uint96 max);
 
     constructor(address initialOwner) Ownable(initialOwner) {}
 }
