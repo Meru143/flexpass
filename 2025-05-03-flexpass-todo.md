@@ -174,7 +174,7 @@ Missing requested active skills:
 - [x] Implement `registerGym(address gymAddress, address treasury, string calldata name, uint96 royaltyBps)` — stores `_gyms[gymAddress]`, appends to `_gymList`, emits `GymRegistered`
 - [x] Add `if (_gyms[gymAddress].gymAddress != address(0)) revert GR_AlreadyRegistered(gymAddress)` guard
 - [x] Add `if (royaltyBps > MembershipLib.MAX_ROYALTY_BPS) revert GR_RoyaltyTooHigh(royaltyBps, MAX_ROYALTY_BPS)` guard
-- [ ] Add `if (treasury == address(0)) revert GR_ZeroAddress()` guard
+- [x] Add `if (treasury == address(0)) revert GR_ZeroAddress()` guard
 - [ ] Implement `approveGym(address gymAddress) external onlyOwner` — sets `_gyms[gymAddress].approved = true`, emits `GymApproved`
 - [ ] Implement `revokeGym(address gymAddress) external onlyOwner` — sets `_gyms[gymAddress].approved = false`, emits `GymRevoked`
 - [ ] Implement `updateTreasury(address newTreasury) external` — caller must be the registered `gymAddress`, updates treasury, emits `TreasuryUpdated`
