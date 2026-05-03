@@ -514,7 +514,7 @@ Missing requested active skills:
 
 ### 9.6 Viem Client Setup
 - [x] Create `services/onchain.ts` with `createPublicClient({ chain: polygon, transport: http(process.env.POLYGON_RPC_URL) })`
-- [ ] Export `readMembershipState(tokenId)` that calls `userOf` and `userExpires` and returns combined result
+- [x] Export `readMembershipState(tokenId)` that calls `userOf` and `userExpires` and returns combined result
 
 ### 9.7 Pinata Service
 - [ ] Create `services/pinata.ts` with `new PinataSDK({ pinataJwt: process.env.PINATA_JWT })`
