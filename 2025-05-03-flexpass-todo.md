@@ -253,7 +253,7 @@ Missing requested active skills:
 ### 4.8 View Functions
 - [x] Implement `getMembershipGym(uint256 tokenId) external view returns (address)`
 - [x] Implement `getMembershipTier(uint256 tokenId) external view returns (uint8)`
-- [ ] Override `supportsInterface(bytes4 interfaceId)` to return true for ERC-4907 interface ID `0xad092b5c`, ERC-2981 `0x2a55205a`, and call `super.supportsInterface(interfaceId)`
+- [x] Override `supportsInterface(bytes4 interfaceId)` to return true for ERC-4907 interface ID `0xad092b5c`, ERC-2981 `0x2a55205a`, and call `super.supportsInterface(interfaceId)`
 
 ### 4.9 Admin Functions
 - [ ] Implement `setProtocolTreasury(address newTreasury) external onlyOwner`
