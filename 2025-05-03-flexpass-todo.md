@@ -213,7 +213,7 @@ Missing requested active skills:
 
 ### 4.3 Events
 - [x] Define `event MembershipMinted(uint256 indexed tokenId, address indexed gymAddress, uint8 tierId, address indexed owner, uint64 expires)`
-- [ ] Define `event MembershipBurned(uint256 indexed tokenId)`
+- [x] Define `event MembershipBurned(uint256 indexed tokenId)`
 
 ### 4.4 Custom Errors
 - [ ] Define `error GM_GymNotApproved(address gymAddress)`

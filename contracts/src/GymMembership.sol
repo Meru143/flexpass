@@ -26,6 +26,7 @@ abstract contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Paus
     event MembershipMinted(
         uint256 indexed tokenId, address indexed gymAddress, uint8 tierId, address indexed owner, uint64 expires
     );
+    event MembershipBurned(uint256 indexed tokenId);
 
     error GM_ZeroAddress();
 
