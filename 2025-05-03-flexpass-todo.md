@@ -422,7 +422,7 @@ Missing requested active skills:
 - [x] Test after `buyMembership`: `ownerOf(1) == bob`, `userOf(1) == bob`
 - [x] Test seller balance increased by `priceWei - royalty - fee` after buy
 - [x] Test gym treasury received royalty amount after buy
-- [ ] Test protocol treasury received 1% fee after buy
+- [x] Test protocol treasury received 1% fee after buy
 - [ ] Test `buyMembership` from alice (self-buy) reverts `MKT_SelfBuy`
 - [ ] Test `buyMembership` with wrong value reverts `MKT_WrongValue`
 - [ ] Test `delistMembership` by alice returns token, marks listing inactive
