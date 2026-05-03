@@ -2,6 +2,8 @@
 pragma solidity ^0.8.20;
 
 library MembershipLib {
+    uint96 internal constant MAX_ROYALTY_BPS = 3000;
+
     struct Tier {
         uint8 tierId;
         string name;
