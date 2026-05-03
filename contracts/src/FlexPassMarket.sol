@@ -24,6 +24,8 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
     event MembershipDelisted(uint256 indexed tokenId, address indexed seller);
     event PriceUpdated(uint256 indexed tokenId, uint256 oldPrice, uint256 newPrice);
 
+    error MKT_NotOwner(uint256 tokenId);
+
     constructor(address membershipAddress, address protocolTreasury_, address initialOwner) Ownable(initialOwner) {
         membershipNFT = IERC721(membershipAddress);
         protocolTreasury = protocolTreasury_;

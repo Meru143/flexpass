@@ -287,7 +287,7 @@ Missing requested active skills:
 - [x] Define `event PriceUpdated(uint256 indexed tokenId, uint256 oldPrice, uint256 newPrice)`
 
 ### 5.4 Custom Errors
-- [ ] Define `error MKT_NotOwner(uint256 tokenId)`
+- [x] Define `error MKT_NotOwner(uint256 tokenId)`
 - [ ] Define `error MKT_AlreadyListed(uint256 tokenId)`
 - [ ] Define `error MKT_NotListed(uint256 tokenId)`
 - [ ] Define `error MKT_Expired(uint256 tokenId)`
