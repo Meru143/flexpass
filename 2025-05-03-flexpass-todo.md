@@ -201,7 +201,7 @@ Missing requested active skills:
 - [x] Import `@openzeppelin/contracts/utils/Pausable.sol`
 - [x] Import `@openzeppelin/contracts/utils/ReentrancyGuard.sol`
 - [x] Import `./interfaces/IERC4907.sol`, `./interfaces/IGymRegistry.sol`, `./libraries/MembershipLib.sol`
-- [ ] Declare `contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, ReentrancyGuard, IERC4907`
+- [x] Declare `contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, ReentrancyGuard, IERC4907`
 
 ### 4.2 State Variables
 - [ ] Add `uint256 private _nextTokenId` counter (starts at 1)

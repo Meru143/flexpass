@@ -11,3 +11,17 @@ import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol
 import {IERC4907} from "./interfaces/IERC4907.sol";
 import {IGymRegistry} from "./interfaces/IGymRegistry.sol";
 import {MembershipLib} from "./libraries/MembershipLib.sol";
+
+abstract contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, ReentrancyGuard, IERC4907 {
+    bytes4 private constant _INTERFACE_ID_ERC4907 = 0xad092b5c;
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        virtual
+        override(ERC721URIStorage, ERC2981, IERC4907)
+        returns (bool)
+    {
+        return interfaceId == _INTERFACE_ID_ERC4907 || super.supportsInterface(interfaceId);
+    }
+}
