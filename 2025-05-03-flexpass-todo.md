@@ -48,7 +48,7 @@ Missing requested active skills:
 
 ### 1.1 Repository Initialization
 - [x] Create GitHub repo `flexpass` with MIT license
-- [ ] Add top-level `README.md` with project overview and badge placeholders
+- [x] Add top-level `README.md` with project overview and badge placeholders
 - [ ] Add `CHANGELOG.md` with `## [Unreleased]` section
 - [ ] Add `.gitignore` covering `node_modules/`, `.env*`, `out/`, `cache/`, `.next/`, `dist/`
 - [ ] Add `.editorconfig` with `indent_size = 2`, `end_of_line = lf`, `insert_final_newline = true`
