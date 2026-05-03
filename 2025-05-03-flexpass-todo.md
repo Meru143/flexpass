@@ -307,7 +307,7 @@ Missing requested active skills:
 
 ### 5.6 buyMembership Function
 - [x] Implement `buyMembership(uint256 tokenId) external payable whenNotPaused nonReentrant`
-- [ ] Check `_listings[tokenId].active` → revert `MKT_InactiveListing`
+- [x] Check `_listings[tokenId].active` → revert `MKT_InactiveListing`
 - [ ] Check `msg.sender != _listings[tokenId].seller` → revert `MKT_SelfBuy`
 - [ ] Check `membershipNFT.ownerOf(tokenId) == address(this)` → revert `MKT_OwnerMismatch` (orphan protection)
 - [ ] Check `msg.value == _listings[tokenId].priceWei` → revert `MKT_WrongValue`
