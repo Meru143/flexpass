@@ -267,7 +267,7 @@ Missing requested active skills:
 ### 5.1 Contract Shell
 - [x] Create `src/FlexPassMarket.sol`
 - [x] Import `@openzeppelin/contracts/token/ERC721/IERC721.sol`
-- [ ] Import `@openzeppelin/contracts/interfaces/IERC2981.sol`
+- [x] Import `@openzeppelin/contracts/interfaces/IERC2981.sol`
 - [ ] Import `@openzeppelin/contracts/access/Ownable2Step.sol`
 - [ ] Import `@openzeppelin/contracts/utils/Pausable.sol`
 - [ ] Import `@openzeppelin/contracts/utils/ReentrancyGuard.sol`
