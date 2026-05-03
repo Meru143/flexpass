@@ -91,4 +91,8 @@ abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
     function getRoyaltyBps(address gymAddress) external view override returns (uint96) {
         return _gyms[gymAddress].royaltyBps;
     }
+
+    function getAllGyms() external view returns (address[] memory) {
+        return _gymList;
+    }
 }
