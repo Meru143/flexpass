@@ -440,7 +440,7 @@ Missing requested active skills:
 - [x] Fuzz `registerGym(royaltyBps)`: `royaltyBps > 3000` always reverts
 
 ### 7.5 Integration.t.sol
-- [ ] Create `test/Integration.t.sol`
+- [x] Create `test/Integration.t.sol`
 - [ ] Test complete flow: register gym → approve → mint → list → buy → entry verify (`userOf` check)
 - [ ] Test royalty distribution across all 3 parties in one transaction
 - [ ] Test reentrancy: deploy `ReentrantBuyer` mock contract, call `buyMembership` from within fallback, verify second call reverts
