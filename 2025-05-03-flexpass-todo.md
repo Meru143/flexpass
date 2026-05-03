@@ -485,7 +485,7 @@ Missing requested active skills:
 ## Phase 9: API Server
 
 ### 9.1 Prisma Schema
-- [ ] Define `model Gym { id String @id; name String; address String @unique; treasury String; royaltyBps Int; approved Boolean; createdAt DateTime @default(now()) }`
+- [x] Define `model Gym { id String @id; name String; address String @unique; treasury String; royaltyBps Int; approved Boolean; createdAt DateTime @default(now()) }`
 - [ ] Define `model MembershipCache { id String @id; tokenId String @unique; gymAddress String; tierId Int; ownerAddress String; userAddress String; expiresAt DateTime; metadataUri String; updatedAt DateTime @updatedAt }`
 - [ ] Define `model EntryEvent { id String @id @default(cuid()); tokenId String; gymAddress String; enteredAt DateTime @default(now()); walletAddress String }`
 - [ ] Run `npx prisma migrate dev --name init` to create tables
