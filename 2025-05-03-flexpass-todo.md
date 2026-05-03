@@ -333,7 +333,7 @@ Missing requested active skills:
 ### 5.8 updatePrice Function
 - [x] Implement `updatePrice(uint256 tokenId, uint256 newPriceWei) external`
 - [x] Check `_listings[tokenId].active` → revert `MKT_InactiveListing`
-- [ ] Check `_listings[tokenId].seller == msg.sender` → revert `MKT_NotOwner`
+- [x] Check `_listings[tokenId].seller == msg.sender` → revert `MKT_NotOwner`
 - [ ] Emit `PriceUpdated` with old and new price
 - [ ] Update `_listings[tokenId].priceWei = newPriceWei`
 
