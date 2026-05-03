@@ -69,7 +69,7 @@ Missing requested active skills:
 - [x] Create `src/` directory structure: `src/`, `src/interfaces/`, `src/libraries/`
 - [x] Create `script/` directory
 - [x] Create `test/` directory
-- [ ] Delete Foundry scaffold `src/Counter.sol` and `test/Counter.t.sol`
+- [x] Delete Foundry scaffold `src/Counter.sol` and `test/Counter.t.sol`
 - [ ] Confirm `forge build` succeeds on empty project
 
 ### 1.3 Frontend Project Setup (`frontend/`)
