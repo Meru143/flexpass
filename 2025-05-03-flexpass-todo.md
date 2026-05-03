@@ -461,7 +461,7 @@ Missing requested active skills:
 - [x] Add `FlexPassMarket` contract as `dataSource` in `subgraph.yaml`
 - [x] Add `GymRegistry` contract as `dataSource` in `subgraph.yaml`
 - [x] Map each event to an AssemblyScript handler function
-- [ ] Run `graph codegen` to generate TypeScript types from schema
+- [x] Run `graph codegen` to generate TypeScript types from schema
 
 ### 8.3 AssemblyScript Mappings
 - [ ] Implement `handleMembershipMinted(event)`: create or update `Membership` entity; create `MembershipTransaction` with type "mint"
