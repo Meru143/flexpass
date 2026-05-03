@@ -564,7 +564,7 @@ Missing requested active skills:
 - [x] Show "Expired" in red if `expiresAt < Date.now() / 1000`
 
 ### 10.7 ListingCard Component
-- [ ] Create `components/ListingCard.tsx`
+- [x] Create `components/ListingCard.tsx`
 - [ ] Accept `{ tokenId, gymName, tier, expiresAt, priceWei, seller }`
 - [ ] Display price in MATIC and ~INR equivalent (from `priceFeed` via API)
 - [ ] Show "Buy" button linking to `/buy/${tokenId}`
