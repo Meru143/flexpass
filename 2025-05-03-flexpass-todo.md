@@ -275,7 +275,7 @@ Missing requested active skills:
 - [x] Declare `contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard`
 
 ### 5.2 State Variables
-- [ ] Add `IERC721 public immutable membershipNFT` — the `GymMembership` contract
+- [x] Add `IERC721 public immutable membershipNFT` — the `GymMembership` contract
 - [ ] Add `address public protocolTreasury`
 - [ ] Add `mapping(uint256 => MembershipLib.Listing) private _listings` (tokenId → Listing)
 - [ ] Add `uint256 public protocolFeeBps = 100` (1%)

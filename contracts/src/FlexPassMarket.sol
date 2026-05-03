@@ -12,5 +12,9 @@ import {IERC4907} from "./interfaces/IERC4907.sol";
 import {MembershipLib} from "./libraries/MembershipLib.sol";
 
 contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
-    constructor(address membershipAddress, address protocolTreasury_, address initialOwner) Ownable(initialOwner) {}
+    IERC721 public immutable membershipNFT;
+
+    constructor(address membershipAddress, address, address initialOwner) Ownable(initialOwner) {
+        membershipNFT = IERC721(membershipAddress);
+    }
 }
