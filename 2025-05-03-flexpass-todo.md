@@ -364,7 +364,7 @@ Missing requested active skills:
 - [x] In `run()`: read `DEPLOYER_PRIVATE_KEY` from env via `vm.envUint("DEPLOYER_PRIVATE_KEY")`
 - [x] Read `PROTOCOL_TREASURY` from env via `vm.envAddress("PROTOCOL_TREASURY")`
 - [x] `vm.startBroadcast(deployerKey)`
-- [ ] Deploy `GymRegistry` with `new GymRegistry(deployer)`
+- [x] Deploy `GymRegistry` with `new GymRegistry(deployer)`
 - [ ] Deploy `GymMembership` with `new GymMembership(address(registry), protocolTreasury, deployer)`
 - [ ] Deploy `FlexPassMarket` with `new FlexPassMarket(address(membership), protocolTreasury, deployer)`
 - [ ] `vm.stopBroadcast()`
