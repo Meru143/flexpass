@@ -149,7 +149,7 @@ Missing requested active skills:
 
 ### 3.1 Contract Shell
 - [x] Create `src/GymRegistry.sol`
-- [ ] Add SPDX license identifier `MIT` and `pragma solidity ^0.8.20`
+- [x] Add SPDX license identifier `MIT` and `pragma solidity ^0.8.20`
 - [ ] Import `@openzeppelin/contracts/access/Ownable2Step.sol`
 - [ ] Import `@openzeppelin/contracts/utils/Pausable.sol`
 - [ ] Import `./libraries/MembershipLib.sol` and `./interfaces/IGymRegistry.sol`
