@@ -457,7 +457,7 @@ Missing requested active skills:
 - [x] Define `Gym @entity` with: `id`, `name`, `treasury`, `royaltyBps`, `approved`, `totalMinted`, `totalRoyaltyEarned`
 
 ### 8.2 Subgraph Manifest
-- [ ] Add `GymMembership` contract as `dataSource` in `subgraph.yaml` with startBlock
+- [x] Add `GymMembership` contract as `dataSource` in `subgraph.yaml` with startBlock
 - [ ] Add `FlexPassMarket` contract as `dataSource` in `subgraph.yaml`
 - [ ] Add `GymRegistry` contract as `dataSource` in `subgraph.yaml`
 - [ ] Map each event to an AssemblyScript handler function
