@@ -9,4 +9,6 @@ interface IGymRegistry {
     function getGymInfo(address gymAddress) external view returns (MembershipLib.GymInfo memory);
 
     function getTreasury(address gymAddress) external view returns (address);
+
+    function getRoyaltyBps(address gymAddress) external view returns (uint96);
 }

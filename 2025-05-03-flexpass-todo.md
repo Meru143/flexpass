@@ -141,7 +141,7 @@ Missing requested active skills:
 - [x] Define `function isApproved(address gymAddress) external view returns (bool)`
 - [x] Define `function getGymInfo(address gymAddress) external view returns (MembershipLib.GymInfo memory)`
 - [x] Define `function getTreasury(address gymAddress) external view returns (address)`
-- [ ] Define `function getRoyaltyBps(address gymAddress) external view returns (uint96)`
+- [x] Define `function getRoyaltyBps(address gymAddress) external view returns (uint96)`
 
 ---
 
