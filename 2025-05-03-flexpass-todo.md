@@ -403,7 +403,7 @@ Missing requested active skills:
 - [x] Test `mintMembership` returns `tokenId = 1` on first call
 - [x] Test `ownerOf(1) == buyer` after mint
 - [x] Test `userOf(1) == buyer` immediately after mint
-- [ ] Test `userExpires(1)` equals `block.timestamp + durationDays * 86400`
+- [x] Test `userExpires(1)` equals `block.timestamp + durationDays * 86400`
 - [ ] Test `vm.warp(expiresAt + 1)` → `userOf(1)` returns `address(0)`
 - [ ] Test `royaltyInfo(1, 1 ether)` returns `(gymTreasury, 0.1 ether)` for 10% royalty
 - [ ] Test transfer clears `_users[tokenId]`: transfer token to address B, verify `userOf(1) == address(0)`
