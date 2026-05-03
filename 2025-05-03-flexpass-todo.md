@@ -256,7 +256,7 @@ Missing requested active skills:
 - [x] Override `supportsInterface(bytes4 interfaceId)` to return true for ERC-4907 interface ID `0xad092b5c`, ERC-2981 `0x2a55205a`, and call `super.supportsInterface(interfaceId)`
 
 ### 4.9 Admin Functions
-- [ ] Implement `setProtocolTreasury(address newTreasury) external onlyOwner`
+- [x] Implement `setProtocolTreasury(address newTreasury) external onlyOwner`
 - [ ] Implement `pause() external onlyOwner`
 - [ ] Implement `unpause() external onlyOwner`
 

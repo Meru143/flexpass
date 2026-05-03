@@ -138,6 +138,12 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
         return _membershipTier[tokenId];
     }
 
+    function setProtocolTreasury(address newTreasury) external onlyOwner {
+        if (newTreasury == address(0)) revert GM_ZeroAddress();
+
+        protocolTreasury = newTreasury;
+    }
+
     function _mintOne(address to, address gymAddress, uint8 tierId, uint256 durationDays, string memory tokenUri)
         internal
         returns (uint256 tokenId)
