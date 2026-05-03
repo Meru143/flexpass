@@ -168,7 +168,7 @@ Missing requested active skills:
 - [x] Define `error GR_AlreadyRegistered(address gymAddress)`
 - [x] Define `error GR_NotRegistered(address gymAddress)`
 - [x] Define `error GR_RoyaltyTooHigh(uint96 provided, uint96 max)`
-- [ ] Define `error GR_ZeroAddress()`
+- [x] Define `error GR_ZeroAddress()`
 
 ### 3.4 Registration & Approval Functions
 - [ ] Implement `registerGym(address gymAddress, address treasury, string calldata name, uint96 royaltyBps)` — stores `_gyms[gymAddress]`, appends to `_gymList`, emits `GymRegistered`
