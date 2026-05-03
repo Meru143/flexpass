@@ -412,7 +412,7 @@ Missing requested active skills:
 - [x] Test `supportsInterface` returns true for ERC-4907 `0xad092b5c` and ERC-2981 `0x2a55205a`
 
 ### 7.3 FlexPassMarket.t.sol
-- [ ] Create `test/FlexPassMarket.t.sol`
+- [x] Create `test/FlexPassMarket.t.sol`
 - [ ] `setUp()`: deploy full stack (Registry, Membership, Market); mint tokenId 1 to `alice`; `vm.prank(alice)` approve market for token
 - [ ] Test `listMembership` from alice succeeds, emits `MembershipListed`
 - [ ] Test `listMembership` from non-owner `bob` reverts `MKT_NotOwner`
