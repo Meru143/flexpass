@@ -428,7 +428,7 @@ Missing requested active skills:
 - [x] Test `delistMembership` by alice returns token, marks listing inactive
 - [x] Test `delistMembership` by bob reverts `MKT_NotOwner`
 - [x] Test `updatePrice` by alice changes price, emits `PriceUpdated`
-- [ ] Test `cleanExpiredListing` after `vm.warp(expires + 1)` succeeds
+- [x] Test `cleanExpiredListing` after `vm.warp(expires + 1)` succeeds
 - [ ] Test `cleanExpiredListing` on non-expired listing reverts
 
 ### 7.4 Fuzz.t.sol
