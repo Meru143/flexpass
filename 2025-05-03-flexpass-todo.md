@@ -96,8 +96,8 @@ Missing requested active skills:
 - [x] Install graph-cli: `npm i -g @graphprotocol/graph-cli`
 - [x] `cd subgraph && graph init --protocol ethereum --from-contract <placeholder> flexpass`
 - [x] Create `schema.graphql` stub with empty `Membership` entity
-- [ ] Create `subgraph.yaml` stub pointing to `GymMembership` contract
-- [ ] Create `src/mappings.ts` stub AssemblyScript file
+- [x] Create `subgraph.yaml` stub pointing to `GymMembership` contract
+- [x] Create `src/mappings.ts` stub AssemblyScript file
 
 ### 1.6 SDK Project Setup (`sdk/`)
 - [ ] `cd sdk && npm init -y --scope @flexpass` (package name: `@flexpass/verifier`)

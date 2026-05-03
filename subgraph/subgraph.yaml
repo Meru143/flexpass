@@ -16,11 +16,11 @@ dataSources:
       apiVersion: 0.0.9
       language: wasm/assemblyscript
       entities:
-        - MembershipMinted
+        - Membership
       abis:
         - name: GymMembership
           file: ./abis/GymMembership.json
       eventHandlers:
         - event: MembershipMinted(indexed uint256,indexed address,uint8,indexed address,uint64)
           handler: handleMembershipMinted
-      file: ./src/gym-membership.ts
+      file: ./src/mappings.ts
