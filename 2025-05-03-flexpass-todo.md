@@ -112,7 +112,7 @@ Missing requested active skills:
 - [x] Add `contracts/.env.example` with `POLYGON_RPC_URL`, `AMOY_RPC_URL`, `DEPLOYER_PRIVATE_KEY`, `POLYGONSCAN_API_KEY`
 - [x] Add `frontend/.env.example` with all `NEXT_PUBLIC_*` variables
 - [x] Add `api/.env.example` with `DATABASE_URL`, `PINATA_JWT`, `COINGECKO_API_KEY`, `WEBHOOK_HMAC_SECRET`
-- [ ] Add all `.env*` patterns to root `.gitignore`
+- [x] Add all `.env*` patterns to root `.gitignore`
 
 ---
 
