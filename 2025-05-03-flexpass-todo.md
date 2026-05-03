@@ -68,7 +68,7 @@ Missing requested active skills:
 - [x] Create `remappings.txt`: add `@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/`
 - [x] Create `src/` directory structure: `src/`, `src/interfaces/`, `src/libraries/`
 - [x] Create `script/` directory
-- [ ] Create `test/` directory
+- [x] Create `test/` directory
 - [ ] Delete Foundry scaffold `src/Counter.sol` and `test/Counter.t.sol`
 - [ ] Confirm `forge build` succeeds on empty project
 
