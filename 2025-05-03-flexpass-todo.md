@@ -110,7 +110,7 @@ Missing requested active skills:
 ### 1.7 Environment Variables
 - [x] Create root `.env.example` with all variables from Section 17 and empty placeholder values
 - [x] Add `contracts/.env.example` with `POLYGON_RPC_URL`, `AMOY_RPC_URL`, `DEPLOYER_PRIVATE_KEY`, `POLYGONSCAN_API_KEY`
-- [ ] Add `frontend/.env.example` with all `NEXT_PUBLIC_*` variables
+- [x] Add `frontend/.env.example` with all `NEXT_PUBLIC_*` variables
 - [ ] Add `api/.env.example` with `DATABASE_URL`, `PINATA_JWT`, `COINGECKO_API_KEY`, `WEBHOOK_HMAC_SECRET`
 - [ ] Add all `.env*` patterns to root `.gitignore`
 
