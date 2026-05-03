@@ -140,7 +140,7 @@ Missing requested active skills:
 - [x] Create `src/interfaces/IGymRegistry.sol`
 - [x] Define `function isApproved(address gymAddress) external view returns (bool)`
 - [x] Define `function getGymInfo(address gymAddress) external view returns (MembershipLib.GymInfo memory)`
-- [ ] Define `function getTreasury(address gymAddress) external view returns (address)`
+- [x] Define `function getTreasury(address gymAddress) external view returns (address)`
 - [ ] Define `function getRoyaltyBps(address gymAddress) external view returns (uint96)`
 
 ---
