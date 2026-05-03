@@ -342,7 +342,7 @@ Missing requested active skills:
 - [x] Check `_listings[tokenId].active` → revert `MKT_InactiveListing`
 - [x] Check `IERC4907(address(membershipNFT)).userExpires(tokenId) <= block.timestamp` (must be expired)
 - [x] Mark inactive: `_listings[tokenId].active = false`
-- [ ] Return NFT to seller: `membershipNFT.transferFrom(address(this), _listings[tokenId].seller, tokenId)`
+- [x] Return NFT to seller: `membershipNFT.transferFrom(address(this), _listings[tokenId].seller, tokenId)`
 - [ ] Emit `MembershipDelisted`
 
 ### 5.10 View Functions
