@@ -179,6 +179,10 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
         _pause();
     }
 
+    function unpause() external onlyOwner {
+        _unpause();
+    }
+
     function _sendValue(address recipient, uint256 amount) private {
         if (amount == 0) return;
         if (recipient == address(0)) revert MKT_ZeroAddress();

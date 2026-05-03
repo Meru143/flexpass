@@ -353,7 +353,7 @@ Missing requested active skills:
 - [x] Implement `setProtocolFeeBps(uint256 newBps) external onlyOwner` — cap at 500 (5%)
 - [x] Implement `setProtocolTreasury(address newTreasury) external onlyOwner`
 - [x] Implement `pause() external onlyOwner`
-- [ ] Implement `unpause() external onlyOwner`
+- [x] Implement `unpause() external onlyOwner`
 
 ---
 
