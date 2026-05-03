@@ -530,7 +530,7 @@ Missing requested active skills:
 - [x] Export config as default
 
 ### 10.2 Contract Bindings
-- [ ] Create `lib/contracts.ts` with `GYM_MEMBERSHIP_ADDRESS`, `MARKET_ADDRESS`, `REGISTRY_ADDRESS` per chainId
+- [x] Create `lib/contracts.ts` with `GYM_MEMBERSHIP_ADDRESS`, `MARKET_ADDRESS`, `REGISTRY_ADDRESS` per chainId
 - [ ] Export `GymMembershipABI` (copy from `contracts/out/GymMembership.sol/GymMembership.json` after build)
 - [ ] Export `FlexPassMarketABI`
 - [ ] Export `GymRegistryABI`
