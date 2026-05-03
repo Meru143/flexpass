@@ -406,7 +406,7 @@ Missing requested active skills:
 - [x] Test `userExpires(1)` equals `block.timestamp + durationDays * 86400`
 - [x] Test `vm.warp(expiresAt + 1)` → `userOf(1)` returns `address(0)`
 - [x] Test `royaltyInfo(1, 1 ether)` returns `(gymTreasury, 0.1 ether)` for 10% royalty
-- [ ] Test transfer clears `_users[tokenId]`: transfer token to address B, verify `userOf(1) == address(0)`
+- [x] Test transfer clears `_users[tokenId]`: transfer token to address B, verify `userOf(1) == address(0)`
 - [ ] Test `batchMintMembership` for 3 recipients returns 3 tokenIds
 - [ ] Test `pause()` → `mintMembership` reverts
 - [ ] Test `supportsInterface` returns true for ERC-4907 `0xad092b5c` and ERC-2981 `0x2a55205a`
