@@ -282,7 +282,7 @@ Missing requested active skills:
 
 ### 5.3 Events
 - [x] Define `event MembershipListed(uint256 indexed tokenId, address indexed seller, uint256 priceWei)`
-- [ ] Define `event MembershipSold(uint256 indexed tokenId, address indexed seller, address indexed buyer, uint256 priceWei, uint256 royaltyPaid)`
+- [x] Define `event MembershipSold(uint256 indexed tokenId, address indexed seller, address indexed buyer, uint256 priceWei, uint256 royaltyPaid)`
 - [ ] Define `event MembershipDelisted(uint256 indexed tokenId, address indexed seller)`
 - [ ] Define `event PriceUpdated(uint256 indexed tokenId, uint256 oldPrice, uint256 newPrice)`
 
