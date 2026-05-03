@@ -371,7 +371,7 @@ Missing requested active skills:
 - [x] Log addresses with `console.log("GymRegistry:", address(registry))`
 
 ### 6.2 SeedTestData.s.sol
-- [ ] Create `script/SeedTestData.s.sol`
+- [x] Create `script/SeedTestData.s.sol`
 - [ ] Register 2 test gyms: "FitZone Mumbai" and "GoldGym Pune"
 - [ ] Approve both gyms via `registry.approveGym()`
 - [ ] Mint 3 test memberships for test address (30-day Standard tier)
