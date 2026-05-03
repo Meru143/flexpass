@@ -559,7 +559,7 @@ Missing requested active skills:
 ### 10.6 ExpiryCountdown Component
 - [x] Create `components/ExpiryCountdown.tsx`
 - [x] Accept `expiresAt: number` (unix timestamp)
-- [ ] Use `useEffect` + `setInterval` to update countdown every second
+- [x] Use `useEffect` + `setInterval` to update countdown every second
 - [ ] Show "X days Y hours" format; red if < 7 days remaining
 - [ ] Show "Expired" in red if `expiresAt < Date.now() / 1000`
 
