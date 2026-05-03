@@ -557,7 +557,7 @@ Missing requested active skills:
 - [x] Show "Sell" button if not listed; "Listed" badge if listed
 
 ### 10.6 ExpiryCountdown Component
-- [ ] Create `components/ExpiryCountdown.tsx`
+- [x] Create `components/ExpiryCountdown.tsx`
 - [ ] Accept `expiresAt: number` (unix timestamp)
 - [ ] Use `useEffect` + `setInterval` to update countdown every second
 - [ ] Show "X days Y hours" format; red if < 7 days remaining
