@@ -284,7 +284,7 @@ Missing requested active skills:
 - [x] Define `event MembershipListed(uint256 indexed tokenId, address indexed seller, uint256 priceWei)`
 - [x] Define `event MembershipSold(uint256 indexed tokenId, address indexed seller, address indexed buyer, uint256 priceWei, uint256 royaltyPaid)`
 - [x] Define `event MembershipDelisted(uint256 indexed tokenId, address indexed seller)`
-- [ ] Define `event PriceUpdated(uint256 indexed tokenId, uint256 oldPrice, uint256 newPrice)`
+- [x] Define `event PriceUpdated(uint256 indexed tokenId, uint256 oldPrice, uint256 newPrice)`
 
 ### 5.4 Custom Errors
 - [ ] Define `error MKT_NotOwner(uint256 tokenId)`
