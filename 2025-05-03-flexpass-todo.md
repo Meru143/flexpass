@@ -509,7 +509,7 @@ Missing requested active skills:
 ### 9.5 Routes — webhooks.ts
 - [x] Implement `POST /webhooks/gym-entry` — validate HMAC-SHA256 signature header `X-FlexPass-Signature`
 - [x] Parse `{ tokenId, gymAddress, walletAddress, timestamp }` body
-- [ ] Insert `EntryEvent` row into PostgreSQL
+- [x] Insert `EntryEvent` row into PostgreSQL
 - [ ] Return 200 OK
 
 ### 9.6 Viem Client Setup
