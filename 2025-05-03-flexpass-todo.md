@@ -573,7 +573,7 @@ Missing requested active skills:
 ### 10.8 RoyaltyBreakdown Component
 - [x] Create `components/RoyaltyBreakdown.tsx`
 - [x] Accept `{ priceWei, royaltyBps, gymName }`
-- [ ] Show table: Total Price / Gym Royalty (% and MATIC amount) / Protocol Fee (1%) / Seller Receives
+- [x] Show table: Total Price / Gym Royalty (% and MATIC amount) / Protocol Fee (1%) / Seller Receives
 - [ ] Use `formatUnits(royaltyAmount, 18)` from viem for MATIC display
 
 ### 10.9 Pages
