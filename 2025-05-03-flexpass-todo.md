@@ -451,7 +451,7 @@ Missing requested active skills:
 ## Phase 8: Subgraph Implementation
 
 ### 8.1 Schema Definition
-- [ ] Define `Membership @entity` with all fields: `id`, `gymAddress`, `tierId`, `owner`, `user`, `expiresAt`, `mintedAt`, `uri`, `currentListing`, `transactions`
+- [x] Define `Membership @entity` with all fields: `id`, `gymAddress`, `tierId`, `owner`, `user`, `expiresAt`, `mintedAt`, `uri`, `currentListing`, `transactions`
 - [ ] Define `Listing @entity` with: `id`, `membership`, `seller`, `priceWei`, `listedAt`, `active`
 - [ ] Define `MembershipTransaction @entity` with: `id`, `type`, `membership`, `from`, `to`, `priceWei`, `royaltyPaid`, `timestamp`
 - [ ] Define `Gym @entity` with: `id`, `name`, `treasury`, `royaltyBps`, `approved`, `totalMinted`, `totalRoyaltyEarned`

@@ -1,3 +1,42 @@
 type Membership @entity(immutable: false) {
   id: ID!
+  gymAddress: Bytes!
+  tierId: Int!
+  owner: Bytes!
+  user: Bytes
+  expiresAt: BigInt!
+  mintedAt: BigInt!
+  uri: String!
+  currentListing: Listing
+  transactions: [MembershipTransaction!]! @derivedFrom(field: "membership")
+}
+
+type Listing @entity(immutable: false) {
+  id: ID!
+  membership: Membership!
+  seller: Bytes!
+  priceWei: BigInt!
+  listedAt: BigInt!
+  active: Boolean!
+}
+
+type MembershipTransaction @entity(immutable: false) {
+  id: ID!
+  type: String!
+  membership: Membership!
+  from: Bytes!
+  to: Bytes
+  priceWei: BigInt
+  royaltyPaid: BigInt
+  timestamp: BigInt!
+}
+
+type Gym @entity(immutable: false) {
+  id: ID!
+  name: String!
+  treasury: Bytes!
+  royaltyBps: Int!
+  approved: Boolean!
+  totalMinted: BigInt!
+  totalRoyaltyEarned: BigInt!
 }
