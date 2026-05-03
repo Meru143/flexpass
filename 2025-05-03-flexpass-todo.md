@@ -89,7 +89,7 @@ Missing requested active skills:
 - [x] Install dev: `npm i -D typescript @types/node ts-node nodemon`
 - [x] Create `src/index.ts` with basic `Hono` app and `serve()` call
 - [x] Create `tsconfig.json` with `"module": "ESNext"`, `"target": "ES2022"`, `"strict": true`
-- [ ] Initialize Prisma: `npx prisma init --datasource-provider postgresql`
+- [x] Initialize Prisma: `npx prisma init --datasource-provider postgresql`
 - [ ] Create `src/db/client.ts` with `PrismaClient` singleton
 
 ### 1.5 Subgraph Project Setup (`subgraph/`)
