@@ -429,7 +429,7 @@ Missing requested active skills:
 - [x] Test `delistMembership` by bob reverts `MKT_NotOwner`
 - [x] Test `updatePrice` by alice changes price, emits `PriceUpdated`
 - [x] Test `cleanExpiredListing` after `vm.warp(expires + 1)` succeeds
-- [ ] Test `cleanExpiredListing` on non-expired listing reverts
+- [x] Test `cleanExpiredListing` on non-expired listing reverts
 
 ### 7.4 Fuzz.t.sol
 - [ ] Create `test/Fuzz.t.sol`
