@@ -52,7 +52,7 @@ Missing requested active skills:
 - [x] Add `CHANGELOG.md` with `## [Unreleased]` section
 - [x] Add `.gitignore` covering `node_modules/`, `.env*`, `out/`, `cache/`, `.next/`, `dist/`
 - [x] Add `.editorconfig` with `indent_size = 2`, `end_of_line = lf`, `insert_final_newline = true`
-- [ ] Create monorepo folder structure: `contracts/`, `frontend/`, `api/`, `subgraph/`, `sdk/`
+- [x] Create monorepo folder structure: `contracts/`, `frontend/`, `api/`, `subgraph/`, `sdk/`
 - [ ] Add root-level `Makefile` with stub targets
 - [ ] Create `.github/workflows/ci.yml` stub file
 - [ ] Create `.github/workflows/deploy.yml` stub file
