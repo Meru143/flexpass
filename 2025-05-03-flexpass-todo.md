@@ -388,7 +388,7 @@ Missing requested active skills:
 - [x] Test `registerGym` with zero treasury address reverts with `GR_ZeroAddress`
 - [x] Test `registerGym` with royalty > 3000 bps reverts with `GR_RoyaltyTooHigh`
 - [x] Test duplicate `registerGym` reverts with `GR_AlreadyRegistered`
-- [ ] Test `approveGym` called by non-owner reverts
+- [x] Test `approveGym` called by non-owner reverts
 - [ ] Test `isApproved` returns false before approval
 - [ ] Test `isApproved` returns true after `approveGym`
 - [ ] Test `revokeGym` sets `isApproved` back to false
