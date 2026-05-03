@@ -49,7 +49,7 @@ Missing requested active skills:
 ### 1.1 Repository Initialization
 - [x] Create GitHub repo `flexpass` with MIT license
 - [x] Add top-level `README.md` with project overview and badge placeholders
-- [ ] Add `CHANGELOG.md` with `## [Unreleased]` section
+- [x] Add `CHANGELOG.md` with `## [Unreleased]` section
 - [ ] Add `.gitignore` covering `node_modules/`, `.env*`, `out/`, `cache/`, `.next/`, `dist/`
 - [ ] Add `.editorconfig` with `indent_size = 2`, `end_of_line = lf`, `insert_final_newline = true`
 - [ ] Create monorepo folder structure: `contracts/`, `frontend/`, `api/`, `subgraph/`, `sdk/`
