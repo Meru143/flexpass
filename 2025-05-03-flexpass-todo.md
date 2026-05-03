@@ -441,7 +441,7 @@ Missing requested active skills:
 
 ### 7.5 Integration.t.sol
 - [x] Create `test/Integration.t.sol`
-- [ ] Test complete flow: register gym → approve → mint → list → buy → entry verify (`userOf` check)
+- [x] Test complete flow: register gym → approve → mint → list → buy → entry verify (`userOf` check)
 - [ ] Test royalty distribution across all 3 parties in one transaction
 - [ ] Test reentrancy: deploy `ReentrantBuyer` mock contract, call `buyMembership` from within fallback, verify second call reverts
 - [ ] Test pause/unpause full market cycle
