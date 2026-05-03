@@ -130,7 +130,7 @@ Missing requested active skills:
 
 ### 2.2 IERC4907.sol Interface
 - [x] Create `src/interfaces/IERC4907.sol`
-- [ ] Define `function setUser(uint256 tokenId, address user, uint64 expires) external`
+- [x] Define `function setUser(uint256 tokenId, address user, uint64 expires) external`
 - [ ] Define `function userOf(uint256 tokenId) external view returns (address)`
 - [ ] Define `function userExpires(uint256 tokenId) external view returns (uint256)`
 - [ ] Define `event UpdateUser(uint256 indexed tokenId, address indexed user, uint64 expires)`
