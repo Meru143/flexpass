@@ -207,7 +207,7 @@ Missing requested active skills:
 - [x] Add `uint256 private _nextTokenId` counter (starts at 1)
 - [x] Add `IGymRegistry public immutable registry` set in constructor
 - [x] Add `address public protocolTreasury` for 1% fee collection
-- [ ] Add `mapping(uint256 => IERC4907.UserInfo) private _users` struct: `{ address user; uint64 expires }`
+- [x] Add `mapping(uint256 => IERC4907.UserInfo) private _users` struct: `{ address user; uint64 expires }`
 - [ ] Add `mapping(uint256 => address) private _membershipGym` (tokenId → gym address)
 - [ ] Add `mapping(uint256 => uint8) private _membershipTier` (tokenId → tier ID)
 

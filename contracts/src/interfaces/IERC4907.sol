@@ -2,6 +2,11 @@
 pragma solidity ^0.8.20;
 
 interface IERC4907 {
+    struct UserInfo {
+        address user;
+        uint64 expires;
+    }
+
     event UpdateUser(uint256 indexed tokenId, address indexed user, uint64 expires);
 
     function setUser(uint256 tokenId, address user, uint64 expires) external;
