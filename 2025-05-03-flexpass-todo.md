@@ -518,7 +518,7 @@ Missing requested active skills:
 
 ### 9.7 Pinata Service
 - [x] Create `services/pinata.ts` with `new PinataSDK({ pinataJwt: process.env.PINATA_JWT })`
-- [ ] Implement `uploadMetadata(metadata: object): Promise<string>` → returns `ipfs://` URI
+- [x] Implement `uploadMetadata(metadata: object): Promise<string>` → returns `ipfs://` URI
 - [ ] Implement `getMetadata(cid: string): Promise<object>` → fetches from Pinata gateway
 
 ---
