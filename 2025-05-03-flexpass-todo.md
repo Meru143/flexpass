@@ -278,7 +278,7 @@ Missing requested active skills:
 - [x] Add `IERC721 public immutable membershipNFT` — the `GymMembership` contract
 - [x] Add `address public protocolTreasury`
 - [x] Add `mapping(uint256 => MembershipLib.Listing) private _listings` (tokenId → Listing)
-- [ ] Add `uint256 public protocolFeeBps = 100` (1%)
+- [x] Add `uint256 public protocolFeeBps = 100` (1%)
 
 ### 5.3 Events
 - [ ] Define `event MembershipListed(uint256 indexed tokenId, address indexed seller, uint256 priceWei)`
