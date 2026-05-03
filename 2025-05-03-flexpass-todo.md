@@ -527,7 +527,7 @@ Missing requested active skills:
 
 ### 10.1 Wagmi Config
 - [x] Create `lib/wagmi.ts` with `getDefaultConfig({ appName: 'FlexPass', projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID, chains: [polygon, polygonAmoy], ssr: true })`
-- [ ] Export config as default
+- [x] Export config as default
 
 ### 10.2 Contract Bindings
 - [ ] Create `lib/contracts.ts` with `GYM_MEMBERSHIP_ADDRESS`, `MARKET_ADDRESS`, `REGISTRY_ADDRESS` per chainId
