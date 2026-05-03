@@ -510,7 +510,7 @@ Missing requested active skills:
 - [x] Implement `POST /webhooks/gym-entry` — validate HMAC-SHA256 signature header `X-FlexPass-Signature`
 - [x] Parse `{ tokenId, gymAddress, walletAddress, timestamp }` body
 - [x] Insert `EntryEvent` row into PostgreSQL
-- [ ] Return 200 OK
+- [x] Return 200 OK
 
 ### 9.6 Viem Client Setup
 - [ ] Create `services/onchain.ts` with `createPublicClient({ chain: polygon, transport: http(process.env.POLYGON_RPC_URL) })`
