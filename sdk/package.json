@@ -14,5 +14,9 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "viem": "^2.48.8"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3"
   }
 }

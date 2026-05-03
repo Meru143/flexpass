@@ -102,7 +102,7 @@ Missing requested active skills:
 ### 1.6 SDK Project Setup (`sdk/`)
 - [x] `cd sdk && npm init -y --scope @flexpass` (package name: `@flexpass/verifier`)
 - [x] Install: `npm i viem`
-- [ ] Install dev: `npm i -D typescript tsup`
+- [x] Install dev: `npm i -D typescript tsup`
 - [ ] Create `src/index.ts` with `checkAccess` stub function
 - [ ] Create `src/types.ts` with `AccessResult` and `VerifierConfig` interfaces
 - [ ] Configure `tsup.config.ts` for dual CJS + ESM output
