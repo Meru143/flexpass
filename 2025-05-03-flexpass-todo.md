@@ -561,7 +561,7 @@ Missing requested active skills:
 - [x] Accept `expiresAt: number` (unix timestamp)
 - [x] Use `useEffect` + `setInterval` to update countdown every second
 - [x] Show "X days Y hours" format; red if < 7 days remaining
-- [ ] Show "Expired" in red if `expiresAt < Date.now() / 1000`
+- [x] Show "Expired" in red if `expiresAt < Date.now() / 1000`
 
 ### 10.7 ListingCard Component
 - [ ] Create `components/ListingCard.tsx`
