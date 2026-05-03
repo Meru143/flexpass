@@ -218,7 +218,7 @@ Missing requested active skills:
 ### 4.4 Custom Errors
 - [x] Define `error GM_GymNotApproved(address gymAddress)`
 - [x] Define `error GM_ZeroDuration()`
-- [ ] Define `error GM_InsufficientPayment(uint256 sent, uint256 required)`
+- [x] Define `error GM_InsufficientPayment(uint256 sent, uint256 required)`
 - [ ] Define `error GM_NotOwner(uint256 tokenId, address caller)`
 
 ### 4.5 Constructor
