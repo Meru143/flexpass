@@ -574,7 +574,7 @@ Missing requested active skills:
 - [x] Create `components/RoyaltyBreakdown.tsx`
 - [x] Accept `{ priceWei, royaltyBps, gymName }`
 - [x] Show table: Total Price / Gym Royalty (% and MATIC amount) / Protocol Fee (1%) / Seller Receives
-- [ ] Use `formatUnits(royaltyAmount, 18)` from viem for MATIC display
+- [x] Use `formatUnits(royaltyAmount, 18)` from viem for MATIC display
 
 ### 10.9 Pages
 - [ ] Create `app/page.tsx` — hero section, stats ticker (total minted from subgraph), CTA buttons "Browse Listings" and "Connect Wallet"
