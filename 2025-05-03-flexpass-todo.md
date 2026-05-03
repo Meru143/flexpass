@@ -177,7 +177,7 @@ Missing requested active skills:
 - [x] Add `if (treasury == address(0)) revert GR_ZeroAddress()` guard
 - [x] Implement `approveGym(address gymAddress) external onlyOwner` — sets `_gyms[gymAddress].approved = true`, emits `GymApproved`
 - [x] Implement `revokeGym(address gymAddress) external onlyOwner` — sets `_gyms[gymAddress].approved = false`, emits `GymRevoked`
-- [ ] Implement `updateTreasury(address newTreasury) external` — caller must be the registered `gymAddress`, updates treasury, emits `TreasuryUpdated`
+- [x] Implement `updateTreasury(address newTreasury) external` — caller must be the registered `gymAddress`, updates treasury, emits `TreasuryUpdated`
 
 ### 3.5 View Functions
 - [ ] Implement `isApproved(address gymAddress) external view returns (bool)` — returns `_gyms[gymAddress].approved`

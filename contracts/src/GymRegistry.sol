@@ -63,4 +63,16 @@ abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
 
         emit GymRevoked(gymAddress);
     }
+
+    function updateTreasury(address newTreasury) external whenNotPaused {
+        if (newTreasury == address(0)) revert GR_ZeroAddress();
+
+        MembershipLib.GymInfo storage gym = _gyms[msg.sender];
+        if (gym.gymAddress == address(0)) revert GR_NotRegistered(msg.sender);
+
+        address oldTreasury = gym.treasury;
+        gym.treasury = newTreasury;
+
+        emit TreasuryUpdated(msg.sender, oldTreasury, newTreasury);
+    }
 }
