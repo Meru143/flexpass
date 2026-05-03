@@ -470,7 +470,7 @@ Missing requested active skills:
 - [x] Implement `handleMembershipSold(event)`: update `Listing.active = false`; create `MembershipTransaction` with type "buy" and `royaltyPaid`; update `Membership.owner` and `Membership.user`; increment `Gym.totalRoyaltyEarned`
 - [x] Implement `handleMembershipDelisted(event)`: update `Listing.active = false`
 - [x] Implement `handleGymRegistered(event)`: create `Gym` entity
-- [ ] Implement `handleGymApproved(event)`: update `Gym.approved = true`
+- [x] Implement `handleGymApproved(event)`: update `Gym.approved = true`
 
 ### 8.4 Build & Deploy
 - [ ] Run `graph build` and verify no AssemblyScript errors
