@@ -119,7 +119,7 @@ Missing requested active skills:
 ## Phase 2: Smart Contract — Shared Library
 
 ### 2.1 MembershipLib.sol
-- [ ] Create `src/libraries/MembershipLib.sol`
+- [x] Create `src/libraries/MembershipLib.sol`
 - [ ] Define `struct Tier { uint8 tierId; string name; uint256 pricePerMonth; uint256 maxCapacity; }`
 - [ ] Define `struct GymInfo { address gymAddress; address treasury; string name; uint96 royaltyBps; bool approved; }`
 - [ ] Define `struct Listing { uint256 tokenId; address seller; uint256 priceWei; uint256 listedAt; bool active; }`
