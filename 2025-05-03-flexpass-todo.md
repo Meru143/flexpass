@@ -159,7 +159,7 @@ Missing requested active skills:
 - [x] Declare constructor accepting `initialOwner` address, pass to `Ownable2Step(initialOwner)`
 
 ### 3.2 Events
-- [ ] Define `event GymRegistered(address indexed gymAddress, string name, address treasury)`
+- [x] Define `event GymRegistered(address indexed gymAddress, string name, address treasury)`
 - [ ] Define `event GymApproved(address indexed gymAddress)`
 - [ ] Define `event GymRevoked(address indexed gymAddress)`
 - [ ] Define `event TreasuryUpdated(address indexed gymAddress, address oldTreasury, address newTreasury)`

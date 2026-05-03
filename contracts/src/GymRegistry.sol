@@ -12,5 +12,7 @@ abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
     mapping(address => MembershipLib.GymInfo) private _gyms;
     address[] private _gymList;
 
+    event GymRegistered(address indexed gymAddress, string name, address treasury);
+
     constructor(address initialOwner) Ownable(initialOwner) {}
 }
