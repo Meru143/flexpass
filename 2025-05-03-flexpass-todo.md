@@ -437,7 +437,7 @@ Missing requested active skills:
 - [x] Fuzz `listMembership(priceWei)`: for any valid price, listing stores correct `priceWei`
 - [x] Fuzz `buyMembership(value)`: sending wrong value always reverts; sending correct value always succeeds
 - [x] Fuzz `royaltyInfo(tokenId, salePrice)`: returned royalty equals `salePrice * royaltyBps / 10000`
-- [ ] Fuzz `registerGym(royaltyBps)`: `royaltyBps > 3000` always reverts
+- [x] Fuzz `registerGym(royaltyBps)`: `royaltyBps > 3000` always reverts
 
 ### 7.5 Integration.t.sol
 - [ ] Create `test/Integration.t.sol`
