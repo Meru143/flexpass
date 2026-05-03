@@ -319,7 +319,7 @@ Missing requested active skills:
 - [x] Set user role: `IERC4907(address(membershipNFT)).setUser(tokenId, msg.sender, uint64(_listings[tokenId].expiresAt))` — NOTE: need to store `expiresAt` in Listing struct
 - [x] Transfer royalty: `(bool ok,) = royaltyReceiver.call{value: royaltyAmount}("")` with `require(ok)`
 - [x] Transfer protocol fee: `(bool ok2,) = protocolTreasury.call{value: protocolFee}("")` with `require(ok2)`
-- [ ] Transfer seller proceeds: `(bool ok3,) = _listings[tokenId].seller.call{value: sellerProceeds}("")` with `require(ok3)`
+- [x] Transfer seller proceeds: `(bool ok3,) = _listings[tokenId].seller.call{value: sellerProceeds}("")` with `require(ok3)`
 - [ ] Emit `MembershipSold`
 
 ### 5.7 delistMembership Function
