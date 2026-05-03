@@ -460,7 +460,7 @@ Missing requested active skills:
 - [x] Add `GymMembership` contract as `dataSource` in `subgraph.yaml` with startBlock
 - [x] Add `FlexPassMarket` contract as `dataSource` in `subgraph.yaml`
 - [x] Add `GymRegistry` contract as `dataSource` in `subgraph.yaml`
-- [ ] Map each event to an AssemblyScript handler function
+- [x] Map each event to an AssemblyScript handler function
 - [ ] Run `graph codegen` to generate TypeScript types from schema
 
 ### 8.3 AssemblyScript Mappings
