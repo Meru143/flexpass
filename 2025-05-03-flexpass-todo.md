@@ -243,7 +243,7 @@ Missing requested active skills:
 - [x] Set royalty: `_setTokenRoyalty(_nextTokenId, registry.getTreasury(gymAddress), registry.getRoyaltyBps(gymAddress))`
 - [x] Set metadata: `_setTokenURI(_nextTokenId, tokenUri)` (tokenUri passed as param from frontend IPFS upload)
 - [x] Store gym/tier mappings: `_membershipGym[_nextTokenId] = gymAddress`; `_membershipTier[_nextTokenId] = tierId`
-- [ ] Emit `MembershipMinted`
+- [x] Emit `MembershipMinted`
 - [ ] Increment `_nextTokenId++`
 - [ ] Return `tokenId`
 - [ ] Implement `batchMintMembership(address[] calldata recipients, address gymAddress, uint8 tierId, uint256 durationDays, string[] calldata tokenURIs) external payable whenNotPaused returns (uint256[] memory tokenIds)`
