@@ -129,7 +129,7 @@ Missing requested active skills:
 - [x] Add library-level `validateRoyalty(uint96 bps)` function returning bool
 
 ### 2.2 IERC4907.sol Interface
-- [ ] Create `src/interfaces/IERC4907.sol`
+- [x] Create `src/interfaces/IERC4907.sol`
 - [ ] Define `function setUser(uint256 tokenId, address user, uint64 expires) external`
 - [ ] Define `function userOf(uint256 tokenId) external view returns (address)`
 - [ ] Define `function userExpires(uint256 tokenId) external view returns (uint256)`
