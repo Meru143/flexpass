@@ -74,7 +74,7 @@ Missing requested active skills:
 
 ### 1.3 Frontend Project Setup (`frontend/`)
 - [x] `cd frontend && npx create-next-app@14 . --typescript --tailwind --eslint --app --src-dir no`
-- [ ] Install dependencies: `npm i wagmi@2 viem@2 @rainbow-me/rainbowkit@2 @tanstack/react-query@5`
+- [x] Install dependencies: `npm i wagmi@2 viem@2 @rainbow-me/rainbowkit@2 @tanstack/react-query@5`
 - [ ] Install dev dependencies: `npm i -D vitest @testing-library/react @testing-library/jest-dom`
 - [ ] Create `app/providers.tsx` with `WagmiProvider`, `QueryClientProvider`, `RainbowKitProvider` wrapper
 - [ ] Import `@rainbow-me/rainbowkit/styles.css` in `app/layout.tsx`
