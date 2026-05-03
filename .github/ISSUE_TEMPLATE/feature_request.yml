@@ -1,0 +1,42 @@
+name: Feature request
+description: Suggest an in-scope FlexPass improvement
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: "Please keep requests aligned with the current PRD scope."
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user or developer problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the behavior or API you want.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Smart contracts
+        - Frontend
+        - API
+        - Subgraph
+        - SDK
+        - Documentation
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false

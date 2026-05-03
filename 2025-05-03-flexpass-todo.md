@@ -58,7 +58,7 @@ Missing requested active skills:
 - [x] Create `.github/workflows/deploy.yml` stub file
 - [x] Create `.github/PULL_REQUEST_TEMPLATE.md`
 - [x] Create `.github/ISSUE_TEMPLATE/bug_report.yml`
-- [ ] Create `.github/ISSUE_TEMPLATE/feature_request.yml`
+- [x] Create `.github/ISSUE_TEMPLATE/feature_request.yml`
 
 ### 1.2 Foundry Project Setup (`contracts/`)
 - [ ] `cd contracts && forge init --no-commit` to initialize Foundry project
