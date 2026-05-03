@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {Ownable2Step} from "@openzeppelin/contracts/access/Ownable2Step.sol";
 import {Pausable} from "@openzeppelin/contracts/utils/Pausable.sol";
 
@@ -10,4 +11,6 @@ import {MembershipLib} from "./libraries/MembershipLib.sol";
 abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
     mapping(address => MembershipLib.GymInfo) private _gyms;
     address[] private _gymList;
+
+    constructor(address initialOwner) Ownable(initialOwner) {}
 }
