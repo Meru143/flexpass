@@ -14,6 +14,7 @@ import {MembershipLib} from "./libraries/MembershipLib.sol";
 contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
     IERC721 public immutable membershipNFT;
     address public protocolTreasury;
+    mapping(uint256 => MembershipLib.Listing) private _listings;
 
     constructor(address membershipAddress, address protocolTreasury_, address initialOwner) Ownable(initialOwner) {
         membershipNFT = IERC721(membershipAddress);
