@@ -245,7 +245,7 @@ Missing requested active skills:
 - [x] Store gym/tier mappings: `_membershipGym[_nextTokenId] = gymAddress`; `_membershipTier[_nextTokenId] = tierId`
 - [x] Emit `MembershipMinted`
 - [x] Increment `_nextTokenId++`
-- [ ] Return `tokenId`
+- [x] Return `tokenId`
 - [ ] Implement `batchMintMembership(address[] calldata recipients, address gymAddress, uint8 tierId, uint256 durationDays, string[] calldata tokenURIs) external payable whenNotPaused returns (uint256[] memory tokenIds)`
 - [ ] Loop over `recipients`, call internal `_mintOne(recipient, gymAddress, tierId, durationDays, uri)` helper for each
 - [ ] Return array of minted `tokenIds`
