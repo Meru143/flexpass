@@ -125,7 +125,7 @@ Missing requested active skills:
 - [x] Define `struct Listing { uint256 tokenId; address seller; uint256 priceWei; uint256 listedAt; bool active; }`
 - [x] Define `struct MembershipInfo { uint256 tokenId; address gymAddress; uint8 tierId; uint64 expiresAt; address owner; address user; }`
 - [x] Define `uint96 constant MAX_ROYALTY_BPS = 3000` (30% cap)
-- [ ] Define `uint256 constant PROTOCOL_FEE_BPS = 100` (1% protocol fee)
+- [x] Define `uint256 constant PROTOCOL_FEE_BPS = 100` (1% protocol fee)
 - [ ] Add library-level `validateRoyalty(uint96 bps)` function returning bool
 
 ### 2.2 IERC4907.sol Interface
