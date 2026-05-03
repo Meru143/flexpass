@@ -567,7 +567,7 @@ Missing requested active skills:
 - [x] Create `components/ListingCard.tsx`
 - [x] Accept `{ tokenId, gymName, tier, expiresAt, priceWei, seller }`
 - [x] Display price in MATIC and ~INR equivalent (from `priceFeed` via API)
-- [ ] Show "Buy" button linking to `/buy/${tokenId}`
+- [x] Show "Buy" button linking to `/buy/${tokenId}`
 - [ ] Show expiry countdown
 
 ### 10.8 RoyaltyBreakdown Component
