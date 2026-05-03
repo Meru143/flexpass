@@ -6,3 +6,6 @@ import {IERC2981} from "@openzeppelin/contracts/interfaces/IERC2981.sol";
 import {Ownable2Step} from "@openzeppelin/contracts/access/Ownable2Step.sol";
 import {Pausable} from "@openzeppelin/contracts/utils/Pausable.sol";
 import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+
+import {IERC4907} from "./interfaces/IERC4907.sol";
+import {MembershipLib} from "./libraries/MembershipLib.sol";
