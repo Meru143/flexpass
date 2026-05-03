@@ -165,7 +165,7 @@ Missing requested active skills:
 - [x] Define `event TreasuryUpdated(address indexed gymAddress, address oldTreasury, address newTreasury)`
 
 ### 3.3 Custom Errors
-- [ ] Define `error GR_AlreadyRegistered(address gymAddress)`
+- [x] Define `error GR_AlreadyRegistered(address gymAddress)`
 - [ ] Define `error GR_NotRegistered(address gymAddress)`
 - [ ] Define `error GR_RoyaltyTooHigh(uint96 provided, uint96 max)`
 - [ ] Define `error GR_ZeroAddress()`
