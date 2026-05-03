@@ -338,7 +338,7 @@ Missing requested active skills:
 - [x] Update `_listings[tokenId].priceWei = newPriceWei`
 
 ### 5.9 cleanExpiredListing Function
-- [ ] Implement `cleanExpiredListing(uint256 tokenId) external`
+- [x] Implement `cleanExpiredListing(uint256 tokenId) external`
 - [ ] Check `_listings[tokenId].active` → revert `MKT_InactiveListing`
 - [ ] Check `IERC4907(address(membershipNFT)).userExpires(tokenId) <= block.timestamp` (must be expired)
 - [ ] Mark inactive: `_listings[tokenId].active = false`

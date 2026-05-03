@@ -36,6 +36,7 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
     error MKT_ZeroAddress();
     error MKT_InvalidSettlement(uint256 priceWei, uint256 royaltyAmount, uint256 protocolFee);
     error MKT_TransferFailed(address recipient, uint256 amount);
+    error MKT_NotExpired(uint256 tokenId, uint64 expiresAt);
 
     constructor(address membershipAddress, address protocolTreasury_, address initialOwner) Ownable(initialOwner) {
         if (membershipAddress == address(0) || protocolTreasury_ == address(0)) revert MKT_ZeroAddress();
@@ -127,6 +128,20 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
         emit PriceUpdated(tokenId, oldPrice, newPriceWei);
 
         listing.priceWei = newPriceWei;
+    }
+
+    function cleanExpiredListing(uint256 tokenId) external {
+        MembershipLib.Listing storage listing = _listings[tokenId];
+        if (!listing.active) revert MKT_InactiveListing();
+        if (listing.expiresAt > block.timestamp) revert MKT_NotExpired(tokenId, listing.expiresAt);
+        if (membershipNFT.ownerOf(tokenId) != address(this)) revert MKT_OwnerMismatch(tokenId);
+
+        address seller = listing.seller;
+        listing.active = false;
+
+        membershipNFT.transferFrom(address(this), seller, tokenId);
+
+        emit MembershipDelisted(tokenId, seller);
     }
 
     function _sendValue(address recipient, uint256 amount) private {
