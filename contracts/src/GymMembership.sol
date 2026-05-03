@@ -72,4 +72,8 @@ abstract contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Paus
 
         return address(0);
     }
+
+    function userExpires(uint256 tokenId) external view override returns (uint256) {
+        return _users[tokenId].expires;
+    }
 }
