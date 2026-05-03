@@ -1,0 +1,6 @@
+type ExampleEntity @entity(immutable: true) {
+  id: Bytes!
+  count: BigInt!
+  tokenId: BigInt! # uint256
+  gymAddress: Bytes! # address
+}

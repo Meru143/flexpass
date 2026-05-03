@@ -94,7 +94,7 @@ Missing requested active skills:
 
 ### 1.5 Subgraph Project Setup (`subgraph/`)
 - [x] Install graph-cli: `npm i -g @graphprotocol/graph-cli`
-- [ ] `cd subgraph && graph init --protocol ethereum --from-contract <placeholder> flexpass`
+- [x] `cd subgraph && graph init --protocol ethereum --from-contract <placeholder> flexpass`
 - [ ] Create `schema.graphql` stub with empty `Membership` entity
 - [ ] Create `subgraph.yaml` stub pointing to `GymMembership` contract
 - [ ] Create `src/mappings.ts` stub AssemblyScript file
