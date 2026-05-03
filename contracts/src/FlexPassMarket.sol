@@ -133,7 +133,17 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
     function cleanExpiredListing(uint256 tokenId) external {
         MembershipLib.Listing storage listing = _listings[tokenId];
         if (!listing.active) revert MKT_InactiveListing();
-        if (listing.expiresAt > block.timestamp) revert MKT_NotExpired(tokenId, listing.expiresAt);
+
+        uint256 expiresAtRaw = IERC4907(address(membershipNFT)).userExpires(tokenId);
+        if (expiresAtRaw == 0) {
+            expiresAtRaw = listing.expiresAt;
+        }
+        if (expiresAtRaw > type(uint64).max) revert MKT_ExpiryOverflow(expiresAtRaw);
+        if (expiresAtRaw > block.timestamp) {
+            // Cast is safe after the explicit type(uint64).max guard above.
+            // forge-lint: disable-next-line(unsafe-typecast)
+            revert MKT_NotExpired(tokenId, uint64(expiresAtRaw));
+        }
         if (membershipNFT.ownerOf(tokenId) != address(this)) revert MKT_OwnerMismatch(tokenId);
 
         address seller = listing.seller;
