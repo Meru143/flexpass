@@ -475,6 +475,7 @@ Missing requested active skills:
 ### 8.4 Build & Deploy
 - [x] Run `graph build` and verify no AssemblyScript errors
 - [ ] Deploy to The Graph Studio: `graph deploy --studio flexpass`
+  - NOTE: Amoy contracts deployed at block `37735241` (`GymRegistry=0xaE12edE4Eab2655b9B1618628c678819693881eA`, `GymMembership=0x465CF3a5918534d94BA62F3A7980f5ffB0277168`, `FlexPassMarket=0x0e9a4999ABcccE5B1A6989B34Ed549C2Dd72bfC0`). `graph deploy` built and uploaded to IPFS, then Graph Studio rejected `network: amoy` with `Specified network is not supported`.
 - [ ] Verify entities appear in Studio playground with test queries
 - [ ] Test GraphQL query: `{ memberships(where: { owner: "0x..." }) { id expiresAt } }`
 - [ ] Test GraphQL query: `{ listings(where: { active: true }) { id priceWei seller } }`

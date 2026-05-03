@@ -6,11 +6,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: GymMembership
-    network: matic
+    network: amoy
     source:
-      address: "0x0000000000000000000000000000000000000000"
       abi: GymMembership
-      startBlock: 0
+      address: "0x465CF3a5918534d94BA62F3A7980f5ffB0277168"
+      startBlock: 37735241
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.9
@@ -28,11 +28,11 @@ dataSources:
       file: ./src/mappings.ts
   - kind: ethereum
     name: FlexPassMarket
-    network: matic
+    network: amoy
     source:
-      address: "0x0000000000000000000000000000000000000000"
       abi: FlexPassMarket
-      startBlock: 0
+      address: "0x0e9a4999ABcccE5B1A6989B34Ed549C2Dd72bfC0"
+      startBlock: 37735241
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.9
@@ -54,11 +54,11 @@ dataSources:
       file: ./src/mappings.ts
   - kind: ethereum
     name: GymRegistry
-    network: matic
+    network: amoy
     source:
-      address: "0x0000000000000000000000000000000000000000"
       abi: GymRegistry
-      startBlock: 0
+      address: "0xaE12edE4Eab2655b9B1618628c678819693881eA"
+      startBlock: 37735241
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.9

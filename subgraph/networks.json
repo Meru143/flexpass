@@ -3,6 +3,28 @@
     "GymMembership": {
       "address": "0x0000000000000000000000000000000000000000",
       "startBlock": 0
+    },
+    "FlexPassMarket": {
+      "address": "0x0000000000000000000000000000000000000000",
+      "startBlock": 0
+    },
+    "GymRegistry": {
+      "address": "0x0000000000000000000000000000000000000000",
+      "startBlock": 0
+    }
+  },
+  "amoy": {
+    "GymMembership": {
+      "address": "0x465CF3a5918534d94BA62F3A7980f5ffB0277168",
+      "startBlock": 37735241
+    },
+    "FlexPassMarket": {
+      "address": "0x0e9a4999ABcccE5B1A6989B34Ed549C2Dd72bfC0",
+      "startBlock": 37735241
+    },
+    "GymRegistry": {
+      "address": "0xaE12edE4Eab2655b9B1618628c678819693881eA",
+      "startBlock": 37735241
     }
   }
 }
