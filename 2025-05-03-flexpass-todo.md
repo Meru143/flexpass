@@ -517,7 +517,7 @@ Missing requested active skills:
 - [x] Export `readMembershipState(tokenId)` that calls `userOf` and `userExpires` and returns combined result
 
 ### 9.7 Pinata Service
-- [ ] Create `services/pinata.ts` with `new PinataSDK({ pinataJwt: process.env.PINATA_JWT })`
+- [x] Create `services/pinata.ts` with `new PinataSDK({ pinataJwt: process.env.PINATA_JWT })`
 - [ ] Implement `uploadMetadata(metadata: object): Promise<string>` → returns `ipfs://` URI
 - [ ] Implement `getMetadata(cid: string): Promise<object>` → fetches from Pinata gateway
 
