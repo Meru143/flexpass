@@ -55,7 +55,7 @@ Missing requested active skills:
 - [x] Create monorepo folder structure: `contracts/`, `frontend/`, `api/`, `subgraph/`, `sdk/`
 - [x] Add root-level `Makefile` with stub targets
 - [x] Create `.github/workflows/ci.yml` stub file
-- [ ] Create `.github/workflows/deploy.yml` stub file
+- [x] Create `.github/workflows/deploy.yml` stub file
 - [ ] Create `.github/PULL_REQUEST_TEMPLATE.md`
 - [ ] Create `.github/ISSUE_TEMPLATE/bug_report.yml`
 - [ ] Create `.github/ISSUE_TEMPLATE/feature_request.yml`

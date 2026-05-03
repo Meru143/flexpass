@@ -1,0 +1,16 @@
+name: Deploy
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  placeholder:
+    name: Deploy placeholder
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Explain pending implementation
+        run: echo "Full FlexPass deployment automation is implemented in Phase 12."
