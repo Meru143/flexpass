@@ -34,6 +34,7 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
     error GM_InsufficientPayment(uint256 sent, uint256 required);
     error GM_NotOwner(uint256 tokenId, address caller);
     error GM_ExpiryOverflow(uint256 expiresAt);
+    error GM_LengthMismatch(uint256 recipients, uint256 tokenUris);
 
     constructor(address registryAddress, address protocolTreasury_, address initialOwner)
         ERC721("FlexPass Membership", "FLEX")
@@ -110,6 +111,23 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
         string calldata tokenUri
     ) external payable whenNotPaused nonReentrant returns (uint256 tokenId) {
         return _mintOne(to, gymAddress, tierId, durationDays, tokenUri);
+    }
+
+    function batchMintMembership(
+        address[] calldata recipients,
+        address gymAddress,
+        uint8 tierId,
+        uint256 durationDays,
+        string[] calldata tokenURIs
+    ) external payable whenNotPaused nonReentrant returns (uint256[] memory tokenIds) {
+        uint256 recipientCount = recipients.length;
+        if (recipientCount != tokenURIs.length) revert GM_LengthMismatch(recipientCount, tokenURIs.length);
+
+        tokenIds = new uint256[](recipientCount);
+
+        for (uint256 i; i < recipientCount; ++i) {
+            tokenIds[i] = _mintOne(recipients[i], gymAddress, tierId, durationDays, tokenURIs[i]);
+        }
     }
 
     function _mintOne(address to, address gymAddress, uint8 tierId, uint256 durationDays, string memory tokenUri)
