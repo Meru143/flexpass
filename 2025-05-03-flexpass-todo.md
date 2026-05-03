@@ -363,7 +363,7 @@ Missing requested active skills:
 - [x] Create `script/Deploy.s.sol` with `pragma solidity ^0.8.20` and `import "forge-std/Script.sol"`
 - [x] In `run()`: read `DEPLOYER_PRIVATE_KEY` from env via `vm.envUint("DEPLOYER_PRIVATE_KEY")`
 - [x] Read `PROTOCOL_TREASURY` from env via `vm.envAddress("PROTOCOL_TREASURY")`
-- [ ] `vm.startBroadcast(deployerKey)`
+- [x] `vm.startBroadcast(deployerKey)`
 - [ ] Deploy `GymRegistry` with `new GymRegistry(deployer)`
 - [ ] Deploy `GymMembership` with `new GymMembership(address(registry), protocolTreasury, deployer)`
 - [ ] Deploy `FlexPassMarket` with `new FlexPassMarket(address(membership), protocolTreasury, deployer)`
