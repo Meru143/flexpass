@@ -7,4 +7,6 @@ import {Pausable} from "@openzeppelin/contracts/utils/Pausable.sol";
 import {IGymRegistry} from "./interfaces/IGymRegistry.sol";
 import {MembershipLib} from "./libraries/MembershipLib.sol";
 
-abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {}
+abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
+    mapping(address => MembershipLib.GymInfo) private _gyms;
+}

@@ -154,7 +154,7 @@ Missing requested active skills:
 - [x] Import `@openzeppelin/contracts/utils/Pausable.sol`
 - [x] Import `./libraries/MembershipLib.sol` and `./interfaces/IGymRegistry.sol`
 - [x] Declare contract `GymRegistry is Ownable2Step, Pausable, IGymRegistry`
-- [ ] Add `mapping(address => MembershipLib.GymInfo) private _gyms` state variable
+- [x] Add `mapping(address => MembershipLib.GymInfo) private _gyms` state variable
 - [ ] Add `address[] private _gymList` for enumeration
 - [ ] Declare constructor accepting `initialOwner` address, pass to `Ownable2Step(initialOwner)`
 
