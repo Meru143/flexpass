@@ -504,7 +504,7 @@ Missing requested active skills:
 - [x] Implement `POST /api/metadata/upload` — accept `{ gymName, tier, amenities, expiresAt, logoUrl }` body
 - [x] Build metadata JSON: `{ name, description, image, attributes: [{ trait_type: 'Gym', value: gymName }, ...] }`
 - [x] Call Pinata: `pinata.upload.json(metadata)` → returns `{ IpfsHash }` 
-- [ ] Return `ipfs://${IpfsHash}` as `tokenUri`
+- [x] Return `ipfs://${IpfsHash}` as `tokenUri`
 
 ### 9.5 Routes — webhooks.ts
 - [ ] Implement `POST /webhooks/gym-entry` — validate HMAC-SHA256 signature header `X-FlexPass-Signature`
