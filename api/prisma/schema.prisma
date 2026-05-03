@@ -37,3 +37,15 @@ model MembershipCache {
   @@index([gymAddress])
   @@index([ownerAddress])
 }
+
+model EntryEvent {
+  id            String   @id @default(cuid())
+  tokenId       String
+  gymAddress    String
+  enteredAt     DateTime @default(now())
+  walletAddress String
+
+  @@index([tokenId])
+  @@index([gymAddress])
+  @@index([walletAddress])
+}
