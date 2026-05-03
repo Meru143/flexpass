@@ -247,7 +247,7 @@ Missing requested active skills:
 - [x] Increment `_nextTokenId++`
 - [x] Return `tokenId`
 - [x] Implement `batchMintMembership(address[] calldata recipients, address gymAddress, uint8 tierId, uint256 durationDays, string[] calldata tokenURIs) external payable whenNotPaused returns (uint256[] memory tokenIds)`
-- [ ] Loop over `recipients`, call internal `_mintOne(recipient, gymAddress, tierId, durationDays, uri)` helper for each
+- [x] Loop over `recipients`, call internal `_mintOne(recipient, gymAddress, tierId, durationDays, uri)` helper for each
 - [ ] Return array of minted `tokenIds`
 
 ### 4.8 View Functions
