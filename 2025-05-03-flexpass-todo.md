@@ -413,7 +413,7 @@ Missing requested active skills:
 
 ### 7.3 FlexPassMarket.t.sol
 - [x] Create `test/FlexPassMarket.t.sol`
-- [ ] `setUp()`: deploy full stack (Registry, Membership, Market); mint tokenId 1 to `alice`; `vm.prank(alice)` approve market for token
+- [x] `setUp()`: deploy full stack (Registry, Membership, Market); mint tokenId 1 to `alice`; `vm.prank(alice)` approve market for token
 - [ ] Test `listMembership` from alice succeeds, emits `MembershipListed`
 - [ ] Test `listMembership` from non-owner `bob` reverts `MKT_NotOwner`
 - [ ] Test `listMembership` of expired token reverts `MKT_Expired`
