@@ -493,7 +493,7 @@ Missing requested active skills:
 
 ### 9.2 Routes — membership.ts
 - [x] Implement `GET /api/membership/:tokenId` — query `MembershipCache` by tokenId; if miss, fetch from chain via `publicClient.readContract({ address: GYM_MEMBERSHIP_ADDRESS, abi: GymMembershipABI, functionName: 'userOf', args: [BigInt(tokenId)] })` and cache
-- [ ] Return `{ tokenId, gymAddress, tierId, owner, user, expiresAt, metadataUri, isActive }` JSON
+- [x] Return `{ tokenId, gymAddress, tierId, owner, user, expiresAt, metadataUri, isActive }` JSON
 
 ### 9.3 Routes — gym.ts
 - [ ] Implement `GET /api/gym/:address` — query `Gym` model by address, return full gym info
