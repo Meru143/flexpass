@@ -152,7 +152,7 @@ Missing requested active skills:
 - [x] Add SPDX license identifier `MIT` and `pragma solidity ^0.8.20`
 - [x] Import `@openzeppelin/contracts/access/Ownable2Step.sol`
 - [x] Import `@openzeppelin/contracts/utils/Pausable.sol`
-- [ ] Import `./libraries/MembershipLib.sol` and `./interfaces/IGymRegistry.sol`
+- [x] Import `./libraries/MembershipLib.sol` and `./interfaces/IGymRegistry.sol`
 - [ ] Declare contract `GymRegistry is Ownable2Step, Pausable, IGymRegistry`
 - [ ] Add `mapping(address => MembershipLib.GymInfo) private _gyms` state variable
 - [ ] Add `address[] private _gymList` for enumeration
