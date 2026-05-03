@@ -436,7 +436,7 @@ Missing requested active skills:
 - [x] Fuzz `mintMembership(durationDays)`: for any `durationDays > 0`, `userExpires(tokenId)` equals `block.timestamp + durationDays * 86400`
 - [x] Fuzz `listMembership(priceWei)`: for any valid price, listing stores correct `priceWei`
 - [x] Fuzz `buyMembership(value)`: sending wrong value always reverts; sending correct value always succeeds
-- [ ] Fuzz `royaltyInfo(tokenId, salePrice)`: returned royalty equals `salePrice * royaltyBps / 10000`
+- [x] Fuzz `royaltyInfo(tokenId, salePrice)`: returned royalty equals `salePrice * royaltyBps / 10000`
 - [ ] Fuzz `registerGym(royaltyBps)`: `royaltyBps > 3000` always reverts
 
 ### 7.5 Integration.t.sol
