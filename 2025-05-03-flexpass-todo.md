@@ -104,7 +104,7 @@ Missing requested active skills:
 - [x] Install: `npm i viem`
 - [x] Install dev: `npm i -D typescript tsup`
 - [x] Create `src/index.ts` with `checkAccess` stub function
-- [ ] Create `src/types.ts` with `AccessResult` and `VerifierConfig` interfaces
+- [x] Create `src/types.ts` with `AccessResult` and `VerifierConfig` interfaces
 - [ ] Configure `tsup.config.ts` for dual CJS + ESM output
 
 ### 1.7 Environment Variables

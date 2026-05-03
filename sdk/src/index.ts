@@ -1,20 +1,7 @@
 import { createPublicClient, http, isAddress, parseAbi, zeroAddress } from "viem";
 import { polygon } from "viem/chains";
 import type { Abi, Address } from "viem";
-
-type VerifierConfig = {
-  rpcUrl: string;
-  contractAddress: Address;
-  abi?: Abi;
-  offlineGracePeriodMs?: number;
-};
-
-type AccessResult = {
-  valid: boolean;
-  user: Address;
-  expiresAt: Date;
-  tokenId: number;
-};
+import type { AccessResult, VerifierConfig } from "./types";
 
 type CachedAccessResult = {
   cachedAt: number;
@@ -29,6 +16,10 @@ const defaultAbi = parseAbi([
 const defaultOfflineGracePeriodMs = 60_000;
 const accessCache = new Map<number, CachedAccessResult>();
 
+function resolveAbi(abi: unknown[]): Abi {
+  return abi.length > 0 ? (abi as Abi) : defaultAbi;
+}
+
 export async function checkAccess(tokenId: number, config: VerifierConfig): Promise<AccessResult> {
   if (!Number.isSafeInteger(tokenId) || tokenId < 0) {
     throw new RangeError("tokenId must be a non-negative safe integer");
@@ -42,7 +33,9 @@ export async function checkAccess(tokenId: number, config: VerifierConfig): Prom
     throw new Error("contractAddress must be a valid EVM address");
   }
 
+  const contractAddress = config.contractAddress as Address;
   const offlineGracePeriodMs = config.offlineGracePeriodMs ?? defaultOfflineGracePeriodMs;
+  const abi = resolveAbi(config.abi);
 
   try {
     const client = createPublicClient({
@@ -52,14 +45,14 @@ export async function checkAccess(tokenId: number, config: VerifierConfig): Prom
 
     const [rawUser, rawExpires] = await Promise.all([
       client.readContract({
-        address: config.contractAddress,
-        abi: config.abi ?? defaultAbi,
+        address: contractAddress,
+        abi,
         functionName: "userOf",
         args: [BigInt(tokenId)],
       }),
       client.readContract({
-        address: config.contractAddress,
-        abi: config.abi ?? defaultAbi,
+        address: contractAddress,
+        abi,
         functionName: "userExpires",
         args: [BigInt(tokenId)],
       }),
@@ -81,6 +74,8 @@ export async function checkAccess(tokenId: number, config: VerifierConfig): Prom
       user,
       expiresAt,
       tokenId,
+      tierId: 0,
+      gymAddress: zeroAddress,
     };
 
     accessCache.set(tokenId, {
