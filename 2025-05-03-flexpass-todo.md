@@ -148,7 +148,7 @@ Missing requested active skills:
 ## Phase 3: Smart Contract — GymRegistry.sol
 
 ### 3.1 Contract Shell
-- [ ] Create `src/GymRegistry.sol`
+- [x] Create `src/GymRegistry.sol`
 - [ ] Add SPDX license identifier `MIT` and `pragma solidity ^0.8.20`
 - [ ] Import `@openzeppelin/contracts/access/Ownable2Step.sol`
 - [ ] Import `@openzeppelin/contracts/utils/Pausable.sol`
