@@ -294,7 +294,7 @@ Missing requested active skills:
 - [x] Define `error MKT_WrongValue(uint256 sent, uint256 required)`
 - [x] Define `error MKT_SelfBuy()`
 - [x] Define `error MKT_InactiveListing()`
-- [ ] Define `error MKT_OwnerMismatch(uint256 tokenId)`
+- [x] Define `error MKT_OwnerMismatch(uint256 tokenId)`
 
 ### 5.5 listMembership Function
 - [ ] Implement `listMembership(uint256 tokenId, uint256 priceWei) external whenNotPaused`

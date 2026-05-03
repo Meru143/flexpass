@@ -31,6 +31,7 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
     error MKT_WrongValue(uint256 sent, uint256 required);
     error MKT_SelfBuy();
     error MKT_InactiveListing();
+    error MKT_OwnerMismatch(uint256 tokenId);
 
     constructor(address membershipAddress, address protocolTreasury_, address initialOwner) Ownable(initialOwner) {
         membershipNFT = IERC721(membershipAddress);
