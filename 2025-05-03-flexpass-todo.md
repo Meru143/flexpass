@@ -352,7 +352,7 @@ Missing requested active skills:
 ### 5.11 Admin Functions
 - [x] Implement `setProtocolFeeBps(uint256 newBps) external onlyOwner` — cap at 500 (5%)
 - [x] Implement `setProtocolTreasury(address newTreasury) external onlyOwner`
-- [ ] Implement `pause() external onlyOwner`
+- [x] Implement `pause() external onlyOwner`
 - [ ] Implement `unpause() external onlyOwner`
 
 ---
