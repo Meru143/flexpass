@@ -496,7 +496,7 @@ Missing requested active skills:
 - [x] Return `{ tokenId, gymAddress, tierId, owner, user, expiresAt, metadataUri, isActive }` JSON
 
 ### 9.3 Routes — gym.ts
-- [ ] Implement `GET /api/gym/:address` — query `Gym` model by address, return full gym info
+- [x] Implement `GET /api/gym/:address` — query `Gym` model by address, return full gym info
 - [ ] Implement `GET /api/gym/:address/listings` — call The Graph subgraph with `listings(where: { membership_: { gymAddress: address }, active: true })` query via fetch
 - [ ] Implement `POST /api/gym/register` — validate body, insert into `Gym` table as pending, call `registry.registerGym` via `walletClient.writeContract(...)` (server wallet signs), return tx hash
 
