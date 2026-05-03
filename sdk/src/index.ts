@@ -3,6 +3,8 @@ import { polygon } from "viem/chains";
 import type { Abi, Address } from "viem";
 import type { AccessResult, VerifierConfig } from "./types";
 
+export type { AccessResult, VerifierConfig } from "./types";
+
 type CachedAccessResult = {
   cachedAt: number;
   result: AccessResult;

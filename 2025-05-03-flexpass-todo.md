@@ -105,7 +105,7 @@ Missing requested active skills:
 - [x] Install dev: `npm i -D typescript tsup`
 - [x] Create `src/index.ts` with `checkAccess` stub function
 - [x] Create `src/types.ts` with `AccessResult` and `VerifierConfig` interfaces
-- [ ] Configure `tsup.config.ts` for dual CJS + ESM output
+- [x] Configure `tsup.config.ts` for dual CJS + ESM output
 
 ### 1.7 Environment Variables
 - [ ] Create root `.env.example` with all variables from Section 17 and empty placeholder values
