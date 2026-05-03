@@ -22,3 +22,18 @@ model Gym {
   approved   Boolean
   createdAt  DateTime @default(now())
 }
+
+model MembershipCache {
+  id            String   @id
+  tokenId       String   @unique
+  gymAddress    String
+  tierId        Int
+  ownerAddress  String
+  userAddress   String
+  expiresAt     DateTime
+  metadataUri   String
+  updatedAt     DateTime @updatedAt
+
+  @@index([gymAddress])
+  @@index([ownerAddress])
+}
