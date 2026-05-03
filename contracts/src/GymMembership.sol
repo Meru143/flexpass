@@ -19,6 +19,7 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
     uint256 private _nextTokenId = 1;
     IGymRegistry public immutable registry;
     address public protocolTreasury;
+    mapping(address => bool) public userOperators;
     mapping(uint256 => IERC4907.UserInfo) private _users;
     mapping(uint256 => address) private _membershipGym;
     mapping(uint256 => uint8) private _membershipTier;
@@ -27,6 +28,7 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
         uint256 indexed tokenId, address indexed gymAddress, uint8 tierId, address indexed owner, uint64 expires
     );
     event MembershipBurned(uint256 indexed tokenId);
+    event UserOperatorUpdated(address indexed operator, bool approved);
 
     error GM_ZeroAddress();
     error GM_GymNotApproved(address gymAddress);
@@ -58,7 +60,9 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
 
     function setUser(uint256 tokenId, address user, uint64 expires) external override {
         address tokenOwner = ownerOf(tokenId);
-        if (!_isAuthorized(tokenOwner, msg.sender, tokenId)) revert GM_NotOwner(tokenId, msg.sender);
+        if (!_isAuthorized(tokenOwner, msg.sender, tokenId) && !userOperators[msg.sender]) {
+            revert GM_NotOwner(tokenId, msg.sender);
+        }
 
         _users[tokenId] = IERC4907.UserInfo({user: user, expires: expires});
 
@@ -142,6 +146,14 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
         if (newTreasury == address(0)) revert GM_ZeroAddress();
 
         protocolTreasury = newTreasury;
+    }
+
+    function setUserOperator(address operator, bool approved) external onlyOwner {
+        if (operator == address(0)) revert GM_ZeroAddress();
+
+        userOperators[operator] = approved;
+
+        emit UserOperatorUpdated(operator, approved);
     }
 
     function pause() external onlyOwner {

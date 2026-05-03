@@ -33,8 +33,13 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
     error MKT_InactiveListing();
     error MKT_OwnerMismatch(uint256 tokenId);
     error MKT_ExpiryOverflow(uint256 expiresAt);
+    error MKT_ZeroAddress();
+    error MKT_InvalidSettlement(uint256 priceWei, uint256 royaltyAmount, uint256 protocolFee);
+    error MKT_TransferFailed(address recipient, uint256 amount);
 
     constructor(address membershipAddress, address protocolTreasury_, address initialOwner) Ownable(initialOwner) {
+        if (membershipAddress == address(0) || protocolTreasury_ == address(0)) revert MKT_ZeroAddress();
+
         membershipNFT = IERC721(membershipAddress);
         protocolTreasury = protocolTreasury_;
     }
@@ -62,5 +67,45 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
         });
 
         emit MembershipListed(tokenId, msg.sender, priceWei);
+    }
+
+    function buyMembership(uint256 tokenId) external payable whenNotPaused nonReentrant {
+        MembershipLib.Listing storage listing = _listings[tokenId];
+        if (!listing.active) revert MKT_InactiveListing();
+
+        address seller = listing.seller;
+        if (msg.sender == seller) revert MKT_SelfBuy();
+        if (membershipNFT.ownerOf(tokenId) != address(this)) revert MKT_OwnerMismatch(tokenId);
+
+        uint256 priceWei = listing.priceWei;
+        if (msg.value != priceWei) revert MKT_WrongValue(msg.value, priceWei);
+
+        (address royaltyReceiver, uint256 royaltyAmount) =
+            IERC2981(address(membershipNFT)).royaltyInfo(tokenId, msg.value);
+        uint256 protocolFee = msg.value * protocolFeeBps / 10_000;
+        if (royaltyAmount + protocolFee > msg.value) {
+            revert MKT_InvalidSettlement(msg.value, royaltyAmount, protocolFee);
+        }
+
+        uint256 sellerProceeds = msg.value - royaltyAmount - protocolFee;
+        uint64 expiresAt = listing.expiresAt;
+        listing.active = false;
+
+        membershipNFT.transferFrom(address(this), msg.sender, tokenId);
+        IERC4907(address(membershipNFT)).setUser(tokenId, msg.sender, expiresAt);
+
+        _sendValue(royaltyReceiver, royaltyAmount);
+        _sendValue(protocolTreasury, protocolFee);
+        _sendValue(seller, sellerProceeds);
+
+        emit MembershipSold(tokenId, seller, msg.sender, priceWei, royaltyAmount);
+    }
+
+    function _sendValue(address recipient, uint256 amount) private {
+        if (amount == 0) return;
+        if (recipient == address(0)) revert MKT_ZeroAddress();
+
+        (bool success,) = recipient.call{value: amount}("");
+        if (!success) revert MKT_TransferFailed(recipient, amount);
     }
 }
