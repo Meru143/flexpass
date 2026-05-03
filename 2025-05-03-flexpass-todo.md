@@ -553,7 +553,7 @@ Missing requested active skills:
 - [x] Create `components/MembershipCard.tsx`
 - [x] Accept props: `{ tokenId, gymName, tier, expiresAt, isListed }`
 - [x] Display gym name, tier badge, expiry date
-- [ ] Show `<ExpiryCountdown expiresAt={expiresAt} />` for remaining time
+- [x] Show `<ExpiryCountdown expiresAt={expiresAt} />` for remaining time
 - [ ] Show "Sell" button if not listed; "Listed" badge if listed
 
 ### 10.6 ExpiryCountdown Component
