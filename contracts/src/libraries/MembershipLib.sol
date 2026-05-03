@@ -17,4 +17,13 @@ library MembershipLib {
         bool approved;
         Tier[] tiers;
     }
+
+    struct Listing {
+        uint256 tokenId;
+        address seller;
+        uint256 priceWei;
+        uint256 listedAt;
+        uint64 expiresAt;
+        bool active;
+    }
 }
