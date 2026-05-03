@@ -565,7 +565,7 @@ Missing requested active skills:
 
 ### 10.7 ListingCard Component
 - [x] Create `components/ListingCard.tsx`
-- [ ] Accept `{ tokenId, gymName, tier, expiresAt, priceWei, seller }`
+- [x] Accept `{ tokenId, gymName, tier, expiresAt, priceWei, seller }`
 - [ ] Display price in MATIC and ~INR equivalent (from `priceFeed` via API)
 - [ ] Show "Buy" button linking to `/buy/${tokenId}`
 - [ ] Show expiry countdown
