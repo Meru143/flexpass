@@ -375,7 +375,7 @@ Missing requested active skills:
 - [x] Register 2 test gyms: "FitZone Mumbai" and "GoldGym Pune"
 - [x] Approve both gyms via `registry.approveGym()`
 - [x] Mint 3 test memberships for test address (30-day Standard tier)
-- [ ] List 1 membership on the market at 10 MATIC
+- [x] List 1 membership on the market at 10 MATIC
 
 ---
 
