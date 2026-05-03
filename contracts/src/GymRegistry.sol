@@ -18,6 +18,7 @@ abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
     event TreasuryUpdated(address indexed gymAddress, address oldTreasury, address newTreasury);
 
     error GR_AlreadyRegistered(address gymAddress);
+    error GR_NotRegistered(address gymAddress);
 
     constructor(address initialOwner) Ownable(initialOwner) {}
 }
