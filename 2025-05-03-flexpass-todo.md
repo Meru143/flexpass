@@ -533,7 +533,7 @@ Missing requested active skills:
 - [x] Create `lib/contracts.ts` with `GYM_MEMBERSHIP_ADDRESS`, `MARKET_ADDRESS`, `REGISTRY_ADDRESS` per chainId
 - [x] Export `GymMembershipABI` (copy from `contracts/out/GymMembership.sol/GymMembership.json` after build)
 - [x] Export `FlexPassMarketABI`
-- [ ] Export `GymRegistryABI`
+- [x] Export `GymRegistryABI`
 
 ### 10.3 Subgraph Client
 - [ ] Create `lib/subgraph.ts` with `const SUBGRAPH_URL = process.env.NEXT_PUBLIC_SUBGRAPH_URL`
