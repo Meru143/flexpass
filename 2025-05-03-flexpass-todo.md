@@ -409,7 +409,7 @@ Missing requested active skills:
 - [x] Test transfer clears `_users[tokenId]`: transfer token to address B, verify `userOf(1) == address(0)`
 - [x] Test `batchMintMembership` for 3 recipients returns 3 tokenIds
 - [x] Test `pause()` → `mintMembership` reverts
-- [ ] Test `supportsInterface` returns true for ERC-4907 `0xad092b5c` and ERC-2981 `0x2a55205a`
+- [x] Test `supportsInterface` returns true for ERC-4907 `0xad092b5c` and ERC-2981 `0x2a55205a`
 
 ### 7.3 FlexPassMarket.t.sol
 - [ ] Create `test/FlexPassMarket.t.sol`
