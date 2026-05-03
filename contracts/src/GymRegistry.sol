@@ -75,4 +75,8 @@ abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
 
         emit TreasuryUpdated(msg.sender, oldTreasury, newTreasury);
     }
+
+    function isApproved(address gymAddress) external view override returns (bool) {
+        return _gyms[gymAddress].approved;
+    }
 }
