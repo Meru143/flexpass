@@ -238,7 +238,7 @@ Missing requested active skills:
 - [x] Add `if (!registry.isApproved(gymAddress)) revert GM_GymNotApproved(gymAddress)` check
 - [x] Add `if (durationDays == 0) revert GM_ZeroDuration()` check
 - [x] Calculate `expiresAt = uint64(block.timestamp + durationDays * 1 days)`
-- [ ] Mint: `_safeMint(to, _nextTokenId)`
+- [x] Mint: `_safeMint(to, _nextTokenId)`
 - [ ] Set user: `_users[_nextTokenId] = UserInfo({ user: to, expires: expiresAt })`
 - [ ] Set royalty: `_setTokenRoyalty(_nextTokenId, registry.getTreasury(gymAddress), registry.getRoyaltyBps(gymAddress))`
 - [ ] Set metadata: `_setTokenURI(_nextTokenId, tokenUri)` (tokenUri passed as param from frontend IPFS upload)
