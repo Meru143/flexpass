@@ -469,7 +469,7 @@ Missing requested active skills:
 - [x] Implement `handleMembershipListed(event)`: create `Listing` entity with `active = true`; link to `Membership.currentListing`
 - [x] Implement `handleMembershipSold(event)`: update `Listing.active = false`; create `MembershipTransaction` with type "buy" and `royaltyPaid`; update `Membership.owner` and `Membership.user`; increment `Gym.totalRoyaltyEarned`
 - [x] Implement `handleMembershipDelisted(event)`: update `Listing.active = false`
-- [ ] Implement `handleGymRegistered(event)`: create `Gym` entity
+- [x] Implement `handleGymRegistered(event)`: create `Gym` entity
 - [ ] Implement `handleGymApproved(event)`: update `Gym.approved = true`
 
 ### 8.4 Build & Deploy
