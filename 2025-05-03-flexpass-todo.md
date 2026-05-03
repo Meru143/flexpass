@@ -171,7 +171,7 @@ Missing requested active skills:
 - [x] Define `error GR_ZeroAddress()`
 
 ### 3.4 Registration & Approval Functions
-- [ ] Implement `registerGym(address gymAddress, address treasury, string calldata name, uint96 royaltyBps)` — stores `_gyms[gymAddress]`, appends to `_gymList`, emits `GymRegistered`
+- [x] Implement `registerGym(address gymAddress, address treasury, string calldata name, uint96 royaltyBps)` — stores `_gyms[gymAddress]`, appends to `_gymList`, emits `GymRegistered`
 - [ ] Add `if (_gyms[gymAddress].gymAddress != address(0)) revert GR_AlreadyRegistered(gymAddress)` guard
 - [ ] Add `if (royaltyBps > MembershipLib.MAX_ROYALTY_BPS) revert GR_RoyaltyTooHigh(royaltyBps, MAX_ROYALTY_BPS)` guard
 - [ ] Add `if (treasury == address(0)) revert GR_ZeroAddress()` guard

@@ -23,4 +23,26 @@ abstract contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
     error GR_ZeroAddress();
 
     constructor(address initialOwner) Ownable(initialOwner) {}
+
+    function registerGym(address gymAddress, address treasury, string calldata name, uint96 royaltyBps)
+        external
+        whenNotPaused
+    {
+        if (gymAddress == address(0) || treasury == address(0)) revert GR_ZeroAddress();
+        if (_gyms[gymAddress].gymAddress != address(0)) revert GR_AlreadyRegistered(gymAddress);
+        if (!MembershipLib.validateRoyalty(royaltyBps)) {
+            revert GR_RoyaltyTooHigh(royaltyBps, MembershipLib.MAX_ROYALTY_BPS);
+        }
+
+        MembershipLib.GymInfo storage gym = _gyms[gymAddress];
+        gym.gymAddress = gymAddress;
+        gym.treasury = treasury;
+        gym.name = name;
+        gym.royaltyBps = royaltyBps;
+        gym.approved = false;
+
+        _gymList.push(gymAddress);
+
+        emit GymRegistered(gymAddress, name, treasury);
+    }
 }
