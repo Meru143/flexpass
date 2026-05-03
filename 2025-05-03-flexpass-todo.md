@@ -368,7 +368,7 @@ Missing requested active skills:
 - [x] Deploy `GymMembership` with `new GymMembership(address(registry), protocolTreasury, deployer)`
 - [x] Deploy `FlexPassMarket` with `new FlexPassMarket(address(membership), protocolTreasury, deployer)`
 - [x] `vm.stopBroadcast()`
-- [ ] Log addresses with `console.log("GymRegistry:", address(registry))`
+- [x] Log addresses with `console.log("GymRegistry:", address(registry))`
 
 ### 6.2 SeedTestData.s.sol
 - [ ] Create `script/SeedTestData.s.sol`
