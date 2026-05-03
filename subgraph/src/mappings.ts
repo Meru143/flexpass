@@ -10,6 +10,11 @@ import {
   MembershipListed,
   MembershipSold,
 } from "../generated/FlexPassMarket/FlexPassMarket";
+import {
+  GymApproved,
+  GymRegistered,
+  GymRegistry as GymRegistryContract,
+} from "../generated/GymRegistry/GymRegistry";
 import { Gym, Listing, Membership, MembershipTransaction } from "../generated/schema";
 
 const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
@@ -31,6 +36,13 @@ function readTokenUri(event: MembershipMinted): string {
   const result = contract.try_tokenURI(event.params.tokenId);
 
   return result.reverted ? "" : result.value;
+}
+
+function readRoyaltyBps(event: GymRegistered): i32 {
+  const contract = GymRegistryContract.bind(event.address);
+  const result = contract.try_getRoyaltyBps(event.params.gymAddress);
+
+  return result.reverted ? 0 : result.value.toI32();
 }
 
 function saveTransaction(
@@ -159,4 +171,38 @@ export function handleMembershipDelisted(event: MembershipDelisted): void {
   }
 
   saveTransaction(event, "delist", id, event.address, event.params.seller, null, null);
+}
+
+export function handleGymRegistered(event: GymRegistered): void {
+  const id = event.params.gymAddress.toHexString();
+  let gym = Gym.load(id);
+
+  if (gym === null) {
+    gym = new Gym(id);
+    gym.totalMinted = BigInt.fromI32(0);
+    gym.totalRoyaltyEarned = BigInt.fromI32(0);
+  }
+
+  gym.name = event.params.name;
+  gym.treasury = event.params.treasury;
+  gym.royaltyBps = readRoyaltyBps(event);
+  gym.approved = false;
+  gym.save();
+}
+
+export function handleGymApproved(event: GymApproved): void {
+  const id = event.params.gymAddress.toHexString();
+  let gym = Gym.load(id);
+
+  if (gym === null) {
+    gym = new Gym(id);
+    gym.name = "";
+    gym.treasury = zeroAddress();
+    gym.royaltyBps = 0;
+    gym.totalMinted = BigInt.fromI32(0);
+    gym.totalRoyaltyEarned = BigInt.fromI32(0);
+  }
+
+  gym.approved = true;
+  gym.save();
 }
