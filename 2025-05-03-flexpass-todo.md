@@ -51,7 +51,7 @@ Missing requested active skills:
 - [x] Add top-level `README.md` with project overview and badge placeholders
 - [x] Add `CHANGELOG.md` with `## [Unreleased]` section
 - [x] Add `.gitignore` covering `node_modules/`, `.env*`, `out/`, `cache/`, `.next/`, `dist/`
-- [ ] Add `.editorconfig` with `indent_size = 2`, `end_of_line = lf`, `insert_final_newline = true`
+- [x] Add `.editorconfig` with `indent_size = 2`, `end_of_line = lf`, `insert_final_newline = true`
 - [ ] Create monorepo folder structure: `contracts/`, `frontend/`, `api/`, `subgraph/`, `sdk/`
 - [ ] Add root-level `Makefile` with stub targets
 - [ ] Create `.github/workflows/ci.yml` stub file
