@@ -526,7 +526,7 @@ Missing requested active skills:
 ## Phase 10: Frontend Components
 
 ### 10.1 Wagmi Config
-- [ ] Create `lib/wagmi.ts` with `getDefaultConfig({ appName: 'FlexPass', projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID, chains: [polygon, polygonAmoy], ssr: true })`
+- [x] Create `lib/wagmi.ts` with `getDefaultConfig({ appName: 'FlexPass', projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID, chains: [polygon, polygonAmoy], ssr: true })`
 - [ ] Export config as default
 
 ### 10.2 Contract Bindings
