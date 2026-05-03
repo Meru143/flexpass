@@ -297,7 +297,7 @@ Missing requested active skills:
 - [x] Define `error MKT_OwnerMismatch(uint256 tokenId)`
 
 ### 5.5 listMembership Function
-- [ ] Implement `listMembership(uint256 tokenId, uint256 priceWei) external whenNotPaused`
+- [x] Implement `listMembership(uint256 tokenId, uint256 priceWei) external whenNotPaused`
 - [ ] Check `membershipNFT.ownerOf(tokenId) == msg.sender` → revert `MKT_NotOwner`
 - [ ] Check `_listings[tokenId].active == false` → revert `MKT_AlreadyListed`
 - [ ] Check `IERC4907(address(membershipNFT)).userExpires(tokenId) > block.timestamp` → revert `MKT_Expired`

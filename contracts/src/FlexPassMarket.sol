@@ -32,9 +32,35 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
     error MKT_SelfBuy();
     error MKT_InactiveListing();
     error MKT_OwnerMismatch(uint256 tokenId);
+    error MKT_ExpiryOverflow(uint256 expiresAt);
 
     constructor(address membershipAddress, address protocolTreasury_, address initialOwner) Ownable(initialOwner) {
         membershipNFT = IERC721(membershipAddress);
         protocolTreasury = protocolTreasury_;
+    }
+
+    function listMembership(uint256 tokenId, uint256 priceWei) external whenNotPaused {
+        if (membershipNFT.ownerOf(tokenId) != msg.sender) revert MKT_NotOwner(tokenId);
+        if (_listings[tokenId].active) revert MKT_AlreadyListed(tokenId);
+
+        uint256 expiresAtRaw = IERC4907(address(membershipNFT)).userExpires(tokenId);
+        if (expiresAtRaw <= block.timestamp) revert MKT_Expired(tokenId);
+        if (expiresAtRaw > type(uint64).max) revert MKT_ExpiryOverflow(expiresAtRaw);
+
+        membershipNFT.transferFrom(msg.sender, address(this), tokenId);
+
+        // Cast is safe after the explicit type(uint64).max guard above.
+        // forge-lint: disable-next-line(unsafe-typecast)
+        uint64 expiresAt = uint64(expiresAtRaw);
+        _listings[tokenId] = MembershipLib.Listing({
+            tokenId: tokenId,
+            seller: msg.sender,
+            priceWei: priceWei,
+            listedAt: block.timestamp,
+            expiresAt: expiresAt,
+            active: true
+        });
+
+        emit MembershipListed(tokenId, msg.sender, priceWei);
     }
 }
