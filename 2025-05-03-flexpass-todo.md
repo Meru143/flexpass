@@ -192,7 +192,7 @@ Missing requested active skills:
 ## Phase 4: Smart Contract — GymMembership.sol
 
 ### 4.1 Contract Shell
-- [ ] Create `src/GymMembership.sol`
+- [x] Create `src/GymMembership.sol`
 - [ ] Add pragma `^0.8.20` and MIT license
 - [ ] Import `@openzeppelin/contracts/token/ERC721/ERC721.sol`
 - [ ] Import `@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol`
