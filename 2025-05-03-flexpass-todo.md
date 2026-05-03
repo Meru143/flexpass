@@ -61,7 +61,7 @@ Missing requested active skills:
 - [x] Create `.github/ISSUE_TEMPLATE/feature_request.yml`
 
 ### 1.2 Foundry Project Setup (`contracts/`)
-- [ ] `cd contracts && forge init --no-commit` to initialize Foundry project
+- [x] `cd contracts && forge init --no-commit` to initialize Foundry project
 - [ ] Set `foundry.toml`: `solc = "0.8.20"`, `optimizer = true`, `optimizer_runs = 200`, `fuzz_runs = 256`
 - [ ] Add `foundry.toml` `[profile.ci]` section: `fuzz_runs = 1000`
 - [ ] Install OpenZeppelin v5 as git submodule: `forge install OpenZeppelin/openzeppelin-contracts@v5.4.0 --no-commit`
