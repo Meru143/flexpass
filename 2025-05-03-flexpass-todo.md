@@ -242,7 +242,7 @@ Missing requested active skills:
 - [x] Set user: `_users[_nextTokenId] = UserInfo({ user: to, expires: expiresAt })`
 - [x] Set royalty: `_setTokenRoyalty(_nextTokenId, registry.getTreasury(gymAddress), registry.getRoyaltyBps(gymAddress))`
 - [x] Set metadata: `_setTokenURI(_nextTokenId, tokenUri)` (tokenUri passed as param from frontend IPFS upload)
-- [ ] Store gym/tier mappings: `_membershipGym[_nextTokenId] = gymAddress`; `_membershipTier[_nextTokenId] = tierId`
+- [x] Store gym/tier mappings: `_membershipGym[_nextTokenId] = gymAddress`; `_membershipTier[_nextTokenId] = tierId`
 - [ ] Emit `MembershipMinted`
 - [ ] Increment `_nextTokenId++`
 - [ ] Return `tokenId`
