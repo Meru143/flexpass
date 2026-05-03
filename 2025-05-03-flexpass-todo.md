@@ -93,7 +93,7 @@ Missing requested active skills:
 - [x] Create `src/db/client.ts` with `PrismaClient` singleton
 
 ### 1.5 Subgraph Project Setup (`subgraph/`)
-- [ ] Install graph-cli: `npm i -g @graphprotocol/graph-cli`
+- [x] Install graph-cli: `npm i -g @graphprotocol/graph-cli`
 - [ ] `cd subgraph && graph init --protocol ethereum --from-contract <placeholder> flexpass`
 - [ ] Create `schema.graphql` stub with empty `Membership` entity
 - [ ] Create `subgraph.yaml` stub pointing to `GymMembership` contract
