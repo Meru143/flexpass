@@ -444,7 +444,7 @@ Missing requested active skills:
 - [x] Test complete flow: register gym → approve → mint → list → buy → entry verify (`userOf` check)
 - [x] Test royalty distribution across all 3 parties in one transaction
 - [x] Test reentrancy: deploy `ReentrantBuyer` mock contract, call `buyMembership` from within fallback, verify second call reverts
-- [ ] Test pause/unpause full market cycle
+- [x] Test pause/unpause full market cycle
 
 ---
 
