@@ -615,7 +615,7 @@ Missing requested active skills:
 - [x] Export `checkAccess` as named and default export
 
 ### 11.3 Build & Publish
-- [ ] Configure `tsup.config.ts` for `entry: ['src/index.ts']`, `format: ['cjs', 'esm']`, `dts: true`
+- [x] Configure `tsup.config.ts` for `entry: ['src/index.ts']`, `format: ['cjs', 'esm']`, `dts: true`
 - [ ] Add `exports` field in `package.json` for dual CJS/ESM
 - [ ] Add `"peerDependencies": { "viem": "^2.0.0" }`
 - [ ] Write `sdk/README.md` with install instructions and `checkAccess` code example
