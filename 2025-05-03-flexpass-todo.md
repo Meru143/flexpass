@@ -676,7 +676,7 @@ Missing requested active skills:
 - [x] Confirm no use of `transfer()` or `send()` — all ETH transfers use `.call{value:}("")`
 
 ### 13.2 Frontend Security
-- [ ] Never store private keys in frontend — all signing via wallet adapters
+- [x] Never store private keys in frontend — all signing via wallet adapters
 - [ ] Validate all user inputs (price, token ID) before contract call
 - [ ] Add `Content-Security-Policy` headers to `next.config.js`
 - [ ] Use `viem`'s `parseEther` for all user-entered MATIC amounts to prevent precision issues
