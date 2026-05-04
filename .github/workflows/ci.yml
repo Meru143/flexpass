@@ -41,3 +41,22 @@ jobs:
       - name: Run Foundry tests
         working-directory: contracts
         run: forge test -vvv
+
+  fuzz-contracts:
+    name: fuzz-contracts
+    runs-on: ubuntu-latest
+    needs: lint-contracts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+      - uses: actions/cache@v4
+        with:
+          path: |
+            contracts/cache
+            contracts/out
+          key: ${{ runner.os }}-foundry-${{ hashFiles('contracts/foundry.toml', 'contracts/src/**/*.sol', 'contracts/test/**/*.sol') }}
+      - name: Run targeted fuzz tests
+        working-directory: contracts
+        run: forge test --fuzz-runs 1000 --match-path 'test/Fuzz.t.sol'
