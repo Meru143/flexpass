@@ -34,7 +34,7 @@ dev-frontend:
 	cd frontend && npm run dev
 
 seed:
-	@echo "TODO: seed local chain data"
+	cd contracts && forge script script/SeedTestData.s.sol --rpc-url http://localhost:8545 --broadcast
 
 anvil:
 	@echo "TODO: start local Anvil fork"
