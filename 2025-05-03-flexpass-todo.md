@@ -662,9 +662,10 @@ Missing requested active skills:
 ## Phase 13: Security Hardening
 
 ### 13.1 Pre-Audit Checklist
-- [ ] Run `forge test --gas-report` and log gas costs for `mintMembership` and `buyMembership`
-- [ ] Verify `mintMembership` gas < 200,000
-- [ ] Verify `buyMembership` gas < 120,000
+- [x] Run `forge test --gas-report` and log gas costs for `mintMembership` and `buyMembership`
+  - `mintMembership(address,address,uint8,uint256)` avg gas: 183,267; `buyMembership` avg gas: 114,983
+- [x] Verify `mintMembership` gas < 200,000
+- [x] Verify `buyMembership` gas < 120,000
 - [ ] Run `slither src/` and resolve all High and Medium findings
 - [ ] Run `forge test --fuzz-runs 10000` (extended fuzz) on all three contracts
 - [ ] Manually verify `_beforeTokenTransfer` clears user state on all transfer paths
