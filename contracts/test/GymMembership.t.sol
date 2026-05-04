@@ -99,6 +99,16 @@ contract GymMembershipTest is Test {
         assertEq(membership.userOf(1), address(0));
     }
 
+    function test_safeTransferClearsUserRole() public {
+        PassiveReceiver receiver = new PassiveReceiver();
+        membership.mintMembership(BUYER, GYM, 1, 30);
+
+        vm.prank(BUYER);
+        membership.safeTransferFrom(BUYER, address(receiver), 1);
+
+        assertEq(membership.userOf(1), address(0));
+    }
+
     function test_mintMembership_withTokenUriSetsUriGymAndTier() public {
         uint256 tokenId = membership.mintMembership(BUYER, GYM, 2, 30, "ipfs://metadata");
 
@@ -209,6 +219,12 @@ contract GymMembershipTest is Test {
 contract RejectingMintTreasury {
     receive() external payable {
         revert("reject");
+    }
+}
+
+contract PassiveReceiver {
+    function onERC721Received(address, address, uint256, bytes calldata) external pure returns (bytes4) {
+        return this.onERC721Received.selector;
     }
 }
 

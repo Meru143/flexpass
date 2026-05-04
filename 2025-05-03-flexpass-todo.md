@@ -668,7 +668,8 @@ Missing requested active skills:
 - [x] Verify `buyMembership` gas < 120,000
 - [x] Run `slither src/` and resolve all High and Medium findings
 - [x] Run `forge test --fuzz-runs 10000` (extended fuzz) on all three contracts
-- [ ] Manually verify `_beforeTokenTransfer` clears user state on all transfer paths
+- [x] Manually verify `_beforeTokenTransfer` clears user state on all transfer paths
+  - OpenZeppelin v5 uses `_update`; `transferFrom` and `safeTransferFrom` both clear ERC-4907 user state.
 - [ ] Verify `ReentrancyGuard` prevents attack with manual test in `Integration.t.sol`
 - [ ] Verify `Ownable2Step` transfer requires two-step confirmation
 - [ ] Verify all `payable` functions emit events before any external `call{value:}`
