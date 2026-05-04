@@ -616,7 +616,7 @@ Missing requested active skills:
 
 ### 11.3 Build & Publish
 - [x] Configure `tsup.config.ts` for `entry: ['src/index.ts']`, `format: ['cjs', 'esm']`, `dts: true`
-- [ ] Add `exports` field in `package.json` for dual CJS/ESM
+- [x] Add `exports` field in `package.json` for dual CJS/ESM
 - [ ] Add `"peerDependencies": { "viem": "^2.0.0" }`
 - [ ] Write `sdk/README.md` with install instructions and `checkAccess` code example
 
