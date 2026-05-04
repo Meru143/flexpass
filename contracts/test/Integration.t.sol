@@ -17,6 +17,7 @@ contract IntegrationTest is Test {
     address private constant PROTOCOL_TREASURY = address(0x3003);
     address private constant ALICE = address(0x4004);
     address private constant BOB = address(0x5005);
+    address private constant NEW_OWNER = address(0x6006);
 
     uint256 private constant PRICE = 10 ether;
     uint256 private constant ROYALTY = 1 ether;
@@ -89,6 +90,30 @@ contract IntegrationTest is Test {
         market.buyMembership{value: PRICE}(tokenId);
 
         assertEq(membership.ownerOf(tokenId), BOB);
+    }
+
+    function test_ownable2Step_requiresPendingOwnerToAcceptOnAllContracts() public {
+        registry.transferOwnership(NEW_OWNER);
+        membership.transferOwnership(NEW_OWNER);
+        market.transferOwnership(NEW_OWNER);
+
+        assertEq(registry.owner(), address(this));
+        assertEq(membership.owner(), address(this));
+        assertEq(market.owner(), address(this));
+
+        vm.prank(BOB);
+        vm.expectRevert(abi.encodeWithSignature("OwnableUnauthorizedAccount(address)", BOB));
+        registry.acceptOwnership();
+
+        vm.startPrank(NEW_OWNER);
+        registry.acceptOwnership();
+        membership.acceptOwnership();
+        market.acceptOwnership();
+        vm.stopPrank();
+
+        assertEq(registry.owner(), NEW_OWNER);
+        assertEq(membership.owner(), NEW_OWNER);
+        assertEq(market.owner(), NEW_OWNER);
     }
 
     function _mintApproveAndList(address seller) private returns (uint256 tokenId) {
