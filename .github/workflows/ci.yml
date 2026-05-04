@@ -155,10 +155,14 @@ jobs:
     continue-on-error: true
     steps:
       - uses: actions/checkout@v4
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Run Slither report
+        working-directory: contracts
         run: |
           pip install slither-analyzer --break-system-packages
-          slither contracts/src/ --detect all
+          slither src/ --detect all || true

@@ -71,6 +71,16 @@ contract GymMembershipTest is Test {
         assertEq(membership.userOf(1), address(0));
     }
 
+    function test_setUser_revertsWhenCallerIsUnauthorized() public {
+        membership.mintMembership(BUYER, GYM, 1, 30);
+        uint64 expiresAt = uint64(membership.userExpires(1));
+
+        vm.prank(OTHER);
+        vm.expectRevert(abi.encodeWithSelector(GymMembership.GM_NotOwner.selector, 1, OTHER));
+
+        membership.setUser(1, OTHER, expiresAt);
+    }
+
     function test_royaltyInfo_returnsGymTreasuryAndTenPercent() public {
         membership.mintMembership(BUYER, GYM, 1, 30);
 
@@ -89,6 +99,14 @@ contract GymMembershipTest is Test {
         assertEq(membership.userOf(1), address(0));
     }
 
+    function test_mintMembership_withTokenUriSetsUriGymAndTier() public {
+        uint256 tokenId = membership.mintMembership(BUYER, GYM, 2, 30, "ipfs://metadata");
+
+        assertEq(membership.tokenURI(tokenId), "ipfs://metadata");
+        assertEq(membership.getMembershipGym(tokenId), GYM);
+        assertEq(membership.getMembershipTier(tokenId), 2);
+    }
+
     function test_batchMintMembership_returnsThreeTokenIds() public {
         address[] memory recipients = new address[](3);
         recipients[0] = BUYER;
@@ -105,12 +123,42 @@ contract GymMembershipTest is Test {
         assertEq(tokenIds[2], 3);
     }
 
+    function test_batchMintMembership_revertsWhenArrayLengthsMismatch() public {
+        address[] memory recipients = new address[](2);
+        recipients[0] = BUYER;
+        recipients[1] = OTHER;
+
+        string[] memory tokenURIs = new string[](1);
+
+        vm.expectRevert(abi.encodeWithSelector(GymMembership.GM_LengthMismatch.selector, 2, 1));
+
+        membership.batchMintMembership(recipients, GYM, 1, 30, tokenURIs);
+    }
+
+    function test_setProtocolTreasury_updatesTreasuryAndRejectsZeroAddress() public {
+        vm.expectRevert(GymMembership.GM_ZeroAddress.selector);
+        membership.setProtocolTreasury(address(0));
+
+        membership.setProtocolTreasury(OTHER);
+
+        assertEq(membership.protocolTreasury(), OTHER);
+    }
+
     function test_pauseCausesMintMembershipToRevert() public {
         membership.pause();
 
         vm.expectRevert(abi.encodeWithSignature("EnforcedPause()"));
 
         membership.mintMembership(BUYER, GYM, 1, 30);
+    }
+
+    function test_unpauseRestoresMintMembership() public {
+        membership.pause();
+        membership.unpause();
+
+        uint256 tokenId = membership.mintMembership(BUYER, GYM, 1, 30);
+
+        assertEq(tokenId, 1);
     }
 
     function test_supportsInterface_returnsTrueForErc4907AndErc2981() public view {

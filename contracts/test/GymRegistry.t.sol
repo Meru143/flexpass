@@ -92,6 +92,17 @@ contract GymRegistryTest is Test {
         registry.updateTreasury(NEW_TREASURY);
     }
 
+    function test_getGymInfo_returnsRegisteredGymDetails() public {
+        registry.registerGym(GYM, TREASURY, "FitZone Mumbai", 1000);
+
+        assertEq(registry.getGymInfo(GYM).gymAddress, GYM);
+        assertEq(registry.getGymInfo(GYM).treasury, TREASURY);
+        assertEq(registry.getGymInfo(GYM).name, "FitZone Mumbai");
+        assertEq(registry.getGymInfo(GYM).royaltyBps, 1000);
+        assertEq(registry.getTreasury(GYM), TREASURY);
+        assertEq(registry.getRoyaltyBps(GYM), 1000);
+    }
+
     function test_getAllGyms_returnsCorrectCountAfterRegistration() public {
         address secondGym = address(0x5005);
 
@@ -103,5 +114,18 @@ contract GymRegistryTest is Test {
         assertEq(gyms.length, 2);
         assertEq(gyms[0], GYM);
         assertEq(gyms[1], secondGym);
+    }
+
+    function test_getApprovedGyms_returnsOnlyApprovedGyms() public {
+        address secondGym = address(0x5005);
+
+        registry.registerGym(GYM, TREASURY, "FitZone Mumbai", 1000);
+        registry.registerGym(secondGym, NEW_TREASURY, "GoldGym Pune", 1000);
+        registry.approveGym(GYM);
+
+        address[] memory approvedGyms = registry.getApprovedGyms();
+
+        assertEq(approvedGyms.length, 1);
+        assertEq(approvedGyms[0], GYM);
     }
 }

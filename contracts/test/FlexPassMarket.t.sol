@@ -77,6 +77,15 @@ contract FlexPassMarketTest is Test {
         market.listMembership(TOKEN_ID, PRICE);
     }
 
+    function test_listMembership_revertsWhenAlreadyListed() public {
+        _listToken();
+
+        vm.prank(address(market));
+        vm.expectRevert(abi.encodeWithSelector(FlexPassMarket.MKT_AlreadyListed.selector, TOKEN_ID));
+
+        market.listMembership(TOKEN_ID, PRICE);
+    }
+
     function test_isListed_returnsTrueAfterListing() public {
         _listToken();
 
@@ -120,6 +129,42 @@ contract FlexPassMarketTest is Test {
         _buyToken();
 
         assertEq(PROTOCOL_TREASURY.balance, PROTOCOL_FEE);
+    }
+
+    function test_buyMembership_withZeroRoyaltyAndProtocolFeeSkipsZeroTransfers() public {
+        address zeroRoyaltyGym = address(0x6006);
+        uint256 zeroRoyaltyTokenId = 2;
+
+        registry.registerGym(zeroRoyaltyGym, GYM_TREASURY, "Zero Royalty Gym", 0);
+        registry.approveGym(zeroRoyaltyGym);
+        market.setProtocolFeeBps(0);
+        membership.mintMembership(ALICE, zeroRoyaltyGym, 1, 30);
+
+        vm.prank(ALICE);
+        membership.approve(address(market), zeroRoyaltyTokenId);
+
+        vm.prank(ALICE);
+        market.listMembership(zeroRoyaltyTokenId, PRICE);
+
+        vm.prank(BOB);
+        market.buyMembership{value: PRICE}(zeroRoyaltyTokenId);
+
+        assertEq(membership.ownerOf(zeroRoyaltyTokenId), BOB);
+        assertEq(GYM_TREASURY.balance, 0);
+        assertEq(PROTOCOL_TREASURY.balance, 0);
+    }
+
+    function test_buyMembership_revertsWhenProtocolTreasuryRejectsPayment() public {
+        RejectingReceiver rejectingReceiver = new RejectingReceiver();
+        market.setProtocolTreasury(address(rejectingReceiver));
+        _listToken();
+
+        vm.prank(BOB);
+        vm.expectRevert(
+            abi.encodeWithSelector(FlexPassMarket.MKT_TransferFailed.selector, address(rejectingReceiver), PROTOCOL_FEE)
+        );
+
+        market.buyMembership{value: PRICE}(TOKEN_ID);
     }
 
     function test_buyMembership_fromSellerRevertsWithSelfBuy() public {
@@ -175,6 +220,18 @@ contract FlexPassMarketTest is Test {
         assertEq(listing.priceWei, newPrice);
     }
 
+    function test_updatePrice_revertsWhenListingIsInactiveOrCallerIsNotSeller() public {
+        vm.expectRevert(FlexPassMarket.MKT_InactiveListing.selector);
+        market.updatePrice(TOKEN_ID, PRICE);
+
+        _listToken();
+
+        vm.prank(BOB);
+        vm.expectRevert(abi.encodeWithSelector(FlexPassMarket.MKT_NotOwner.selector, TOKEN_ID));
+
+        market.updatePrice(TOKEN_ID, PRICE);
+    }
+
     function test_cleanExpiredListing_afterExpirySucceeds() public {
         _listToken();
         uint256 expiresAt = market.getListing(TOKEN_ID).expiresAt;
@@ -195,6 +252,43 @@ contract FlexPassMarketTest is Test {
         market.cleanExpiredListing(TOKEN_ID);
     }
 
+    function test_cleanExpiredListing_revertsWhenListingIsInactive() public {
+        vm.expectRevert(FlexPassMarket.MKT_InactiveListing.selector);
+
+        market.cleanExpiredListing(TOKEN_ID);
+    }
+
+    function test_setProtocolFeeBps_updatesFeeAndRejectsAboveMax() public {
+        vm.expectRevert(abi.encodeWithSelector(FlexPassMarket.MKT_FeeTooHigh.selector, 501, 500));
+        market.setProtocolFeeBps(501);
+
+        market.setProtocolFeeBps(250);
+
+        assertEq(market.protocolFeeBps(), 250);
+    }
+
+    function test_setProtocolTreasury_updatesTreasuryAndRejectsZeroAddress() public {
+        vm.expectRevert(FlexPassMarket.MKT_ZeroAddress.selector);
+        market.setProtocolTreasury(address(0));
+
+        market.setProtocolTreasury(BOB);
+
+        assertEq(market.protocolTreasury(), BOB);
+    }
+
+    function test_pauseAndUnpauseControlsListing() public {
+        market.pause();
+
+        vm.prank(ALICE);
+        vm.expectRevert(abi.encodeWithSignature("EnforcedPause()"));
+        market.listMembership(TOKEN_ID, PRICE);
+
+        market.unpause();
+        _listToken();
+
+        assertTrue(market.isListed(TOKEN_ID));
+    }
+
     function _listToken() private {
         vm.prank(ALICE);
         market.listMembership(TOKEN_ID, PRICE);
@@ -205,5 +299,11 @@ contract FlexPassMarketTest is Test {
 
         vm.prank(BOB);
         market.buyMembership{value: PRICE}(TOKEN_ID);
+    }
+}
+
+contract RejectingReceiver {
+    receive() external payable {
+        revert("reject");
     }
 }
