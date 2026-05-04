@@ -651,7 +651,7 @@ Missing requested active skills:
 - [x] `make deploy-mainnet`: same with `POLYGON_RPC_URL`
 - [x] `make subgraph-build`: `cd subgraph && graph codegen && graph build`
 - [x] `make subgraph-deploy`: `cd subgraph && graph deploy flexpass -l $${SUBGRAPH_VERSION_LABEL:-v0.1.0} --deploy-key $$GRAPH_STUDIO_DEPLOY_KEY`
-- [ ] `make sdk-publish`: `cd sdk && npm run build && npm publish --access public`
+- [x] `make sdk-publish`: `cd sdk && npm run build && npm publish --access public`
 - [ ] `make dev-api`: `cd api && nodemon src/index.ts`
 - [ ] `make dev-frontend`: `cd frontend && next dev`
 - [ ] `make seed`: `cd contracts && forge script script/SeedTestData.s.sol --rpc-url http://localhost:8545 --broadcast`

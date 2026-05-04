@@ -25,7 +25,7 @@ subgraph-deploy:
 	cd subgraph && graph deploy flexpass -l $${SUBGRAPH_VERSION_LABEL:-v0.1.0} --deploy-key $$GRAPH_STUDIO_DEPLOY_KEY
 
 sdk-publish:
-	@echo "TODO: publish @flexpass/verifier"
+	cd sdk && npm run build && npm publish --access public
 
 dev-api:
 	@echo "TODO: start Hono API dev server"
