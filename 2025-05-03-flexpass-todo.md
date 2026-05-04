@@ -637,7 +637,7 @@ Missing requested active skills:
 
 ### 12.2 Deploy Workflow (`.github/workflows/deploy.yml`)
 - [x] Set trigger: `on: push: tags: ['v*']`
-- [ ] Job `deploy-contracts`: `forge script script/Deploy.s.sol --rpc-url $AMOY_RPC_URL --broadcast --verify`
+- [x] Job `deploy-contracts`: `forge script script/Deploy.s.sol --rpc-url $AMOY_RPC_URL --broadcast --verify`
 - [ ] Job `deploy-subgraph`: `graph deploy --studio flexpass --deploy-key $GRAPH_STUDIO_DEPLOY_KEY`
 - [ ] Job `deploy-frontend`: `vercel deploy --prod --token $VERCEL_TOKEN`
 - [ ] Store all secrets in GitHub repository secrets

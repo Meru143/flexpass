@@ -6,10 +6,20 @@ on:
       - "v*"
 
 jobs:
-  placeholder:
-    name: Deploy placeholder
+  deploy-contracts:
+    name: deploy-contracts
     runs-on: ubuntu-latest
+    environment: amoy
     steps:
       - uses: actions/checkout@v4
-      - name: Explain pending implementation
-        run: echo "Full FlexPass deployment automation is implemented in Phase 12."
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+      - name: Deploy contracts to Polygon Amoy
+        working-directory: contracts
+        env:
+          AMOY_RPC_URL: ${{ secrets.AMOY_RPC_URL }}
+          DEPLOYER_PRIVATE_KEY: ${{ secrets.DEPLOYER_PRIVATE_KEY }}
+          PROTOCOL_TREASURY: ${{ secrets.PROTOCOL_TREASURY }}
+          POLYGONSCAN_API_KEY: ${{ secrets.POLYGONSCAN_API_KEY }}
+        run: forge script script/Deploy.s.sol --rpc-url $AMOY_RPC_URL --broadcast --verify
