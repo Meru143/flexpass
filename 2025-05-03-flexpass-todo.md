@@ -625,7 +625,7 @@ Missing requested active skills:
 ## Phase 12: CI/CD Pipeline
 
 ### 12.1 CI Workflow (`.github/workflows/ci.yml`)
-- [ ] Set trigger: `on: [push, pull_request]`
+- [x] Set trigger: `on: [push, pull_request]`
 - [ ] Job `lint-contracts`: `forge fmt --check`, `solhint 'src/**/*.sol'`
 - [ ] Job `test-contracts`: `forge test -vvv`, fail if any test fails
 - [ ] Job `fuzz-contracts`: `forge test --fuzz-runs 1000 --match-path 'test/Fuzz.t.sol'`
