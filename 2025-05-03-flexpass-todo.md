@@ -586,7 +586,7 @@ Missing requested active skills:
 
 ### 10.10 Formatting Utilities
 - [x] Create `lib/formatters.ts`
-- [ ] Implement `formatMATIC(wei: bigint): string` — uses viem `formatEther` + rounds to 4 decimals
+- [x] Implement `formatMATIC(wei: bigint): string` — uses viem `formatEther` + rounds to 4 decimals
 - [ ] Implement `formatExpiry(timestamp: number): string` — returns "Jan 5, 2026" format
 - [ ] Implement `daysRemaining(timestamp: number): number` — returns days until expiry, 0 if expired
 - [ ] Implement `calcRoyalty(priceWei: bigint, royaltyBps: number): bigint` — returns `priceWei * BigInt(royaltyBps) / 10000n`
