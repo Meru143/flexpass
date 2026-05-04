@@ -10,7 +10,7 @@ fmt:
 	cd contracts && forge fmt
 
 coverage:
-	@echo "TODO: run coverage reports"
+	cd contracts && forge coverage --report lcov
 
 deploy-amoy:
 	@echo "TODO: deploy contracts to Polygon Amoy"
