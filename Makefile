@@ -31,7 +31,7 @@ dev-api:
 	cd api && npx nodemon src/index.ts
 
 dev-frontend:
-	@echo "TODO: start Next.js frontend dev server"
+	cd frontend && npm run dev
 
 seed:
 	@echo "TODO: seed local chain data"

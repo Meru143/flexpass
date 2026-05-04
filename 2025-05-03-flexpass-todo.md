@@ -653,7 +653,7 @@ Missing requested active skills:
 - [x] `make subgraph-deploy`: `cd subgraph && graph deploy flexpass -l $${SUBGRAPH_VERSION_LABEL:-v0.1.0} --deploy-key $$GRAPH_STUDIO_DEPLOY_KEY`
 - [x] `make sdk-publish`: `cd sdk && npm run build && npm publish --access public`
 - [x] `make dev-api`: `cd api && npx nodemon src/index.ts`
-- [ ] `make dev-frontend`: `cd frontend && next dev`
+- [x] `make dev-frontend`: `cd frontend && npm run dev`
 - [ ] `make seed`: `cd contracts && forge script script/SeedTestData.s.sol --rpc-url http://localhost:8545 --broadcast`
 - [ ] `make anvil`: `anvil --fork-url $$POLYGON_RPC_URL`
 
