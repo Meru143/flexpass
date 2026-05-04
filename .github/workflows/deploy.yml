@@ -43,3 +43,25 @@ jobs:
         env:
           GRAPH_STUDIO_DEPLOY_KEY: ${{ secrets.GRAPH_STUDIO_DEPLOY_KEY }}
         run: npx graph deploy --studio flexpass --deploy-key $GRAPH_STUDIO_DEPLOY_KEY
+
+  deploy-frontend:
+    name: deploy-frontend
+    runs-on: ubuntu-latest
+    needs: deploy-subgraph
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+      - name: Deploy frontend to Vercel
+        working-directory: frontend
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: npx vercel deploy --prod --token $VERCEL_TOKEN
