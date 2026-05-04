@@ -644,7 +644,7 @@ Missing requested active skills:
 
 ### 12.3 Makefile
 - [x] `make test`: `cd contracts && forge test -vvv`
-- [ ] `make fmt`: `cd contracts && forge fmt`
+- [x] `make fmt`: `cd contracts && forge fmt`
 - [ ] `make coverage`: `cd contracts && forge coverage --report lcov`
 - [ ] `make deploy-amoy`: `cd contracts && forge script script/Deploy.s.sol --rpc-url $$AMOY_RPC_URL --private-key $$DEPLOYER_PRIVATE_KEY --broadcast --verify`
 - [ ] `make deploy-mainnet`: same with `POLYGON_RPC_URL`

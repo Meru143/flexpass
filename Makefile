@@ -7,7 +7,7 @@ lint:
 	@echo "TODO: run Solidity, TypeScript, and frontend lint checks"
 
 fmt:
-	@echo "TODO: format Solidity and TypeScript sources"
+	cd contracts && forge fmt
 
 coverage:
 	@echo "TODO: run coverage reports"
