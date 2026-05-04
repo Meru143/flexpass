@@ -4,7 +4,9 @@ test:
 	cd contracts && forge test -vvv
 
 lint:
-	@echo "TODO: run Solidity, TypeScript, and frontend lint checks"
+	cd contracts && forge fmt --check
+	cd contracts && npx --yes solhint "src/**/*.sol"
+	cd frontend && npx eslint . && npx tsc --noEmit
 
 fmt:
 	cd contracts && forge fmt
