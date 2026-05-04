@@ -71,6 +71,7 @@ function BuyMembershipContent({ tokenId }: { tokenId: string }) {
   const listing = listingQuery.data?.listing;
   const priceWei = useMemo(() => (listing ? parsePositiveWei(listing.priceWei) : null), [listing]);
   const isSelfBuy = Boolean(address && listing?.seller && address.toLowerCase() === listing.seller.toLowerCase());
+  const isBuying = buyMembership.isPending;
   const canBuy = Boolean(listing?.active && tokenIdBigInt !== null && priceWei !== null && !isSelfBuy);
 
   async function handleBuy() {
@@ -168,12 +169,23 @@ function BuyMembershipContent({ tokenId }: { tokenId: string }) {
 
         <button
           aria-label={`Buy membership token ${tokenId}`}
+          aria-busy={isBuying}
           className="min-h-11 w-full rounded-md bg-emerald-600 px-4 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50"
-          disabled={!canBuy || buyMembership.isPending}
+          disabled={!canBuy || isBuying}
           onClick={handleBuy}
           type="button"
         >
-          {buyMembership.isPending ? "Buying..." : "Buy Now"}
+          {isBuying ? (
+            <span className="inline-flex items-center justify-center gap-2">
+              <span
+                aria-hidden="true"
+                className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white"
+              />
+              Buying...
+            </span>
+          ) : (
+            "Buy Now"
+          )}
         </button>
       </aside>
     </div>
