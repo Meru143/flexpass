@@ -28,7 +28,7 @@ sdk-publish:
 	cd sdk && npm run build && npm publish --access public
 
 dev-api:
-	@echo "TODO: start Hono API dev server"
+	cd api && npx nodemon src/index.ts
 
 dev-frontend:
 	@echo "TODO: start Next.js frontend dev server"
