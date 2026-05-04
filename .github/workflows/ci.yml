@@ -94,3 +94,20 @@ jobs:
           files: contracts/lcov.info
           fail_ci_if_error: false
           token: ${{ secrets.CODECOV_TOKEN }}
+
+  lint-frontend:
+    name: lint-frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+      - name: Lint and typecheck frontend
+        working-directory: frontend
+        run: npx eslint . && npx tsc --noEmit

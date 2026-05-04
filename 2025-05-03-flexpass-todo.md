@@ -630,7 +630,7 @@ Missing requested active skills:
 - [x] Job `test-contracts`: `forge test -vvv`, fail if any test fails
 - [x] Job `fuzz-contracts`: `forge test --fuzz-runs 1000 --match-path 'test/Fuzz.t.sol'`
 - [x] Job `coverage`: `forge coverage --report lcov`, upload to Codecov, fail if < 90%
-- [ ] Job `lint-frontend`: `cd frontend && eslint . && tsc --noEmit`
+- [x] Job `lint-frontend`: `cd frontend && eslint . && tsc --noEmit`
 - [ ] Job `test-frontend`: `cd frontend && vitest run`
 - [ ] Job `build-frontend`: `cd frontend && next build`
 - [ ] Job `slither`: `pip install slither-analyzer --break-system-packages && slither contracts/src/ --detect all` — allow high severity in pre-audit but report
