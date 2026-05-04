@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { isAddress } from "viem";
 
-import { ConnectButton } from "@/components/ConnectButton";
+import { AppHeader } from "@/components/AppHeader";
 import { ListingCard } from "@/components/ListingCard";
 import type { ListingWithMembership } from "@/hooks/types";
 
@@ -53,12 +53,7 @@ export default function GymPage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <section className="mx-auto w-full max-w-7xl px-6 py-6">
-        <header className="flex items-center justify-between gap-4">
-          <Link className="text-lg font-semibold" href="/">
-            FlexPass
-          </Link>
-          <ConnectButton />
-        </header>
+        <AppHeader />
 
         {!normalizedAddress ? (
           <div className="mt-10 rounded-lg border border-red-200 bg-red-50 p-6 text-sm font-medium text-red-700">

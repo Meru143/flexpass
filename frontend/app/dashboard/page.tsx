@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { ConnectButton } from "@/components/ConnectButton";
+import { AppHeader } from "@/components/AppHeader";
 import { MembershipCard } from "@/components/MembershipCard";
 import { WalletGate } from "@/components/WalletGate";
 import { useMemberships } from "@/hooks/useMemberships";
@@ -11,12 +11,7 @@ export default function DashboardPage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <section className="mx-auto w-full max-w-7xl px-6 py-6">
-        <header className="flex items-center justify-between gap-4">
-          <Link className="text-lg font-semibold" href="/">
-            FlexPass
-          </Link>
-          <ConnectButton />
-        </header>
+        <AppHeader />
 
         <div className="py-10">
           <p className="text-sm font-semibold uppercase tracking-normal text-emerald-700">Dashboard</p>

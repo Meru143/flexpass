@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { AppHeader } from "@/components/AppHeader";
 import { ConnectButton } from "@/components/ConnectButton";
 import { querySubgraph } from "@/lib/subgraph";
 
@@ -36,20 +37,7 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <section className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 py-6">
-        <header className="flex items-center justify-between gap-4">
-          <Link className="text-lg font-semibold tracking-normal" href="/">
-            FlexPass
-          </Link>
-          <nav aria-label="Primary navigation" className="hidden items-center gap-6 text-sm font-medium text-slate-600 sm:flex">
-            <Link className="hover:text-slate-950" href="/marketplace">
-              Marketplace
-            </Link>
-            <Link className="hover:text-slate-950" href="/dashboard">
-              Dashboard
-            </Link>
-          </nav>
-          <ConnectButton />
-        </header>
+        <AppHeader />
 
         <div className="grid flex-1 items-center gap-10 py-16 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="max-w-3xl space-y-8">
@@ -72,7 +60,20 @@ export default async function Home() {
               >
                 Browse Listings
               </Link>
+              <Link
+                className="inline-flex min-h-11 items-center justify-center rounded-md border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-950 transition hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-950"
+                href="/verify?tokenId=2"
+              >
+                Check Access
+              </Link>
               <ConnectButton />
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              <RoleLink href="/admin" step="1" title="Admin" text="Register and approve the gym wallet." />
+              <RoleLink href="/gym" step="2" title="Gym" text="Mint access to a member wallet." />
+              <RoleLink href="/dashboard" step="3" title="Member" text="View and list owned memberships." />
+              <RoleLink href="/verify?tokenId=2" step="4" title="Verifier" text="Confirm active access at entry." />
             </div>
           </div>
 
@@ -106,6 +107,19 @@ export default async function Home() {
         </dl>
       </section>
     </main>
+  );
+}
+
+function RoleLink({ href, step, text, title }: { href: string; step: string; text: string; title: string }) {
+  return (
+    <Link
+      className="group rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition hover:border-emerald-200 hover:bg-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+      href={href}
+    >
+      <span className="text-xs font-semibold uppercase tracking-normal text-emerald-700">Step {step}</span>
+      <span className="mt-2 block text-base font-semibold text-slate-950">{title}</span>
+      <span className="mt-1 block text-sm leading-6 text-slate-600">{text}</span>
+    </Link>
   );
 }
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 
-import { ConnectButton } from "@/components/ConnectButton";
+import { AppHeader } from "@/components/AppHeader";
 import { ExpiryCountdown } from "@/components/ExpiryCountdown";
 import { RoyaltyBreakdown } from "@/components/RoyaltyBreakdown";
 import { WalletGate } from "@/components/WalletGate";
@@ -22,12 +22,7 @@ export default function SellMembershipPage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
       <section className="mx-auto w-full max-w-5xl px-6 py-6">
-        <header className="flex items-center justify-between gap-4">
-          <Link className="text-lg font-semibold" href="/">
-            FlexPass
-          </Link>
-          <ConnectButton />
-        </header>
+        <AppHeader />
 
         <div className="py-10">
           <Link className="text-sm font-semibold text-emerald-700" href="/dashboard">
