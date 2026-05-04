@@ -1,7 +1,7 @@
 .PHONY: test lint fmt coverage deploy-amoy deploy-mainnet subgraph-build subgraph-deploy sdk-publish dev-api dev-frontend seed anvil
 
 test:
-	@echo "TODO: run contract, API, frontend, subgraph, and SDK tests"
+	cd contracts && forge test -vvv
 
 lint:
 	@echo "TODO: run Solidity, TypeScript, and frontend lint checks"
