@@ -60,3 +60,37 @@ jobs:
       - name: Run targeted fuzz tests
         working-directory: contracts
         run: forge test --fuzz-runs 1000 --match-path 'test/Fuzz.t.sol'
+
+  coverage:
+    name: coverage
+    runs-on: ubuntu-latest
+    needs: test-contracts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+      - uses: actions/cache@v4
+        with:
+          path: |
+            contracts/cache
+            contracts/out
+          key: ${{ runner.os }}-foundry-${{ hashFiles('contracts/foundry.toml', 'contracts/src/**/*.sol', 'contracts/test/**/*.sol') }}
+      - name: Install lcov
+        run: sudo apt-get update && sudo apt-get install -y lcov
+      - name: Generate coverage report
+        working-directory: contracts
+        run: forge coverage --report lcov
+      - name: Enforce 90 percent line coverage
+        working-directory: contracts
+        run: |
+          summary="$(lcov --summary lcov.info 2>&1)"
+          echo "$summary"
+          line_coverage="$(echo "$summary" | awk '/lines/ { gsub("%", "", $2); print $2 }')"
+          awk -v coverage="$line_coverage" 'BEGIN { if (coverage < 90) exit 1 }'
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: contracts/lcov.info
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
