@@ -655,7 +655,7 @@ Missing requested active skills:
 - [x] `make dev-api`: `cd api && npx nodemon src/index.ts`
 - [x] `make dev-frontend`: `cd frontend && npm run dev`
 - [x] `make seed`: `cd contracts && forge script script/SeedTestData.s.sol --rpc-url http://localhost:8545 --broadcast`
-- [ ] `make anvil`: `anvil --fork-url $$POLYGON_RPC_URL`
+- [x] `make anvil`: `anvil --fork-url $$POLYGON_RPC_URL`
 
 ---
 
