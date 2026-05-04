@@ -688,40 +688,40 @@ Missing requested active skills:
 ## Phase 14: Documentation & Community
 
 ### 14.1 README.md (root)
-- [ ] Write project description with tagline: "Gym memberships you actually own"
-- [ ] Add architecture diagram (ASCII or image)
-- [ ] Add "Quick Start" section: clone, install, `make dev-frontend`
-- [ ] Add contract addresses table: Network / GymRegistry / GymMembership / FlexPassMarket
-- [ ] Add "How It Works" section: mint → list → buy with diagram
-- [ ] Add "For Gyms" section: how to register, what royalties look like
-- [ ] Add "For Members" section: how to sell, how to buy
-- [ ] Add "For Kiosk Integrators" section: SDK installation and `checkAccess` example
+- [x] Write project description with tagline: "Gym memberships you actually own"
+- [x] Add architecture diagram (ASCII or image)
+- [x] Add "Quick Start" section: clone, install, `make dev-frontend`
+- [x] Add contract addresses table: Network / GymRegistry / GymMembership / FlexPassMarket
+- [x] Add "How It Works" section: mint → list → buy with diagram
+- [x] Add "For Gyms" section: how to register, what royalties look like
+- [x] Add "For Members" section: how to sell, how to buy
+- [x] Add "For Kiosk Integrators" section: SDK installation and `checkAccess` example
 
 ### 14.2 contracts/README.md
-- [ ] Document each contract: purpose, constructor args, key functions
-- [ ] Document deployment steps with full `forge script` command
-- [ ] Document Polygon Amoy testnet addresses
+- [x] Document each contract: purpose, constructor args, key functions
+- [x] Document deployment steps with full `forge script` command
+- [x] Document Polygon Amoy testnet addresses
 
 ### 14.3 sdk/README.md
-- [ ] `npm install @flexpass/verifier` instructions
-- [ ] Full `checkAccess` usage example with async/await
-- [ ] `VerifierConfig` interface documentation
-- [ ] Offline grace period explanation
+- [x] `npm install @flexpass/verifier` instructions
+- [x] Full `checkAccess` usage example with async/await
+- [x] `VerifierConfig` interface documentation
+- [x] Offline grace period explanation
 
 ### 14.4 CONTRIBUTING.md
-- [ ] Branch naming: `feat/`, `fix/`, `test/`, `docs/`
-- [ ] PR requirements: tests pass, forge fmt clean, no slither high/medium
-- [ ] How to run local development environment
+- [x] Branch naming: `feat/`, `fix/`, `test/`, `docs/`
+- [x] PR requirements: tests pass, forge fmt clean, no slither high/medium
+- [x] How to run local development environment
 
 ### 14.5 SECURITY.md
-- [ ] Responsible disclosure email
-- [ ] Known limitations (ERC-2981 not enforced on external marketplaces — see Edge Case #10)
-- [ ] Audit report link placeholder
+- [x] Responsible disclosure email
+- [x] Known limitations (ERC-2981 not enforced on external marketplaces — see Edge Case #10)
+- [x] Audit report link placeholder
 
 ### 14.6 devcontainer
-- [ ] Create `devcontainer/Dockerfile` with Ubuntu 22.04 base
-- [ ] Install Foundry: `curl -L https://foundry.paradigm.xyz | bash && foundryup`
-- [ ] Install Node.js 22 via nvm
-- [ ] Install graph-cli: `npm i -g @graphprotocol/graph-cli`
-- [ ] Create `docker-compose.dev.yml` with PostgreSQL 16 service and `anvil` service
-- [ ] Create `.env.example` referencing docker-compose service names (`DATABASE_URL=postgresql://postgres:postgres@localhost:5432/flexpass`)
+- [x] Create `devcontainer/Dockerfile` with Ubuntu 22.04 base
+- [x] Install Foundry: `curl -L https://foundry.paradigm.xyz | bash && foundryup`
+- [x] Install Node.js 22 via nvm
+- [x] Install graph-cli: `npm i -g @graphprotocol/graph-cli`
+- [x] Create `docker-compose.dev.yml` with PostgreSQL 16 service and `anvil` service
+- [x] Create `.env.example` referencing docker-compose service names (`DATABASE_URL=postgresql://postgres:postgres@localhost:5432/flexpass`)
