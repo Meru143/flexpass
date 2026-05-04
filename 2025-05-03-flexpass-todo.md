@@ -627,7 +627,7 @@ Missing requested active skills:
 ### 12.1 CI Workflow (`.github/workflows/ci.yml`)
 - [x] Set trigger: `on: [push, pull_request]`
 - [x] Job `lint-contracts`: `forge fmt --check`, `solhint 'src/**/*.sol'`
-- [ ] Job `test-contracts`: `forge test -vvv`, fail if any test fails
+- [x] Job `test-contracts`: `forge test -vvv`, fail if any test fails
 - [ ] Job `fuzz-contracts`: `forge test --fuzz-runs 1000 --match-path 'test/Fuzz.t.sol'`
 - [ ] Job `coverage`: `forge coverage --report lcov`, upload to Codecov, fail if < 90%
 - [ ] Job `lint-frontend`: `cd frontend && eslint . && tsc --noEmit`
