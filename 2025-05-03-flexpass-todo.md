@@ -580,7 +580,7 @@ Missing requested active skills:
 - [x] Create `app/page.tsx` — hero section, stats ticker (total minted from subgraph), CTA buttons "Browse Listings" and "Connect Wallet"
 - [x] Create `app/dashboard/page.tsx` — `'use client'`; fetch memberships via `useMemberships()`; render grid of `<MembershipCard>` components; show empty state if none
 - [x] Create `app/marketplace/page.tsx` — `'use client'`; `useListings()`; filter controls (gym/tier/price); paginated listing grid
-- [ ] Create `app/sell/[tokenId]/page.tsx` — token detail; price input; royalty breakdown preview; "Approve & List" button using `useListMembership`
+- [x] Create `app/sell/[tokenId]/page.tsx` — token detail; price input; royalty breakdown preview; "Approve & List" button using `useListMembership`
 - [ ] Create `app/buy/[tokenId]/page.tsx` — listing detail; royalty breakdown; "Buy Now" button using `useBuyMembership`
 - [ ] Create `app/gym/[address]/page.tsx` — gym info from API; active listings for gym; "Buy New Membership" button
 
