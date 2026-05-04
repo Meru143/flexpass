@@ -633,7 +633,7 @@ Missing requested active skills:
 - [x] Job `lint-frontend`: `cd frontend && eslint . && tsc --noEmit`
 - [x] Job `test-frontend`: `cd frontend && vitest run`
 - [x] Job `build-frontend`: `cd frontend && next build`
-- [ ] Job `slither`: `pip install slither-analyzer --break-system-packages && slither contracts/src/ --detect all` — allow high severity in pre-audit but report
+- [x] Job `slither`: `pip install slither-analyzer --break-system-packages && slither contracts/src/ --detect all` — allow high severity in pre-audit but report
 
 ### 12.2 Deploy Workflow (`.github/workflows/deploy.yml`)
 - [ ] Set trigger: `on: push: tags: ['v*']`

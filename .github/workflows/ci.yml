@@ -147,3 +147,18 @@ jobs:
       - name: Build frontend
         working-directory: frontend
         run: npm run build
+
+  slither:
+    name: slither
+    runs-on: ubuntu-latest
+    needs: lint-contracts
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run Slither report
+        run: |
+          pip install slither-analyzer --break-system-packages
+          slither contracts/src/ --detect all
