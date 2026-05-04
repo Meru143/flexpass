@@ -673,7 +673,7 @@ Missing requested active skills:
 - [x] Verify `ReentrancyGuard` prevents attack with manual test in `Integration.t.sol`
 - [x] Verify `Ownable2Step` transfer requires two-step confirmation
 - [x] Verify all `payable` functions emit events before any external `call{value:}`
-- [ ] Confirm no use of `transfer()` or `send()` — all ETH transfers use `.call{value:}("")`
+- [x] Confirm no use of `transfer()` or `send()` — all ETH transfers use `.call{value:}("")`
 
 ### 13.2 Frontend Security
 - [ ] Never store private keys in frontend — all signing via wallet adapters
