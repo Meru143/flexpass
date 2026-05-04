@@ -56,31 +56,31 @@ export async function checkAccess(tokenId: number, config: VerifierConfig): Prom
   const cacheKey = `${contractAddress.toLowerCase()}:${tokenId}`;
 
   try {
-    const client = createPublicClient({
+    const publicClient = createPublicClient({
       chain: polygon,
       transport: http(config.rpcUrl),
     });
 
     const [rawUser, rawExpires, rawTierId, rawGymAddress] = await Promise.all([
-      client.readContract({
+      publicClient.readContract({
         address: contractAddress,
         abi,
         functionName: "userOf",
         args: [BigInt(tokenId)],
       }),
-      client.readContract({
+      publicClient.readContract({
         address: contractAddress,
         abi,
         functionName: "userExpires",
         args: [BigInt(tokenId)],
       }),
-      client.readContract({
+      publicClient.readContract({
         address: contractAddress,
         abi,
         functionName: "getMembershipTier",
         args: [BigInt(tokenId)],
       }),
-      client.readContract({
+      publicClient.readContract({
         address: contractAddress,
         abi,
         functionName: "getMembershipGym",
