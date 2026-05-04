@@ -474,8 +474,9 @@ Missing requested active skills:
 
 ### 8.4 Build & Deploy
 - [x] Run `graph build` and verify no AssemblyScript errors
-- [ ] Deploy to The Graph Studio: `graph deploy --studio flexpass`
+- [x] Deploy to The Graph Studio: `graph deploy flexpass -l v0.1.0 --deploy-key $GRAPH_STUDIO_DEPLOY_KEY`
   - NOTE: Amoy contracts deployed at block `37735241` (`GymRegistry=0xaE12edE4Eab2655b9B1618628c678819693881eA`, `GymMembership=0x465CF3a5918534d94BA62F3A7980f5ffB0277168`, `FlexPassMarket=0x0e9a4999ABcccE5B1A6989B34Ed549C2Dd72bfC0`). `graph deploy` built and uploaded to IPFS, then Graph Studio rejected `network: amoy` with `Specified network is not supported`.
+  - NOTE: Corrected the subgraph manifest to use The Graph's Polygon Amoy slug, `polygon-amoy`; deployed version `v0.1.0` to `https://api.studio.thegraph.com/query/1749319/flexpass/v0.1.0`.
 - [ ] Verify entities appear in Studio playground with test queries
 - [ ] Test GraphQL query: `{ memberships(where: { owner: "0x..." }) { id expiresAt } }`
 - [ ] Test GraphQL query: `{ listings(where: { active: true }) { id priceWei seller } }`
@@ -649,7 +650,7 @@ Missing requested active skills:
 - [x] `make deploy-amoy`: `cd contracts && forge script script/Deploy.s.sol --rpc-url $$AMOY_RPC_URL --private-key $$DEPLOYER_PRIVATE_KEY --broadcast --verify`
 - [x] `make deploy-mainnet`: same with `POLYGON_RPC_URL`
 - [x] `make subgraph-build`: `cd subgraph && graph codegen && graph build`
-- [x] `make subgraph-deploy`: `cd subgraph && graph deploy --studio flexpass`
+- [x] `make subgraph-deploy`: `cd subgraph && graph deploy flexpass -l $${SUBGRAPH_VERSION_LABEL:-v0.1.0} --deploy-key $$GRAPH_STUDIO_DEPLOY_KEY`
 - [ ] `make sdk-publish`: `cd sdk && npm run build && npm publish --access public`
 - [ ] `make dev-api`: `cd api && nodemon src/index.ts`
 - [ ] `make dev-frontend`: `cd frontend && next dev`

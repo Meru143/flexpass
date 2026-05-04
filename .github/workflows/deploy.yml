@@ -45,7 +45,7 @@ jobs:
         working-directory: subgraph
         env:
           GRAPH_STUDIO_DEPLOY_KEY: ${{ secrets.GRAPH_STUDIO_DEPLOY_KEY }}
-        run: npx graph deploy --studio flexpass --deploy-key $GRAPH_STUDIO_DEPLOY_KEY
+        run: npx graph deploy flexpass -l $GITHUB_REF_NAME --deploy-key $GRAPH_STUDIO_DEPLOY_KEY
 
   deploy-frontend:
     name: deploy-frontend
