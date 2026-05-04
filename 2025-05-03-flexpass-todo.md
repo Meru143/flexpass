@@ -672,7 +672,7 @@ Missing requested active skills:
   - OpenZeppelin v5 uses `_update`; `transferFrom` and `safeTransferFrom` both clear ERC-4907 user state.
 - [x] Verify `ReentrancyGuard` prevents attack with manual test in `Integration.t.sol`
 - [x] Verify `Ownable2Step` transfer requires two-step confirmation
-- [ ] Verify all `payable` functions emit events before any external `call{value:}`
+- [x] Verify all `payable` functions emit events before any external `call{value:}`
 - [ ] Confirm no use of `transfer()` or `send()` — all ETH transfers use `.call{value:}("")`
 
 ### 13.2 Frontend Security
