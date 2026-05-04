@@ -603,7 +603,7 @@ Missing requested active skills:
 
 ### 11.2 checkAccess Function
 - [x] Create `src/index.ts`
-- [ ] Implement `createVerifier(config: VerifierConfig)` → returns `{ checkAccess }` object
+- [x] Implement `createVerifier(config: VerifierConfig)` → returns `{ checkAccess }` object
 - [ ] Inside `checkAccess(tokenId: number): Promise<AccessResult>`:
   - [ ] Create `publicClient = createPublicClient({ chain: polygon, transport: http(config.rpcUrl) })` via viem
   - [ ] Call `publicClient.readContract({ address: config.contractAddress, abi: config.abi, functionName: 'userOf', args: [BigInt(tokenId)] })` → get `user: Address`

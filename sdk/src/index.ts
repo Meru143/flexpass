@@ -10,6 +10,10 @@ type CachedAccessResult = {
   result: AccessResult;
 };
 
+export interface FlexPassVerifier {
+  checkAccess: (tokenId: number) => Promise<AccessResult>;
+}
+
 const defaultAbi = parseAbi([
   "function userOf(uint256 tokenId) view returns (address)",
   "function userExpires(uint256 tokenId) view returns (uint256)",
@@ -20,6 +24,15 @@ const accessCache = new Map<number, CachedAccessResult>();
 
 function resolveAbi(abi: unknown[]): Abi {
   return abi.length > 0 ? (abi as Abi) : defaultAbi;
+}
+
+/**
+ * Creates a configured FlexPass verifier for repeated gym-entry checks.
+ */
+export function createVerifier(config: VerifierConfig): FlexPassVerifier {
+  return {
+    checkAccess: (tokenId: number) => checkAccess(tokenId, config),
+  };
 }
 
 export async function checkAccess(tokenId: number, config: VerifierConfig): Promise<AccessResult> {
