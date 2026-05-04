@@ -1,5 +1,5 @@
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
-import { polygon, polygonAmoy } from "wagmi/chains";
+import { polygonAmoy } from "wagmi/chains";
 
 const walletConnectProjectId =
   process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID ??
@@ -8,7 +8,7 @@ const walletConnectProjectId =
 const config = getDefaultConfig({
   appName: "FlexPass",
   projectId: walletConnectProjectId,
-  chains: [polygon, polygonAmoy],
+  chains: [polygonAmoy],
   ssr: true,
 });
 

@@ -2,7 +2,7 @@
 
 import { useCallback } from "react";
 import type { Hash } from "viem";
-import { useChainId, useWriteContract } from "wagmi";
+import { useChainId, usePublicClient, useWriteContract } from "wagmi";
 
 import { FlexPassMarketABI, getContractAddresses } from "@/lib/contracts";
 import { assertPositiveWei, assertValidTokenId } from "@/lib/input-validation";
@@ -16,6 +16,7 @@ export interface UseBuyMembershipResult {
 
 export function useBuyMembership(): UseBuyMembershipResult {
   const chainId = useChainId();
+  const publicClient = usePublicClient();
   const { writeContractAsync, isPending, error, reset } = useWriteContract();
 
   const buy = useCallback(
@@ -23,11 +24,26 @@ export function useBuyMembership(): UseBuyMembershipResult {
       const addresses = getContractAddresses(chainId);
 
       if (!addresses) {
-        throw new Error(`FlexPass contracts are not configured for chain ${chainId}`);
+        throw new Error(`Please switch your wallet to Polygon Amoy (chain 80002). Current chain: ${chainId}.`);
+      }
+
+      if (!publicClient) {
+        throw new Error("Wallet public client is not available.");
       }
 
       assertValidTokenId(tokenId);
       assertPositiveWei(priceWei);
+
+      const isListed = await publicClient.readContract({
+        address: addresses.market,
+        abi: FlexPassMarketABI,
+        functionName: "isListed",
+        args: [tokenId],
+      });
+
+      if (!isListed) {
+        throw new Error("This listing has already been sold, delisted, or expired.");
+      }
 
       return writeContractAsync({
         address: addresses.market,
@@ -37,7 +53,7 @@ export function useBuyMembership(): UseBuyMembershipResult {
         value: priceWei,
       });
     },
-    [chainId, writeContractAsync],
+    [chainId, publicClient, writeContractAsync],
   );
 
   return {

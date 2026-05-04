@@ -72,7 +72,7 @@ function BuyMembershipContent({ tokenId }: { tokenId: string }) {
   const priceWei = useMemo(() => (listing ? parsePositiveWei(listing.priceWei) : null), [listing]);
   const isSelfBuy = Boolean(address && listing?.seller && address.toLowerCase() === listing.seller.toLowerCase());
   const isBuying = buyMembership.isPending;
-  const canBuy = Boolean(listing?.active && tokenIdBigInt !== null && priceWei !== null && !isSelfBuy);
+  const canBuy = Boolean(listing?.active && tokenIdBigInt !== null && priceWei !== null && !isSelfBuy && txHash === null);
 
   async function handleBuy() {
     setFlowError(null);

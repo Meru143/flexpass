@@ -29,7 +29,7 @@ export function useListMembership(): UseListMembershipResult {
       const addresses = getContractAddresses(chainId);
 
       if (!addresses) {
-        throw new Error(`FlexPass contracts are not configured for chain ${chainId}`);
+        throw new Error(`Please switch your wallet to Polygon Amoy (chain 80002). Current chain: ${chainId}.`);
       }
 
       if (!publicClient) {
