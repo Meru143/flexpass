@@ -597,7 +597,7 @@ Missing requested active skills:
 ## Phase 11: SDK — @flexpass/verifier
 
 ### 11.1 Types
-- [ ] Create `src/types.ts`
+- [x] Create `src/types.ts`
 - [ ] Define `interface VerifierConfig { rpcUrl: string; contractAddress: string; abi: unknown[]; offlineGracePeriodMs?: number }`
 - [ ] Define `interface AccessResult { valid: boolean; user: string; expiresAt: Date; tokenId: number; tierId: number; gymAddress: string }`
 
