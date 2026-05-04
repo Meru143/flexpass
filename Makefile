@@ -19,7 +19,7 @@ deploy-mainnet:
 	cd contracts && forge script script/Deploy.s.sol --rpc-url $$POLYGON_RPC_URL --private-key $$DEPLOYER_PRIVATE_KEY --broadcast --verify
 
 subgraph-build:
-	@echo "TODO: build The Graph subgraph"
+	cd subgraph && graph codegen && graph build
 
 subgraph-deploy:
 	@echo "TODO: deploy The Graph subgraph"
