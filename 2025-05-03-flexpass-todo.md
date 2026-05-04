@@ -647,7 +647,7 @@ Missing requested active skills:
 - [x] `make fmt`: `cd contracts && forge fmt`
 - [x] `make coverage`: `cd contracts && forge coverage --report lcov`
 - [x] `make deploy-amoy`: `cd contracts && forge script script/Deploy.s.sol --rpc-url $$AMOY_RPC_URL --private-key $$DEPLOYER_PRIVATE_KEY --broadcast --verify`
-- [ ] `make deploy-mainnet`: same with `POLYGON_RPC_URL`
+- [x] `make deploy-mainnet`: same with `POLYGON_RPC_URL`
 - [ ] `make subgraph-build`: `cd subgraph && graph codegen && graph build`
 - [ ] `make subgraph-deploy`: `cd subgraph && graph deploy --studio flexpass`
 - [ ] `make sdk-publish`: `cd sdk && npm run build && npm publish --access public`

@@ -16,7 +16,7 @@ deploy-amoy:
 	cd contracts && forge script script/Deploy.s.sol --rpc-url $$AMOY_RPC_URL --private-key $$DEPLOYER_PRIVATE_KEY --broadcast --verify
 
 deploy-mainnet:
-	@echo "TODO: deploy contracts to Polygon PoS"
+	cd contracts && forge script script/Deploy.s.sol --rpc-url $$POLYGON_RPC_URL --private-key $$DEPLOYER_PRIVATE_KEY --broadcast --verify
 
 subgraph-build:
 	@echo "TODO: build The Graph subgraph"
