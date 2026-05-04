@@ -16,7 +16,7 @@ export default function MarketplacePage() {
   const [maxPrice, setMaxPrice] = useState("");
   const [page, setPage] = useState(1);
   const listingsQuery = useListings(gymFilter.trim() || undefined);
-  const listings = listingsQuery.data?.listings ?? [];
+  const listings = useMemo(() => listingsQuery.data?.listings ?? [], [listingsQuery.data?.listings]);
 
   useEffect(() => {
     const initialGymFilter = new URLSearchParams(window.location.search).get("gym");
