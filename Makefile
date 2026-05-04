@@ -13,7 +13,7 @@ coverage:
 	cd contracts && forge coverage --report lcov
 
 deploy-amoy:
-	@echo "TODO: deploy contracts to Polygon Amoy"
+	cd contracts && forge script script/Deploy.s.sol --rpc-url $$AMOY_RPC_URL --private-key $$DEPLOYER_PRIVATE_KEY --broadcast --verify
 
 deploy-mainnet:
 	@echo "TODO: deploy contracts to Polygon PoS"
