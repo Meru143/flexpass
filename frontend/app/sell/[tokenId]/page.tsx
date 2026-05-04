@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useParams } from "next/navigation";
-import { parseEther } from "viem";
 
 import { ConnectButton } from "@/components/ConnectButton";
 import { ExpiryCountdown } from "@/components/ExpiryCountdown";
@@ -11,6 +10,7 @@ import { RoyaltyBreakdown } from "@/components/RoyaltyBreakdown";
 import { WalletGate } from "@/components/WalletGate";
 import { useListMembership } from "@/hooks/useListMembership";
 import { useMemberships } from "@/hooks/useMemberships";
+import { parseMaticPriceToWei, parseTokenIdParam } from "@/lib/input-validation";
 
 const defaultRoyaltyBps = 1000;
 
@@ -54,8 +54,8 @@ function SellMembershipContent({ tokenId }: { tokenId: string }) {
     () => membershipsQuery.data?.memberships.find((item) => item.id === tokenId),
     [membershipsQuery.data?.memberships, tokenId],
   );
-  const tokenIdBigInt = useMemo(() => parseTokenId(tokenId), [tokenId]);
-  const priceWei = useMemo(() => parsePriceWei(priceInput), [priceInput]);
+  const tokenIdBigInt = useMemo(() => parseTokenIdParam(tokenId), [tokenId]);
+  const priceWei = useMemo(() => parseMaticPriceToWei(priceInput), [priceInput]);
   const isAlreadyListed = Boolean(membership?.currentListing?.active);
   const canList = Boolean(membership && tokenIdBigInt !== null && priceWei !== null && !isAlreadyListed);
 
@@ -169,28 +169,6 @@ function Detail({ label, value }: { label: string; value: string }) {
       <p className="mt-2 break-words text-sm font-semibold text-slate-950">{value}</p>
     </div>
   );
-}
-
-function parseTokenId(tokenId: string): bigint | null {
-  try {
-    return BigInt(tokenId);
-  } catch {
-    return null;
-  }
-}
-
-function parsePriceWei(value: string): bigint | null {
-  const normalized = value.trim();
-
-  if (!normalized || Number(normalized) <= 0) {
-    return null;
-  }
-
-  try {
-    return parseEther(normalized);
-  } catch {
-    return null;
-  }
 }
 
 function formatDate(timestamp: number): string {

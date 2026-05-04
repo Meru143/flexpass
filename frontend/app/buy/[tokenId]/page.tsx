@@ -13,6 +13,7 @@ import { RoyaltyBreakdown } from "@/components/RoyaltyBreakdown";
 import { WalletGate } from "@/components/WalletGate";
 import { useBuyMembership } from "@/hooks/useBuyMembership";
 import type { ListingWithMembership } from "@/hooks/types";
+import { parsePositiveWei, parseTokenIdParam } from "@/lib/input-validation";
 import { GET_LISTING_BY_TOKEN_ID, querySubgraph } from "@/lib/subgraph";
 
 const defaultRoyaltyBps = 1000;
@@ -51,7 +52,7 @@ export default function BuyMembershipPage() {
 }
 
 function BuyMembershipContent({ tokenId }: { tokenId: string }) {
-  const tokenIdBigInt = useMemo(() => parseTokenId(tokenId), [tokenId]);
+  const tokenIdBigInt = useMemo(() => parseTokenIdParam(tokenId), [tokenId]);
   const [txHash, setTxHash] = useState<Hash | null>(null);
   const [flowError, setFlowError] = useState<string | null>(null);
   const { address } = useAccount();
@@ -67,7 +68,7 @@ function BuyMembershipContent({ tokenId }: { tokenId: string }) {
   });
 
   const listing = listingQuery.data?.listing;
-  const priceWei = listing ? BigInt(listing.priceWei) : null;
+  const priceWei = useMemo(() => (listing ? parsePositiveWei(listing.priceWei) : null), [listing]);
   const isSelfBuy = Boolean(address && listing?.seller && address.toLowerCase() === listing.seller.toLowerCase());
   const canBuy = Boolean(listing?.active && tokenIdBigInt !== null && priceWei !== null && !isSelfBuy);
 
@@ -119,7 +120,7 @@ function BuyMembershipContent({ tokenId }: { tokenId: string }) {
         </div>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Detail label="Price" value={`${formatEther(BigInt(listing.priceWei))} MATIC`} />
+          <Detail label="Price" value={priceWei !== null ? `${formatEther(priceWei)} MATIC` : "Unavailable"} />
           <Detail label="Seller" value={shortAddress(listing.seller)} />
           <Detail label="Expires" value={formatDate(Number(listing.membership.expiresAt))} />
           <div className="rounded-md bg-slate-100 p-4">
@@ -138,11 +139,17 @@ function BuyMembershipContent({ tokenId }: { tokenId: string }) {
       </article>
 
       <aside className="space-y-4">
-        <RoyaltyBreakdown
-          gymName={shortAddress(listing.membership.gymAddress)}
-          priceWei={BigInt(listing.priceWei)}
-          royaltyBps={defaultRoyaltyBps}
-        />
+        {priceWei !== null ? (
+          <RoyaltyBreakdown
+            gymName={shortAddress(listing.membership.gymAddress)}
+            priceWei={priceWei}
+            royaltyBps={defaultRoyaltyBps}
+          />
+        ) : (
+          <p className="rounded-md border border-red-200 bg-red-50 p-3 text-sm font-medium text-red-700">
+            Listing price data is invalid. Refresh the marketplace before buying.
+          </p>
+        )}
 
         {isSelfBuy ? (
           <p className="rounded-md border border-amber-200 bg-amber-50 p-3 text-sm font-medium text-amber-800">
@@ -179,14 +186,6 @@ function Detail({ label, value }: { label: string; value: string }) {
       <p className="mt-2 break-words text-sm font-semibold text-slate-950">{value}</p>
     </div>
   );
-}
-
-function parseTokenId(tokenId: string): bigint | null {
-  try {
-    return BigInt(tokenId);
-  } catch {
-    return null;
-  }
 }
 
 function formatDate(timestamp: number): string {

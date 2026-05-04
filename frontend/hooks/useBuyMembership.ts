@@ -5,6 +5,7 @@ import type { Hash } from "viem";
 import { useChainId, useWriteContract } from "wagmi";
 
 import { FlexPassMarketABI, getContractAddresses } from "@/lib/contracts";
+import { assertPositiveWei, assertValidTokenId } from "@/lib/input-validation";
 
 export interface UseBuyMembershipResult {
   buy: (tokenId: bigint, priceWei: bigint) => Promise<Hash>;
@@ -24,6 +25,9 @@ export function useBuyMembership(): UseBuyMembershipResult {
       if (!addresses) {
         throw new Error(`FlexPass contracts are not configured for chain ${chainId}`);
       }
+
+      assertValidTokenId(tokenId);
+      assertPositiveWei(priceWei);
 
       return writeContractAsync({
         address: addresses.market,

@@ -5,6 +5,7 @@ import type { Hash } from "viem";
 import { useChainId, usePublicClient, useWriteContract } from "wagmi";
 
 import { FlexPassMarketABI, getContractAddresses, GymMembershipABI } from "@/lib/contracts";
+import { assertPositiveWei, assertValidTokenId } from "@/lib/input-validation";
 
 export interface ListMembershipResult {
   approveHash: Hash;
@@ -34,6 +35,9 @@ export function useListMembership(): UseListMembershipResult {
       if (!publicClient) {
         throw new Error("Wallet public client is not available");
       }
+
+      assertValidTokenId(tokenId);
+      assertPositiveWei(priceWei);
 
       const approveHash = await writeContractAsync({
         address: addresses.gymMembership,
