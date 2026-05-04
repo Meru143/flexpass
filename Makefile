@@ -22,7 +22,7 @@ subgraph-build:
 	cd subgraph && graph codegen && graph build
 
 subgraph-deploy:
-	@echo "TODO: deploy The Graph subgraph"
+	cd subgraph && graph deploy --studio flexpass
 
 sdk-publish:
 	@echo "TODO: publish @flexpass/verifier"

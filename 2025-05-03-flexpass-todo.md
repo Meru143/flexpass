@@ -649,7 +649,7 @@ Missing requested active skills:
 - [x] `make deploy-amoy`: `cd contracts && forge script script/Deploy.s.sol --rpc-url $$AMOY_RPC_URL --private-key $$DEPLOYER_PRIVATE_KEY --broadcast --verify`
 - [x] `make deploy-mainnet`: same with `POLYGON_RPC_URL`
 - [x] `make subgraph-build`: `cd subgraph && graph codegen && graph build`
-- [ ] `make subgraph-deploy`: `cd subgraph && graph deploy --studio flexpass`
+- [x] `make subgraph-deploy`: `cd subgraph && graph deploy --studio flexpass`
 - [ ] `make sdk-publish`: `cd sdk && npm run build && npm publish --access public`
 - [ ] `make dev-api`: `cd api && nodemon src/index.ts`
 - [ ] `make dev-frontend`: `cd frontend && next dev`
