@@ -599,7 +599,7 @@ Missing requested active skills:
 ### 11.1 Types
 - [x] Create `src/types.ts`
 - [x] Define `interface VerifierConfig { rpcUrl: string; contractAddress: string; abi: unknown[]; offlineGracePeriodMs?: number }`
-- [ ] Define `interface AccessResult { valid: boolean; user: string; expiresAt: Date; tokenId: number; tierId: number; gymAddress: string }`
+- [x] Define `interface AccessResult { valid: boolean; user: string; expiresAt: Date; tokenId: number; tierId: number; gymAddress: string }`
 
 ### 11.2 checkAccess Function
 - [ ] Create `src/index.ts`
