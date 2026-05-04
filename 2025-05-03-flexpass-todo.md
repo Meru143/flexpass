@@ -585,7 +585,7 @@ Missing requested active skills:
 - [x] Create `app/gym/[address]/page.tsx` — gym info from API; active listings for gym; "Buy New Membership" button
 
 ### 10.10 Formatting Utilities
-- [ ] Create `lib/formatters.ts`
+- [x] Create `lib/formatters.ts`
 - [ ] Implement `formatMATIC(wei: bigint): string` — uses viem `formatEther` + rounds to 4 decimals
 - [ ] Implement `formatExpiry(timestamp: number): string` — returns "Jan 5, 2026" format
 - [ ] Implement `daysRemaining(timestamp: number): number` — returns days until expiry, 0 if expired
