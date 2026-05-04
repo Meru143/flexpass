@@ -17,10 +17,12 @@ export interface FlexPassVerifier {
 const defaultAbi = parseAbi([
   "function userOf(uint256 tokenId) view returns (address)",
   "function userExpires(uint256 tokenId) view returns (uint256)",
+  "function getMembershipTier(uint256 tokenId) view returns (uint8)",
+  "function getMembershipGym(uint256 tokenId) view returns (address)",
 ]);
 
 const defaultOfflineGracePeriodMs = 60_000;
-const accessCache = new Map<number, CachedAccessResult>();
+const accessCache = new Map<string, CachedAccessResult>();
 
 function resolveAbi(abi: unknown[]): Abi {
   return abi.length > 0 ? (abi as Abi) : defaultAbi;
@@ -51,6 +53,7 @@ export async function checkAccess(tokenId: number, config: VerifierConfig): Prom
   const contractAddress = config.contractAddress as Address;
   const offlineGracePeriodMs = config.offlineGracePeriodMs ?? defaultOfflineGracePeriodMs;
   const abi = resolveAbi(config.abi);
+  const cacheKey = `${contractAddress.toLowerCase()}:${tokenId}`;
 
   try {
     const client = createPublicClient({
@@ -58,7 +61,7 @@ export async function checkAccess(tokenId: number, config: VerifierConfig): Prom
       transport: http(config.rpcUrl),
     });
 
-    const [rawUser, rawExpires] = await Promise.all([
+    const [rawUser, rawExpires, rawTierId, rawGymAddress] = await Promise.all([
       client.readContract({
         address: contractAddress,
         abi,
@@ -71,6 +74,18 @@ export async function checkAccess(tokenId: number, config: VerifierConfig): Prom
         functionName: "userExpires",
         args: [BigInt(tokenId)],
       }),
+      client.readContract({
+        address: contractAddress,
+        abi,
+        functionName: "getMembershipTier",
+        args: [BigInt(tokenId)],
+      }),
+      client.readContract({
+        address: contractAddress,
+        abi,
+        functionName: "getMembershipGym",
+        args: [BigInt(tokenId)],
+      }),
     ]);
 
     if (typeof rawUser !== "string" || !isAddress(rawUser)) {
@@ -81,26 +96,32 @@ export async function checkAccess(tokenId: number, config: VerifierConfig): Prom
       throw new Error("userExpires returned an invalid timestamp");
     }
 
+    const tierId = parseTierId(rawTierId);
+
+    if (typeof rawGymAddress !== "string" || !isAddress(rawGymAddress)) {
+      throw new Error("getMembershipGym returned an invalid EVM address");
+    }
+
     const user = rawUser as Address;
-    const expires = rawExpires;
-    const expiresAt = new Date(Number(expires) * 1000);
+    const gymAddress = rawGymAddress as Address;
+    const expiresAt = new Date(Number(rawExpires) * 1000);
     const result: AccessResult = {
       valid: user !== zeroAddress && Date.now() <= expiresAt.getTime(),
       user,
       expiresAt,
       tokenId,
-      tierId: 0,
-      gymAddress: zeroAddress,
+      tierId,
+      gymAddress,
     };
 
-    accessCache.set(tokenId, {
+    accessCache.set(cacheKey, {
       cachedAt: Date.now(),
       result,
     });
 
     return result;
   } catch (error) {
-    const cached = accessCache.get(tokenId);
+    const cached = accessCache.get(cacheKey);
 
     if (cached && Date.now() - cached.cachedAt <= offlineGracePeriodMs) {
       return cached.result;
@@ -108,6 +129,18 @@ export async function checkAccess(tokenId: number, config: VerifierConfig): Prom
 
     throw error;
   }
+}
+
+function parseTierId(value: unknown): number {
+  if (typeof value === "number" && Number.isSafeInteger(value)) {
+    return value;
+  }
+
+  if (typeof value === "bigint" && value <= BigInt(Number.MAX_SAFE_INTEGER)) {
+    return Number(value);
+  }
+
+  throw new Error("getMembershipTier returned an invalid tier id");
 }
 
 export default checkAccess;
