@@ -105,13 +105,45 @@ export async function checkAccess(tokenId: number, config: VerifierConfig): Prom
     const user = rawUser as Address;
     const gymAddress = rawGymAddress as Address;
     const expiresAt = new Date(Number(rawExpires) * 1000);
-    const result: AccessResult = {
-      valid: user !== zeroAddress && Date.now() <= expiresAt.getTime(),
+    const baseResult = {
       user,
       expiresAt,
       tokenId,
       tierId,
       gymAddress,
+    };
+
+    if (user === zeroAddress) {
+      const result: AccessResult = {
+        valid: false,
+        ...baseResult,
+      };
+
+      accessCache.set(cacheKey, {
+        cachedAt: Date.now(),
+        result,
+      });
+
+      return result;
+    }
+
+    if (Date.now() > expiresAt.getTime()) {
+      const result: AccessResult = {
+        valid: false,
+        ...baseResult,
+      };
+
+      accessCache.set(cacheKey, {
+        cachedAt: Date.now(),
+        result,
+      });
+
+      return result;
+    }
+
+    const result: AccessResult = {
+      valid: true,
+      ...baseResult,
     };
 
     accessCache.set(cacheKey, {

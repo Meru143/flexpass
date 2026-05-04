@@ -608,7 +608,7 @@ Missing requested active skills:
   - [x] Create `publicClient = createPublicClient({ chain: polygon, transport: http(config.rpcUrl) })` via viem
   - [x] Call `publicClient.readContract({ address: config.contractAddress, abi: config.abi, functionName: 'userOf', args: [BigInt(tokenId)] })` → get `user: Address`
   - [x] Call `publicClient.readContract({ ..., functionName: 'userExpires', args: [BigInt(tokenId)] })` → get `expires: bigint`
-  - [ ] If `user === '0x0000000000000000000000000000000000000000'` → return `{ valid: false }`
+  - [x] If `user === '0x0000000000000000000000000000000000000000'` → return `{ valid: false }`
   - [ ] If `Date.now() / 1000 > Number(expires)` → return `{ valid: false }`
   - [ ] Return `{ valid: true, user, expiresAt: new Date(Number(expires) * 1000), tokenId, ... }`
 - [ ] Implement offline fallback: if RPC call throws, check cached state; if cached state < 60 seconds old, return cached result
