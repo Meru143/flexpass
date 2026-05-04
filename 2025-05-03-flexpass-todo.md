@@ -611,7 +611,7 @@ Missing requested active skills:
   - [x] If `user === '0x0000000000000000000000000000000000000000'` → return `{ valid: false }`
   - [x] If `Date.now() / 1000 > Number(expires)` → return `{ valid: false }`
   - [x] Return `{ valid: true, user, expiresAt: new Date(Number(expires) * 1000), tokenId, ... }`
-- [ ] Implement offline fallback: if RPC call throws, check cached state; if cached state < 60 seconds old, return cached result
+- [x] Implement offline fallback: if RPC call throws, check cached state; if cached state < 60 seconds old, return cached result
 - [ ] Export `checkAccess` as named and default export
 
 ### 11.3 Build & Publish
