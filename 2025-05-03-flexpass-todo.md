@@ -667,7 +667,7 @@ Missing requested active skills:
 - [x] Verify `mintMembership` gas < 200,000
 - [x] Verify `buyMembership` gas < 120,000
 - [x] Run `slither src/` and resolve all High and Medium findings
-- [ ] Run `forge test --fuzz-runs 10000` (extended fuzz) on all three contracts
+- [x] Run `forge test --fuzz-runs 10000` (extended fuzz) on all three contracts
 - [ ] Manually verify `_beforeTokenTransfer` clears user state on all transfer paths
 - [ ] Verify `ReentrancyGuard` prevents attack with manual test in `Integration.t.sol`
 - [ ] Verify `Ownable2Step` transfer requires two-step confirmation
