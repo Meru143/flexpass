@@ -632,7 +632,7 @@ Missing requested active skills:
 - [x] Job `coverage`: `forge coverage --report lcov`, upload to Codecov, fail if < 90%
 - [x] Job `lint-frontend`: `cd frontend && eslint . && tsc --noEmit`
 - [x] Job `test-frontend`: `cd frontend && vitest run`
-- [ ] Job `build-frontend`: `cd frontend && next build`
+- [x] Job `build-frontend`: `cd frontend && next build`
 - [ ] Job `slither`: `pip install slither-analyzer --break-system-packages && slither contracts/src/ --detect all` — allow high severity in pre-audit but report
 
 ### 12.2 Deploy Workflow (`.github/workflows/deploy.yml`)
