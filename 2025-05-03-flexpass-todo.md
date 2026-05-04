@@ -636,7 +636,7 @@ Missing requested active skills:
 - [x] Job `slither`: `pip install slither-analyzer --break-system-packages && slither contracts/src/ --detect all` — allow high severity in pre-audit but report
 
 ### 12.2 Deploy Workflow (`.github/workflows/deploy.yml`)
-- [ ] Set trigger: `on: push: tags: ['v*']`
+- [x] Set trigger: `on: push: tags: ['v*']`
 - [ ] Job `deploy-contracts`: `forge script script/Deploy.s.sol --rpc-url $AMOY_RPC_URL --broadcast --verify`
 - [ ] Job `deploy-subgraph`: `graph deploy --studio flexpass --deploy-key $GRAPH_STUDIO_DEPLOY_KEY`
 - [ ] Job `deploy-frontend`: `vercel deploy --prod --token $VERCEL_TOKEN`
