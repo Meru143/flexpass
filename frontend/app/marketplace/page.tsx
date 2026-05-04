@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { formatEther } from "viem";
 
 import { ConnectButton } from "@/components/ConnectButton";
@@ -17,6 +17,14 @@ export default function MarketplacePage() {
   const [page, setPage] = useState(1);
   const listingsQuery = useListings(gymFilter.trim() || undefined);
   const listings = listingsQuery.data?.listings ?? [];
+
+  useEffect(() => {
+    const initialGymFilter = new URLSearchParams(window.location.search).get("gym");
+
+    if (initialGymFilter) {
+      setGymFilter(initialGymFilter);
+    }
+  }, []);
 
   const filteredListings = useMemo(() => {
     const maxPriceMatic = maxPrice ? Number(maxPrice) : null;
