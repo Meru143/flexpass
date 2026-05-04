@@ -1,5 +1,7 @@
 import { formatEther } from "viem";
 
+const millisecondsPerDay = 86_400_000;
+
 export function formatMATIC(wei: bigint): string {
   return Number(formatEther(wei)).toLocaleString("en", {
     maximumFractionDigits: 4,
@@ -12,4 +14,10 @@ export function formatExpiry(timestamp: number): string {
     day: "numeric",
     year: "numeric",
   }).format(new Date(timestamp * 1000));
+}
+
+export function daysRemaining(timestamp: number): number {
+  const millisecondsRemaining = timestamp * 1000 - Date.now();
+
+  return Math.max(0, Math.ceil(millisecondsRemaining / millisecondsPerDay));
 }

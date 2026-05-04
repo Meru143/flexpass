@@ -588,7 +588,7 @@ Missing requested active skills:
 - [x] Create `lib/formatters.ts`
 - [x] Implement `formatMATIC(wei: bigint): string` — uses viem `formatEther` + rounds to 4 decimals
 - [x] Implement `formatExpiry(timestamp: number): string` — returns "Jan 5, 2026" format
-- [ ] Implement `daysRemaining(timestamp: number): number` — returns days until expiry, 0 if expired
+- [x] Implement `daysRemaining(timestamp: number): number` — returns days until expiry, 0 if expired
 - [ ] Implement `calcRoyalty(priceWei: bigint, royaltyBps: number): bigint` — returns `priceWei * BigInt(royaltyBps) / 10000n`
 - [ ] Implement `calcProtocolFee(priceWei: bigint): bigint` — returns `priceWei * 100n / 10000n`
 
