@@ -15,6 +15,7 @@ import { useBuyMembership } from "@/hooks/useBuyMembership";
 import type { ListingWithMembership } from "@/hooks/types";
 import { parsePositiveWei, parseTokenIdParam } from "@/lib/input-validation";
 import { GET_LISTING_BY_TOKEN_ID, querySubgraph } from "@/lib/subgraph";
+import { getWalletErrorMessage } from "@/lib/wallet-errors";
 
 const defaultRoyaltyBps = 1000;
 
@@ -85,7 +86,7 @@ function BuyMembershipContent({ tokenId }: { tokenId: string }) {
       const hash = await buyMembership.buy(tokenIdBigInt, priceWei);
       setTxHash(hash);
     } catch (error) {
-      setFlowError(error instanceof Error ? error.message : "Buy transaction failed.");
+      setFlowError(getWalletErrorMessage(error, "Buy transaction failed."));
     }
   }
 

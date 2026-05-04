@@ -680,7 +680,7 @@ Missing requested active skills:
 - [x] Validate all user inputs (price, token ID) before contract call
 - [x] Add `Content-Security-Policy` headers to `next.config.js`
 - [x] Use `viem`'s `parseEther` for all user-entered MATIC amounts to prevent precision issues
-- [ ] Handle `UserRejectedRequestError` from wallet (user declined transaction)
+- [x] Handle `UserRejectedRequestError` from wallet (user declined transaction)
 - [ ] Disable "Buy" button and show spinner while `useWriteContract.isPending === true`
 
 ---

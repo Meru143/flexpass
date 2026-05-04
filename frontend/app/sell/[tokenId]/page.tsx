@@ -11,6 +11,7 @@ import { WalletGate } from "@/components/WalletGate";
 import { useListMembership } from "@/hooks/useListMembership";
 import { useMemberships } from "@/hooks/useMemberships";
 import { parseMaticPriceToWei, parseTokenIdParam } from "@/lib/input-validation";
+import { getWalletErrorMessage } from "@/lib/wallet-errors";
 
 const defaultRoyaltyBps = 1000;
 
@@ -74,7 +75,7 @@ function SellMembershipContent({ tokenId }: { tokenId: string }) {
       setStatus("listed");
     } catch (error) {
       setStatus("idle");
-      setFlowError(error instanceof Error ? error.message : "Listing transaction failed.");
+      setFlowError(getWalletErrorMessage(error, "Listing transaction failed."));
     }
   }
 
