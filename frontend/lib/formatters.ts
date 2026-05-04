@@ -2,6 +2,7 @@ import { formatEther } from "viem";
 
 const millisecondsPerDay = 86_400_000;
 const basisPointsDenominator = BigInt(10000);
+const protocolFeeBps = BigInt(100);
 
 export function formatMATIC(wei: bigint): string {
   return Number(formatEther(wei)).toLocaleString("en", {
@@ -25,4 +26,8 @@ export function daysRemaining(timestamp: number): number {
 
 export function calcRoyalty(priceWei: bigint, royaltyBps: number): bigint {
   return (priceWei * BigInt(royaltyBps)) / basisPointsDenominator;
+}
+
+export function calcProtocolFee(priceWei: bigint): bigint {
+  return (priceWei * protocolFeeBps) / basisPointsDenominator;
 }
