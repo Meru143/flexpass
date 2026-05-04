@@ -477,9 +477,12 @@ Missing requested active skills:
 - [x] Deploy to The Graph Studio: `graph deploy flexpass -l v0.1.0 --deploy-key $GRAPH_STUDIO_DEPLOY_KEY`
   - NOTE: Amoy contracts deployed at block `37735241` (`GymRegistry=0xaE12edE4Eab2655b9B1618628c678819693881eA`, `GymMembership=0x465CF3a5918534d94BA62F3A7980f5ffB0277168`, `FlexPassMarket=0x0e9a4999ABcccE5B1A6989B34Ed549C2Dd72bfC0`). `graph deploy` built and uploaded to IPFS, then Graph Studio rejected `network: amoy` with `Specified network is not supported`.
   - NOTE: Corrected the subgraph manifest to use The Graph's Polygon Amoy slug, `polygon-amoy`; deployed version `v0.1.0` to `https://api.studio.thegraph.com/query/1749319/flexpass/v0.1.0`.
-- [ ] Verify entities appear in Studio playground with test queries
-- [ ] Test GraphQL query: `{ memberships(where: { owner: "0x..." }) { id expiresAt } }`
-- [ ] Test GraphQL query: `{ listings(where: { active: true }) { id priceWei seller } }`
+- [x] Verify entities appear in Studio playground with test queries
+  - NOTE: Seeded Polygon Amoy token `1` and active listing from deployer `0xBA9FDDaA4346C3aE7903B8bf931C007422DBd941`; Studio endpoint returns `gyms`, `memberships`, and `listings` entities.
+- [x] Test GraphQL query: `{ memberships(where: { owner: "0x..." }) { id expiresAt } }`
+  - NOTE: Query returned membership `id=1`, `expiresAt=1780474834`.
+- [x] Test GraphQL query: `{ listings(where: { active: true }) { id priceWei seller } }`
+  - NOTE: Query returned listing `id=1`, `priceWei=10000000000000000`, `seller=0xba9fddaa4346c3ae7903b8bf931c007422dbd941`.
 
 ---
 
