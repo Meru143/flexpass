@@ -3,10 +3,22 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  placeholder:
-    name: CI placeholder
+  lint-contracts:
+    name: lint-contracts
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Explain pending implementation
-        run: echo "Full FlexPass CI is implemented in Phase 12."
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Solhint
+        run: npm install --global solhint
+      - name: Check Solidity formatting
+        working-directory: contracts
+        run: forge fmt --check
+      - name: Lint Solidity
+        working-directory: contracts
+        run: solhint 'src/**/*.sol'
