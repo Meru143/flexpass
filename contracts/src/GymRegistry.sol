@@ -97,7 +97,7 @@ contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
     }
 
     function getApprovedGyms() external view returns (address[] memory) {
-        uint256 approvedCount;
+        uint256 approvedCount = 0;
         uint256 gymCount = _gymList.length;
 
         for (uint256 i; i < gymCount; ++i) {
@@ -107,7 +107,7 @@ contract GymRegistry is Ownable2Step, Pausable, IGymRegistry {
         }
 
         address[] memory approvedGyms = new address[](approvedCount);
-        uint256 approvedIndex;
+        uint256 approvedIndex = 0;
 
         for (uint256 i; i < gymCount; ++i) {
             address gymAddress = _gymList[i];

@@ -46,15 +46,13 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
         protocolTreasury = protocolTreasury_;
     }
 
-    function listMembership(uint256 tokenId, uint256 priceWei) external whenNotPaused {
+    function listMembership(uint256 tokenId, uint256 priceWei) external whenNotPaused nonReentrant {
         if (membershipNFT.ownerOf(tokenId) != msg.sender) revert MKT_NotOwner(tokenId);
         if (_listings[tokenId].active) revert MKT_AlreadyListed(tokenId);
 
         uint256 expiresAtRaw = IERC4907(address(membershipNFT)).userExpires(tokenId);
         if (expiresAtRaw <= block.timestamp) revert MKT_Expired(tokenId);
         if (expiresAtRaw > type(uint64).max) revert MKT_ExpiryOverflow(expiresAtRaw);
-
-        membershipNFT.transferFrom(msg.sender, address(this), tokenId);
 
         // Cast is safe after the explicit type(uint64).max guard above.
         // forge-lint: disable-next-line(unsafe-typecast)
@@ -69,6 +67,8 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
         });
 
         emit MembershipListed(tokenId, msg.sender, priceWei);
+
+        membershipNFT.transferFrom(msg.sender, address(this), tokenId);
     }
 
     function buyMembership(uint256 tokenId) external payable whenNotPaused nonReentrant {
@@ -96,14 +96,14 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
         membershipNFT.transferFrom(address(this), msg.sender, tokenId);
         IERC4907(address(membershipNFT)).setUser(tokenId, msg.sender, expiresAt);
 
+        emit MembershipSold(tokenId, seller, msg.sender, priceWei, royaltyAmount);
+
         _sendValue(royaltyReceiver, royaltyAmount);
         _sendValue(protocolTreasury, protocolFee);
         _sendValue(seller, sellerProceeds);
-
-        emit MembershipSold(tokenId, seller, msg.sender, priceWei, royaltyAmount);
     }
 
-    function delistMembership(uint256 tokenId) external whenNotPaused {
+    function delistMembership(uint256 tokenId) external whenNotPaused nonReentrant {
         MembershipLib.Listing storage listing = _listings[tokenId];
         if (!listing.active) revert MKT_InactiveListing();
 
@@ -114,10 +114,10 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
         uint64 expiresAt = listing.expiresAt;
         listing.active = false;
 
+        emit MembershipDelisted(tokenId, msg.sender);
+
         membershipNFT.transferFrom(address(this), msg.sender, tokenId);
         IERC4907(address(membershipNFT)).setUser(tokenId, msg.sender, expiresAt);
-
-        emit MembershipDelisted(tokenId, msg.sender);
     }
 
     function updatePrice(uint256 tokenId, uint256 newPriceWei) external {
@@ -131,7 +131,7 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
         listing.priceWei = newPriceWei;
     }
 
-    function cleanExpiredListing(uint256 tokenId) external {
+    function cleanExpiredListing(uint256 tokenId) external nonReentrant {
         MembershipLib.Listing storage listing = _listings[tokenId];
         if (!listing.active) revert MKT_InactiveListing();
 
@@ -150,9 +150,9 @@ contract FlexPassMarket is Ownable2Step, Pausable, ReentrancyGuard {
         address seller = listing.seller;
         listing.active = false;
 
-        membershipNFT.transferFrom(address(this), seller, tokenId);
-
         emit MembershipDelisted(tokenId, seller);
+
+        membershipNFT.transferFrom(address(this), seller, tokenId);
     }
 
     function getListing(uint256 tokenId) external view returns (MembershipLib.Listing memory) {

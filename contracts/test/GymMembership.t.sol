@@ -107,6 +107,35 @@ contract GymMembershipTest is Test {
         assertEq(membership.getMembershipTier(tokenId), 2);
     }
 
+    function test_mintMembership_forwardsMsgValueToProtocolTreasury() public {
+        uint256 treasuryBalanceBefore = PROTOCOL_TREASURY.balance;
+
+        membership.mintMembership{value: 1 ether}(BUYER, GYM, 1, 30);
+
+        assertEq(PROTOCOL_TREASURY.balance - treasuryBalanceBefore, 1 ether);
+        assertEq(address(membership).balance, 0);
+    }
+
+    function test_mintMembership_revertsWhenProtocolTreasuryRejectsPayment() public {
+        RejectingMintTreasury rejectingTreasury = new RejectingMintTreasury();
+        GymMembership rejectingMembership =
+            new GymMembership(address(registry), address(rejectingTreasury), address(this));
+
+        vm.expectRevert(
+            abi.encodeWithSelector(GymMembership.GM_TransferFailed.selector, address(rejectingTreasury), 1 ether)
+        );
+
+        rejectingMembership.mintMembership{value: 1 ether}(BUYER, GYM, 1, 30);
+    }
+
+    function test_mintMembership_initializesStateBeforeSafeReceiverCallback() public {
+        MintStateReceiver receiver = new MintStateReceiver(membership, GYM, GYM_TREASURY, 2, "ipfs://receiver-metadata");
+
+        membership.mintMembership(address(receiver), GYM, 2, 30, "ipfs://receiver-metadata");
+
+        assertTrue(receiver.checked());
+    }
+
     function test_batchMintMembership_returnsThreeTokenIds() public {
         address[] memory recipients = new address[](3);
         recipients[0] = BUYER;
@@ -144,6 +173,16 @@ contract GymMembershipTest is Test {
         assertEq(membership.protocolTreasury(), OTHER);
     }
 
+    function test_sweepProtocolFees_sendsStuckBalanceToProtocolTreasury() public {
+        uint256 treasuryBalanceBefore = PROTOCOL_TREASURY.balance;
+        vm.deal(address(membership), 1 ether);
+
+        membership.sweepProtocolFees();
+
+        assertEq(PROTOCOL_TREASURY.balance - treasuryBalanceBefore, 1 ether);
+        assertEq(address(membership).balance, 0);
+    }
+
     function test_pauseCausesMintMembershipToRevert() public {
         membership.pause();
 
@@ -164,5 +203,53 @@ contract GymMembershipTest is Test {
     function test_supportsInterface_returnsTrueForErc4907AndErc2981() public view {
         assertTrue(membership.supportsInterface(0xad092b5c));
         assertTrue(membership.supportsInterface(0x2a55205a));
+    }
+}
+
+contract RejectingMintTreasury {
+    receive() external payable {
+        revert("reject");
+    }
+}
+
+contract MintStateReceiver {
+    GymMembership private immutable membership;
+    address private immutable expectedGym;
+    address private immutable expectedRoyaltyReceiver;
+    uint8 private immutable expectedTier;
+    string private expectedTokenUri;
+
+    bool public checked;
+
+    constructor(
+        GymMembership membership_,
+        address expectedGym_,
+        address expectedRoyaltyReceiver_,
+        uint8 expectedTier_,
+        string memory expectedTokenUri_
+    ) {
+        membership = membership_;
+        expectedGym = expectedGym_;
+        expectedRoyaltyReceiver = expectedRoyaltyReceiver_;
+        expectedTier = expectedTier_;
+        expectedTokenUri = expectedTokenUri_;
+    }
+
+    function onERC721Received(address, address, uint256 tokenId, bytes calldata) external returns (bytes4) {
+        if (membership.userOf(tokenId) != address(this)) revert("user not initialized");
+        if (membership.getMembershipGym(tokenId) != expectedGym) revert("gym not initialized");
+        if (membership.getMembershipTier(tokenId) != expectedTier) revert("tier not initialized");
+        if (keccak256(bytes(membership.tokenURI(tokenId))) != keccak256(bytes(expectedTokenUri))) {
+            revert("uri not initialized");
+        }
+
+        (address royaltyReceiver, uint256 royaltyAmount) = membership.royaltyInfo(tokenId, 1 ether);
+        if (royaltyReceiver != expectedRoyaltyReceiver || royaltyAmount != 0.1 ether) {
+            revert("royalty not initialized");
+        }
+
+        checked = true;
+
+        return this.onERC721Received.selector;
     }
 }

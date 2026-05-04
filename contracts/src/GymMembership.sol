@@ -29,6 +29,8 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
     );
     event MembershipBurned(uint256 indexed tokenId);
     event UserOperatorUpdated(address indexed operator, bool approved);
+    event ProtocolFeeCollected(address indexed treasury, uint256 amount);
+    event ProtocolFeesSwept(address indexed treasury, uint256 amount);
 
     error GM_ZeroAddress();
     error GM_GymNotApproved(address gymAddress);
@@ -37,6 +39,7 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
     error GM_NotOwner(uint256 tokenId, address caller);
     error GM_ExpiryOverflow(uint256 expiresAt);
     error GM_LengthMismatch(uint256 recipients, uint256 tokenUris);
+    error GM_TransferFailed(address recipient, uint256 amount);
 
     constructor(address registryAddress, address protocolTreasury_, address initialOwner)
         ERC721("FlexPass Membership", "FLEX")
@@ -104,7 +107,8 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
         nonReentrant
         returns (uint256 tokenId)
     {
-        return _mintOne(to, gymAddress, tierId, durationDays, "");
+        tokenId = _mintOne(to, gymAddress, tierId, durationDays, "");
+        _forwardProtocolFee(msg.value);
     }
 
     function mintMembership(
@@ -114,7 +118,8 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
         uint256 durationDays,
         string calldata tokenUri
     ) external payable whenNotPaused nonReentrant returns (uint256 tokenId) {
-        return _mintOne(to, gymAddress, tierId, durationDays, tokenUri);
+        tokenId = _mintOne(to, gymAddress, tierId, durationDays, tokenUri);
+        _forwardProtocolFee(msg.value);
     }
 
     function batchMintMembership(
@@ -132,6 +137,8 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
         for (uint256 i; i < recipientCount; ++i) {
             tokenIds[i] = _mintOne(recipients[i], gymAddress, tierId, durationDays, tokenURIs[i]);
         }
+
+        _forwardProtocolFee(msg.value);
     }
 
     function getMembershipGym(uint256 tokenId) external view returns (address) {
@@ -164,6 +171,15 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
         _unpause();
     }
 
+    function sweepProtocolFees() external onlyOwner nonReentrant {
+        uint256 amount = address(this).balance;
+        if (amount < 1) return;
+
+        emit ProtocolFeesSwept(protocolTreasury, amount);
+
+        _sendValue(protocolTreasury, amount);
+    }
+
     function _mintOne(address to, address gymAddress, uint8 tierId, uint256 durationDays, string memory tokenUri)
         internal
         returns (uint256 tokenId)
@@ -180,12 +196,10 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
         uint64 expiresAt = uint64(expiresAtRaw);
         tokenId = _nextTokenId;
 
-        _safeMint(to, tokenId);
-        _users[tokenId] = IERC4907.UserInfo({user: to, expires: expiresAt});
-
         address gymTreasury = registry.getTreasury(gymAddress);
         if (gymTreasury == address(0)) revert GM_ZeroAddress();
 
+        _users[tokenId] = IERC4907.UserInfo({user: to, expires: expiresAt});
         _setTokenRoyalty(tokenId, gymTreasury, registry.getRoyaltyBps(gymAddress));
 
         if (bytes(tokenUri).length != 0) {
@@ -194,9 +208,25 @@ contract GymMembership is ERC721URIStorage, ERC2981, Ownable2Step, Pausable, Ree
 
         _membershipGym[tokenId] = gymAddress;
         _membershipTier[tokenId] = tierId;
+        ++_nextTokenId;
 
         emit MembershipMinted(tokenId, gymAddress, tierId, to, expiresAt);
 
-        ++_nextTokenId;
+        _safeMint(to, tokenId);
+    }
+
+    function _forwardProtocolFee(uint256 amount) private {
+        if (amount == 0) return;
+
+        emit ProtocolFeeCollected(protocolTreasury, amount);
+
+        _sendValue(protocolTreasury, amount);
+    }
+
+    function _sendValue(address recipient, uint256 amount) private {
+        if (recipient == address(0)) revert GM_ZeroAddress();
+
+        (bool success,) = recipient.call{value: amount}("");
+        if (!success) revert GM_TransferFailed(recipient, amount);
     }
 }
