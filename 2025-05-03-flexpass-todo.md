@@ -602,7 +602,7 @@ Missing requested active skills:
 - [x] Define `interface AccessResult { valid: boolean; user: string; expiresAt: Date; tokenId: number; tierId: number; gymAddress: string }`
 
 ### 11.2 checkAccess Function
-- [ ] Create `src/index.ts`
+- [x] Create `src/index.ts`
 - [ ] Implement `createVerifier(config: VerifierConfig)` → returns `{ checkAccess }` object
 - [ ] Inside `checkAccess(tokenId: number): Promise<AccessResult>`:
   - [ ] Create `publicClient = createPublicClient({ chain: polygon, transport: http(config.rpcUrl) })` via viem
