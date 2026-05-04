@@ -640,7 +640,7 @@ Missing requested active skills:
 - [x] Job `deploy-contracts`: `forge script script/Deploy.s.sol --rpc-url $AMOY_RPC_URL --broadcast --verify`
 - [x] Job `deploy-subgraph`: `graph deploy --studio flexpass --deploy-key $GRAPH_STUDIO_DEPLOY_KEY`
 - [x] Job `deploy-frontend`: `vercel deploy --prod --token $VERCEL_TOKEN`
-- [ ] Store all secrets in GitHub repository secrets
+- [x] Store all secrets in GitHub repository secrets
 
 ### 12.3 Makefile
 - [ ] `make test`: `cd contracts && forge test -vvv`
