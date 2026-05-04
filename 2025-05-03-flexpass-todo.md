@@ -612,7 +612,7 @@ Missing requested active skills:
   - [x] If `Date.now() / 1000 > Number(expires)` → return `{ valid: false }`
   - [x] Return `{ valid: true, user, expiresAt: new Date(Number(expires) * 1000), tokenId, ... }`
 - [x] Implement offline fallback: if RPC call throws, check cached state; if cached state < 60 seconds old, return cached result
-- [ ] Export `checkAccess` as named and default export
+- [x] Export `checkAccess` as named and default export
 
 ### 11.3 Build & Publish
 - [ ] Configure `tsup.config.ts` for `entry: ['src/index.ts']`, `format: ['cjs', 'esm']`, `dts: true`
