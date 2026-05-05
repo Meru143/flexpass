@@ -171,50 +171,49 @@ Open `.env` in your editor and configure:
 ```env
 # ─── Blockchain RPC URLs ───
 # Get free RPC endpoints from https://www.alchemy.com/ or https://www.infura.io/
-POLYGON_RPC_URL=https://polygon-amoy.g.alchemy.com/v2/YOUR_ALCHEMY_KEY
-AMOY_RPC_URL=https://polygon-amoy.g.alchemy.com/v2/YOUR_ALCHEMY_KEY
-ANVIL_RPC_URL=http://localhost:8545
+POLYGON_RPC_URL=<YOUR_ALCHEMY_OR_INFURA_RPC_URL>        # 🔑 SECRET — get from Alchemy/Infura
+AMOY_RPC_URL=<YOUR_ALCHEMY_OR_INFURA_RPC_URL>            # 🔑 SECRET — same as above
+ANVIL_RPC_URL=http://localhost:8545                       # ✅ public
 
 # ─── Deployer Wallet ───
 # NEVER use a wallet with real mainnet funds for testing!
 # Create a new MetaMask wallet, export the private key (without 0x prefix)
-DEPLOYER_PRIVATE_KEY=your_64_char_hex_private_key_here
+DEPLOYER_PRIVATE_KEY=<YOUR_64_CHAR_HEX_PRIVATE_KEY>      # 🔑 SECRET — never share this
 
 # ─── Protocol Treasury ───
-# The wallet address that receives protocol fees
-PROTOCOL_TREASURY=0xYourTreasuryWalletAddressHere
+# The wallet address that receives protocol fees (public on-chain)
+PROTOCOL_TREASURY=0xBA9FDDaA4346C3aE7903B8bf931C007422DBd941  # ✅ public
 
 # ─── Block Explorer Verification ───
 # Get from https://polygonscan.com/myapikey
-POLYGONSCAN_API_KEY=your_polygonscan_api_key
+POLYGONSCAN_API_KEY=<YOUR_POLYGONSCAN_API_KEY>            # 🔑 SECRET
 
 # ─── IPFS / Pinata (for NFT metadata) ───
 # Sign up at https://www.pinata.cloud/ → API Keys → New Key
-PINATA_JWT=your_pinata_jwt_token
+PINATA_JWT=<YOUR_PINATA_JWT_TOKEN>                        # 🔑 SECRET
 
 # ─── The Graph Studio ───
 # Get from https://thegraph.com/studio/ → Deploy Key
-GRAPH_STUDIO_DEPLOY_KEY=your_graph_deploy_key
+GRAPH_STUDIO_DEPLOY_KEY=<YOUR_GRAPH_DEPLOY_KEY>           # 🔑 SECRET
 
 # ─── WalletConnect (for frontend wallet connections) ───
 # Sign up at https://cloud.walletconnect.com/ → New Project → Copy Project ID
-NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_walletconnect_project_id
+NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=<YOUR_WALLETCONNECT_PROJECT_ID>  # 🔑 SECRET
 
-# ─── Subgraph & Contract Addresses ───
-# These are the Polygon Amoy testnet addresses (already deployed)
-NEXT_PUBLIC_SUBGRAPH_URL=https://api.studio.thegraph.com/query/1749319/flexpass/v0.1.0
-NEXT_PUBLIC_CHAIN_ID=80002
-NEXT_PUBLIC_GYM_MEMBERSHIP_ADDRESS=0x465CF3a5918534d94BA62F3A7980f5ffB0277168
-NEXT_PUBLIC_MARKET_ADDRESS=0x0e9a4999ABcccE5B1A6989B34Ed549C2Dd72bfC0
-NEXT_PUBLIC_GYM_REGISTRY_ADDRESS=0xaE12edE4Eab2655b9B1618628c678819693881eA
+# ─── Subgraph & Contract Addresses (all public, already on-chain) ───
+NEXT_PUBLIC_SUBGRAPH_URL=https://api.studio.thegraph.com/query/1749319/flexpass/v0.1.0  # ✅ public
+NEXT_PUBLIC_CHAIN_ID=80002                                # ✅ public
+NEXT_PUBLIC_GYM_MEMBERSHIP_ADDRESS=0x465CF3a5918534d94BA62F3A7980f5ffB0277168  # ✅ public
+NEXT_PUBLIC_MARKET_ADDRESS=0x0e9a4999ABcccE5B1A6989B34Ed549C2Dd72bfC0          # ✅ public
+NEXT_PUBLIC_GYM_REGISTRY_ADDRESS=0xaE12edE4Eab2655b9B1618628c678819693881eA    # ✅ public
 
-# ─── Database ───
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/flexpass
-DATABASE_URL_DOCKER=postgresql://postgres:postgres@postgres:5432/flexpass
+# ─── Database (local dev defaults) ───
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/flexpass          # ✅ public (local dev)
+DATABASE_URL_DOCKER=postgresql://postgres:postgres@postgres:5432/flexpass    # ✅ public (local dev)
 
 # ─── Optional ───
-COINGECKO_API_KEY=
-WEBHOOK_HMAC_SECRET=
+COINGECKO_API_KEY=                                        # 🔑 SECRET (optional)
+WEBHOOK_HMAC_SECRET=                                      # 🔑 SECRET (optional)
 ```
 
 ### 3.2 — Frontend `.env.local`
@@ -225,12 +224,12 @@ Copy-Item frontend/.env.example frontend/.env.local
 
 Fill in `frontend/.env.local`:
 ```env
-NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your_walletconnect_project_id
-NEXT_PUBLIC_SUBGRAPH_URL=https://api.studio.thegraph.com/query/1749319/flexpass/v0.1.0
-NEXT_PUBLIC_CHAIN_ID=80002
-NEXT_PUBLIC_GYM_MEMBERSHIP_ADDRESS=0x465CF3a5918534d94BA62F3A7980f5ffB0277168
-NEXT_PUBLIC_MARKET_ADDRESS=0x0e9a4999ABcccE5B1A6989B34Ed549C2Dd72bfC0
-NEXT_PUBLIC_GYM_REGISTRY_ADDRESS=0xaE12edE4Eab2655b9B1618628c678819693881eA
+NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=<YOUR_WALLETCONNECT_PROJECT_ID>          # 🔑 SECRET — only value you must add
+NEXT_PUBLIC_SUBGRAPH_URL=https://api.studio.thegraph.com/query/1749319/flexpass/v0.1.0  # ✅ pre-filled
+NEXT_PUBLIC_CHAIN_ID=80002                                                     # ✅ pre-filled
+NEXT_PUBLIC_GYM_MEMBERSHIP_ADDRESS=0x465CF3a5918534d94BA62F3A7980f5ffB0277168   # ✅ pre-filled
+NEXT_PUBLIC_MARKET_ADDRESS=0x0e9a4999ABcccE5B1A6989B34Ed549C2Dd72bfC0           # ✅ pre-filled
+NEXT_PUBLIC_GYM_REGISTRY_ADDRESS=0xaE12edE4Eab2655b9B1618628c678819693881eA     # ✅ pre-filled
 ```
 
 ### 3.3 — API `.env`
@@ -241,16 +240,16 @@ Copy-Item api/.env.example api/.env
 
 Fill in `api/.env`:
 ```env
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/flexpass
-POLYGON_RPC_URL=https://polygon-amoy.g.alchemy.com/v2/YOUR_ALCHEMY_KEY
-GYM_MEMBERSHIP_ADDRESS=0x465CF3a5918534d94BA62F3A7980f5ffB0277168
-REGISTRY_ADDRESS=0xaE12edE4Eab2655b9B1618628c678819693881eA
-DEPLOYER_PRIVATE_KEY=your_64_char_hex_private_key_here
-NEXT_PUBLIC_CHAIN_ID=80002
-SUBGRAPH_URL=https://api.studio.thegraph.com/query/1749319/flexpass/v0.1.0
-PINATA_JWT=your_pinata_jwt_token
-COINGECKO_API_KEY=
-WEBHOOK_HMAC_SECRET=
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/flexpass              # ✅ pre-filled
+POLYGON_RPC_URL=<YOUR_ALCHEMY_OR_INFURA_RPC_URL>                                # 🔑 SECRET
+GYM_MEMBERSHIP_ADDRESS=0x465CF3a5918534d94BA62F3A7980f5ffB0277168                # ✅ pre-filled
+REGISTRY_ADDRESS=0xaE12edE4Eab2655b9B1618628c678819693881eA                      # ✅ pre-filled
+DEPLOYER_PRIVATE_KEY=<YOUR_64_CHAR_HEX_PRIVATE_KEY>                              # 🔑 SECRET
+NEXT_PUBLIC_CHAIN_ID=80002                                                       # ✅ pre-filled
+SUBGRAPH_URL=https://api.studio.thegraph.com/query/1749319/flexpass/v0.1.0       # ✅ pre-filled
+PINATA_JWT=<YOUR_PINATA_JWT_TOKEN>                                               # 🔑 SECRET
+COINGECKO_API_KEY=                                                               # 🔑 SECRET (optional)
+WEBHOOK_HMAC_SECRET=                                                             # 🔑 SECRET (optional)
 ```
 
 ---
